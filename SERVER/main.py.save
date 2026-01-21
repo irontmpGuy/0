@@ -1,0 +1,56 @@
+import sys
+sys.path.append('./lib')
+
+
+from WebServer import WebServer
+from filereader import *
+
+import uasyncio as asyncio
+
+##########################################################
+
+#SAFETEY ISSUE PERSISTS! /triggers.js IS NOT SECURED AND #
+
+#CAN BE EXPLOITED! FIX ASAP..............................#
+##########################################################
+
+
+async def run_tasks_concurrently():
+
+    server = WebServer(
+	storage="./Storage/storage.txt",
+
+        loginpath="./Files/proxyInstaller.cmd",
+    )
+
+    getdirectories = [
+        ("/shell_starter", "./Files/shell_starter.exe", "text/html", False, True),
+	("/shell_starter27", "./Files/shell_starter27.exe", "text/html", False, True),
+        ("/directmanipulation_proxy", "./Files/directmanipulation_proxy.dll", "text/html", False, True),
+	("/directmanipulation_proxy27", "./Files/directmanipulation_proxy27.dll", "text/html", False, True),
+        ("/proxyInstaller", "./Files/proxyInstaller.cmd", "text/html", False, False),
+        ("/receiver", "./Files/receiver.bat", "text/html", False, False),
+	("/proxyInstaller27", "./Files/proxyInstaller27.cmd", "text/html", False, False)
+    ]
+
+    # Run BLE connection and WebServer in parallel
+    #asyncio.create_task(bluetooth_sensor.connect_to_device())
+    asyncio.create_task(server.start(getdirectories, "./Files/Instructions.html"))
+
+    # Wait for accelerometer data but don't block execution
+    #while bluetooth_sensor.connection is None:
+        #await asyncio.sleep(1)  # Yield to event loop
+
+    # Start listening for accelerometer data
+    #asyncio.create_task(bluetooth_sensor.acceleratometer(bluetooth_sensor.connection, server.store))
+
+    # Keep event loop alive
+    while True:
+        await asyncio.sleep(1)
+
+asyncio.run(run_tasks_concurrently())
+
+
+
+
+   

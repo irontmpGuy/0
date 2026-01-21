@@ -1,0 +1,15 @@
+@font-face {
+	font-family: "Inter";
+	font-display: swap;
+	font-weight: 400;
+	src: local("Inter Regular"), local("Inter-Regular"),
+		url("https://components.unrealengine.com/fonts/inter/Inter-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Inter";
+	font-display: swap;
+	font-weight: 500;
+	src: local("Inter Medium"), local("Inter-Medium"),
+		url("https://components.unrealengine.com/fonts/inter/Inter-Medium.woff2") format("woff2");
+}

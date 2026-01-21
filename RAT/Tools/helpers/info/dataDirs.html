@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PE Data Directories</title>
+<style>
+:root{--bg:#071022;--card:#071827;--muted:#98a8bd;--text:#eaf4ff;--accent:#8be9ff}
+body{font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#031022 0%, #071827 60%);color:var(--text);margin:0;padding:20px}
+.wrap{max-width:1200px;margin:0 auto}
+h1{font-size:22px;margin-bottom:6px}
+p.lead{color:var(--muted);margin-top:6px}
+.layout{display:flex;gap:18px;margin-top:18px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:10px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.panel.small{width:420px}
+.panel.large{flex:1}
+svg{width:100%;height:720px}
+.box{fill:#071427;stroke:rgba(139,233,255,0.08);stroke-width:1}
+.label{font-size:13px;fill:var(--text)}
+.muted{font-size:12px;fill:var(--muted)}
+.fieldlist{margin-top:10px}
+.field{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;margin-bottom:8px}
+.field h4{margin:0 0 6px;font-size:14px}
+.field p{margin:0;color:var(--muted);font-size:13px}
+pre{background:rgba(0,0,0,0.12);padding:10px;border-radius:6px;overflow:auto}
+code{color:var(--accent)}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+th,td{padding:8px;border-bottom:1px dashed rgba(255,255,255,0.03);text-align:left;font-size:13px}
+th{color:var(--accent);font-weight:600}
+.callout{background:rgba(139,233,255,0.03);padding:10px;border-radius:8px;margin-top:10px;color:var(--muted)}
+footer{margin-top:12px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>PE Memory Layout & Headers — Detailed Field & Loader Mapping</h1>
+<p class="lead">Complete visualization of a PE image's memory layout with in-depth header analysis, and a full breakdown of the Data Directory entries. Includes safe C/C++ examples for reading/validating each directory.</p>
+
+<div class="layout">
+  <div class="panel small">
+    <h3>Memory Layout (Visual)</h3>
+    <svg viewBox="0 0 420 780" preserveAspectRatio="xMidYMid meet">
+      <rect x="28" y="18" width="364" height="90" rx="6" class="box" id="imgBaseBox"/>
+      <text x="40" y="40" class="label">ImageBase (allocated region)</text>
+      <text x="40" y="58" class="muted">Size = OptionalHeader.SizeOfImage</text>
+      <text x="40" y="72" class="muted">Virtual addresses start at ImageBase; CPU executes from here</text>
+
+      <rect x="28" y="118" width="364" height="76" rx="6" class="box" id="headersBox"/>
+      <text x="40" y="140" class="label">Headers</text>
+      <text x="40" y="156" class="muted">DOS, NT, FileHeader, OptionalHeader</text>
+      <text x="40" y="172" class="muted">SizeOfHeaders bytes copied to top of image</text>
+
+      <rect x="28" y="206" width="364" height="64" rx="6" class="box" id="textBox"/>
+      <text x="40" y="228" class="label">.text — code section</text>
+      <text x="40" y="244" class="muted">VirtualAddress & VirtualSize</text>
+      <text x="40" y="260" class="muted">AddressOfEntryPoint → RVA inside .text</text>
+
+      <rect x="28" y="282" width="364" height="64" rx="6" class="box" id="rdataBox"/>
+      <text x="40" y="304" class="label">.rdata — read-only data, imports, exports</text>
+
+      <rect x="28" y="358" width="364" height="64" rx="6" class="box" id="dataBox"/>
+      <text x="40" y="380" class="label">.data — initialized data</text>
+
+      <rect x="28" y="434" width="364" height="64" rx="6" class="box" id="rsrcBox"/>
+      <text x="40" y="456" class="label">.rsrc — resources</text>
+
+      <rect x="28" y="510" width="364" height="64" rx="6" class="box" id="relocBox"/>
+      <text x="40" y="532" class="label">.reloc — base relocations</text>
+      <text x="40" y="548" class="muted">IMAGE_DIRECTORY_ENTRY_BASERELOC</text>
+
+      <rect x="28" y="584" width="364" height="64" rx="6" class="box" id="importBox"/>
+      <text x="40" y="606" class="label">Import Directory</text>
+      <text x="40" y="622" class="muted">Lookup DLL names & fill IAT</text>
+    </svg>
+  </div>
+
+  <div class="panel large">
+    <h3>Headers & Fields — Low-level Interaction</h3>
+    <div class="fieldlist">
+      <div class="field">
+        <h4>IMAGE_DOS_HEADER</h4>
+        <p>Contains DOS stub; first field <code>e_magic</code> = 'MZ'. The <code>e_lfanew</code> field points to NT headers. In C++:</p>
+        <pre><code>IMAGE_DOS_HEADER* dosHeader = (IMAGE_DOS_HEADER*)fileData;
+DWORD ntOffset = dosHeader->e_lfanew;</code></pre>
+      </div>
+
+      <div class="field">
+        <h4>IMAGE_NT_HEADERS</h4>
+        <p>Starts with <code>Signature = 'PE'</code>. Contains FileHeader and OptionalHeader.</p>
+        <pre><code>IMAGE_NT_HEADERS* ntHeaders = (IMAGE_NT_HEADERS*)(fileData + ntOffset);
+IMAGE_FILE_HEADER fileHeader = ntHeaders->FileHeader;
+IMAGE_OPTIONAL_HEADER optHeader = ntHeaders->OptionalHeader;</code></pre>
+      </div>
+
+      <div class="field">
+        <h4>IMAGE_FILE_HEADER</h4>
+        <p>Defines number of sections, machine type, characteristics. Used by loader to validate executable type and section count.</p>
+        <pre><code>WORD numSections = ntHeaders->FileHeader.NumberOfSections;
+WORD machine = ntHeaders->FileHeader.Machine;</code></pre>
+      </div>
+
+      <div class="field">
+        <h4>IMAGE_OPTIONAL_HEADER</h4>
+        <p>Contains core execution info: AddressOfEntryPoint, ImageBase, SectionAlignment, SizeOfImage, DataDirectory.</p>
+        <pre><code>DWORD entryRVA = optHeader.AddressOfEntryPoint;
+ULONGLONG base = optHeader.ImageBase;
+DWORD size = optHeader.SizeOfImage;
+IMAGE_DATA_DIRECTORY importDir = optHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT];</code></pre>
+        <p>Used to map sections, resolve imports, and calculate entry point VA.</p>
+      </div>
+
+      <div class="field">
+        <h4>Section Headers</h4>
+        <p>For each section: VirtualAddress, VirtualSize, PointerToRawData, SizeOfRawData, Characteristics. Loader copies bytes from file to ImageBase + VirtualAddress, zeroes remainder if VirtualSize &gt; SizeOfRawData, sets page permissions based on Characteristics.</p>
+        <pre><code>IMAGE_SECTION_HEADER* sections = (IMAGE_SECTION_HEADER*)((BYTE*)&ntHeaders->OptionalHeader + ntHeaders->FileHeader.SizeOfOptionalHeader);
+for(int i=0; i &lt; numSections; i++) {
+    BYTE* dest = imageBase + sections[i].VirtualAddress;
+    memcpy(dest, fileData + sections[i].PointerToRawData, sections[i].SizeOfRawData);
+    memset(dest + sections[i].SizeOfRawData, 0, sections[i].VirtualSize - sections[i].SizeOfRawData);
+}</code></pre>
+      </div>
+
+      <div class="field">
+        <h4>Data Directories</h4>
+        <p>The <code>IMAGE_DATA_DIRECTORY</code> array points to important tables and blobs (Import, Export, Resource, Reloc, etc.). Always validate each directory bounds before use.</p>
+      </div>
+
+      <div class="field">
+        <h4>Loader Interactions (C++ concept)</h4>
+        <pre><code>// Reserve memory
+BYTE* imageBase = (BYTE*)VirtualAlloc(nullptr, optHeader.SizeOfImage, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+// Copy headers
+memcpy(imageBase, fileData, optHeader.SizeOfHeaders);
+// Map sections, zero extra, apply relocations, resolve imports
+// Set page protections
+VirtualProtect(...);
+// Execute entry point
+typedef void(*EntryFunc)();
+EntryFunc entry = (EntryFunc)(imageBase + optHeader.AddressOfEntryPoint);
+entry();</code></pre>
+      </div>
+
+      <hr>
+
+      <h3>Data directories — detailed breakdown</h3>
+      <div class="field">
+        <h4>Overview</h4>
+        <p>The <code>DataDirectory</code> array in <code>IMAGE_OPTIONAL_HEADER</code> is an indexed table of <code>IMAGE_DATA_DIRECTORY</code> entries. Each entry is a pair: <code>VirtualAddress</code> (RVA) and <code>Size</code>. The meaning of the data at that RVA depends on the directory index. Below each directory is described with its low-level structure, how the loader/your code interacts with it, and example C/C++ interactions to locate and validate it.</p>
+      </div>
+
+      <div class="field">
+        <h4>How to read the data directories (C++)</h4>
+        <pre><code>// Given: BYTE* base = mapped image base
+IMAGE_DOS_HEADER* dos = (IMAGE_DOS_HEADER*)base;
+IMAGE_NT_HEADERS* nt = (IMAGE_NT_HEADERS*)(base + dos->e_lfanew);
+IMAGE_DATA_DIRECTORY* dirs = nt->OptionalHeader.DataDirectory; // array
+// Example: import directory
+DWORD importRVA = dirs[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
+DWORD importSize = dirs[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
+if (importRVA && importSize) {
+    IMAGE_IMPORT_DESCRIPTOR* imports = (IMAGE_IMPORT_DESCRIPTOR*)(base + importRVA);
+    // validate memory bounds before dereferencing
+}
+</code></pre>
+        <p>Always validate that <code>VirtualAddress + Size</code> is within <code>SizeOfImage</code> before using pointers derived from a directory.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Export Table (IMAGE_DIRECTORY_ENTRY_EXPORT — index 0)</h4>
+        <p><strong>Structure:</strong> <code>IMAGE_EXPORT_DIRECTORY</code> at the RVA. Contains:</p>
+        <ul style="color:var(--muted)">
+          <li><code>Characteristics</code>, <code>TimeDateStamp</code></li>
+          <li><code>Name</code> (RVA to module name), <code>Base</code> (ordinal base)</li>
+          <li><code>NumberOfFunctions</code>, <code>NumberOfNames</code></li>
+          <li>RVA arrays: <code>AddressOfFunctions</code> (RVAs to functions), <code>AddressOfNames</code> (RVAs to names), <code>AddressOfNameOrdinals</code></li>
+        </ul>
+        <p><strong>Loader/Interaction:</strong> Other modules consume this to resolve imports by name/ordinal. If parsing exports in memory, iterate <code>AddressOfNames</code> to find matching ASCII/ANSI names and then use the corresponding ordinal to index <code>AddressOfFunctions</code> to get function RVA.</p>
+        <p><strong>C/C++ example:</strong></p>
+        <pre><code>IMAGE_EXPORT_DIRECTORY* exp = (IMAGE_EXPORT_DIRECTORY*)(base + dirs[0].VirtualAddress);
+DWORD* funcRVAs = (DWORD*)(base + exp->AddressOfFunctions);
+DWORD* nameRVAs = (DWORD*)(base + exp->AddressOfNames);
+WORD* ords = (WORD*)(base + exp->AddressOfNameOrdinals);
+for (DWORD i = 0; i &lt; exp->NumberOfNames; ++i) {
+    const char* name = (const char*)(base + nameRVAs[i]);
+    if (strcmp(name, "ReflectiveLoader") == 0) {
+        DWORD funcRVA = funcRVAs[ords[i]]; // get by ordinal index
+        BYTE* funcVA = base + funcRVA;
+    }
+}
+</code></pre>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Import Table (IMAGE_DIRECTORY_ENTRY_IMPORT — index 1)</h4>
+        <p><strong>Structure:</strong> An array of <code>IMAGE_IMPORT_DESCRIPTOR</code> entries terminated by a null descriptor. Each descriptor contains RVAs to the DLL name and to Thunks (OriginalFirstThunk / FirstThunk).</p>
+        <ul style="color:var(--muted)">
+          <li><code>OriginalFirstThunk</code> (RVA to IMAGE_THUNK_DATA of names/ordinals)</li>
+          <li><code>FirstThunk</code> (RVA to IAT slots that the loader writes runtime addresses into)</li>
+          <li><code>Name</code> (RVA to ASCII DLL name)</li>
+        </ul>
+        <p><strong>Loader/Interaction:</strong> For each descriptor: read the DLL name string, call <code>LoadLibraryA/LoadLibraryW</code> to ensure the module is loaded, then walk the OriginalFirstThunk: if the thunk has an ordinal flag, use <code>GetProcAddress(hMod, MAKEINTRESOURCE(ord))</code>, otherwise read the <code>IMAGE_IMPORT_BY_NAME</code> structure (Hint + Name) and call <code>GetProcAddress</code> with the ASCII name. Write the returned function pointer into the IAT slot at <code>FirstThunk</code>.</p>
+        <p><strong>C/C++ example:</strong></p>
+        <pre><code>IMAGE_IMPORT_DESCRIPTOR* imp = (IMAGE_IMPORT_DESCRIPTOR*)(base + dirs[1].VirtualAddress);
+for (; imp->Name; ++imp) {
+    const char* dllName = (const char*)(base + imp->Name);
+    HMODULE h = LoadLibraryA(dllName);
+    IMAGE_THUNK_DATA* thunk = (IMAGE_THUNK_DATA*)(base + (imp->OriginalFirstThunk ? imp->OriginalFirstThunk : imp->FirstThunk));
+    IMAGE_THUNK_DATA* iat = (IMAGE_THUNK_DATA*)(base + imp->FirstThunk);
+    for (; thunk->u1.AddressOfData; ++thunk, ++iat) {
+        if (thunk->u1.Ordinal & IMAGE_ORDINAL_FLAG) {
+            FARPROC p = GetProcAddress(h, MAKEINTRESOURCEA(thunk->u1.Ordinal & 0xFFFF));
+            iat->u1.Function = (ULONG_PTR)p;
+        } else {
+            IMAGE_IMPORT_BY_NAME* ibn = (IMAGE_IMPORT_BY_NAME*)(base + thunk->u1.AddressOfData);
+            FARPROC p = GetProcAddress(h, (LPCSTR)ibn->Name);
+            iat->u1.Function = (ULONG_PTR)p;
+        }
+    }
+}
+</code></pre>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Resource Table (IMAGE_DIRECTORY_ENTRY_RESOURCE — index 2)</h4>
+        <p><strong>Structure:</strong> A hierarchical resource directory tree (<code>IMAGE_RESOURCE_DIRECTORY</code>) containing named/ID entries that point to resource data entries (<code>IMAGE_RESOURCE_DATA_ENTRY</code>), which in turn contain RVAs to the raw resource bytes.</p>
+        <p><strong>Loader/Interaction:</strong> APIs like <code>FindResource/LoadResource/LockResource</code> expect resources to be in this format. Parsing involves walking directories, matching type/name/language identifiers, and reading the data entry's <code>OffsetToData</code> RVA.</p>
+        <p><strong>C/C++ tip:</strong> resource RVAs are relative to the module base; when mapping a PE image manually, copy <code>.rsrc</code> into memory and use the directory offsets to locate data.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Exception Table (IMAGE_DIRECTORY_ENTRY_EXCEPTION — index 3)</h4>
+        <p><strong>Structure &amp; Role:</strong> On x64, this points to runtime function entries used by the OS for structured exception handling (UNWIND info). The loader (or OS) registers these with the runtime to enable stack unwinding.</p>
+        <p><strong>Note:</strong> On x86 32-bit this directory is typically unused.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Security (IMAGE_DIRECTORY_ENTRY_SECURITY — index 4)</h4>
+        <p><strong>Structure:</strong> Contains the attribute certificate table (WIN_CERTIFICATE structures) used for Authenticode signatures. This directory points to data outside the image mapping (on disk) and is not an RVA but a file offset in PE validation contexts. It is typically ignored by manual in-memory mappers for execution purposes.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Base Relocation Table (IMAGE_DIRECTORY_ENTRY_BASERELOC — index 5)</h4>
+        <p><strong>Structure:</strong> An array of <code>IMAGE_BASE_RELOCATION</code> blocks. Each block has a <code>VirtualAddress</code> (page RVA) and a <code>SizeOfBlock</code>, followed by an array of 2-byte relocation entries. Each entry encodes the relocation type in the high nibble and the offset within the page in the low 12 bits.</p>
+        <p><strong>Types:</strong> common types include <code>IMAGE_REL_BASED_HIGHLOW</code> (x86 32-bit), <code>IMAGE_REL_BASED_DIR64</code> (x64), and <code>IMAGE_REL_BASED_ABSOLUTE</code> (no-op padding).</p>
+        <p><strong>Loader/Interaction:</strong> To apply relocations: compute <code>delta = actualBase - optHeader.ImageBase</code>, then for each relocation entry compute the target address = <code>base + block->VirtualAddress + offset</code> and add <code>delta</code> to the value at that address (interpretation depends on type — 32-bit vs 64-bit). Validate addresses within <code>SizeOfImage</code>.</p>
+        <p><strong>C/C++ sketch:</strong></p>
+        <pre><code>BYTE* relocBase = base + dirs[IMAGE_DIRECTORY_ENTRY_BASERELOC].VirtualAddress;
+BYTE* relocEnd = relocBase + dirs[IMAGE_DIRECTORY_ENTRY_BASERELOC].Size;
+while (relocBase &lt; relocEnd) {
+    IMAGE_BASE_RELOCATION* block = (IMAGE_BASE_RELOCATION*)relocBase;
+    DWORD pageRVA = block->VirtualAddress;
+    DWORD blockSize = block->SizeOfBlock;
+    WORD* entries = (WORD*)(relocBase + sizeof(IMAGE_BASE_RELOCATION));
+    int count = (blockSize - sizeof(IMAGE_BASE_RELOCATION)) / sizeof(WORD);
+    for (int i=0; i&lt;count; ++i) {
+        WORD entry = entries[i];
+        WORD type = entry >> 12;
+        WORD offset = entry & 0x0FFF;
+        BYTE* target = base + pageRVA + offset;
+        if (type == IMAGE_REL_BASED_HIGHLOW) {
+            *(DWORD*)target += (DWORD)delta; // x86
+        } else if (type == IMAGE_REL_BASED_DIR64) {
+            *(ULONGLONG*)target += (ULONGLONG)delta; // x64
+        }
+    }
+    relocBase += blockSize;
+}
+</code></pre>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Debug (IMAGE_DIRECTORY_ENTRY_DEBUG — index 6)</h4>
+        <p>Points to debug information (e.g., CodeView) used by debuggers. Contains <code>IMAGE_DEBUG_DIRECTORY</code> entries that describe debug data blocks.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Architecture (IMAGE_DIRECTORY_ENTRY_ARCHITECTURE — index 7)</h4>
+        <p>Reserved for architecture-specific data. Rarely used; typically zero.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Global Ptr (IMAGE_DIRECTORY_ENTRY_GLOBALPTR — index 8)</h4>
+        <p>Used in some object formats to indicate an address of global pointer (e.g., for compilers that use GP-relative addressing). Rare in modern Windows user-mode images.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: TLS Table (IMAGE_DIRECTORY_ENTRY_TLS — index 9)</h4>
+        <p><strong>Structure:</strong> <code>IMAGE_TLS_DIRECTORY32/64</code> containing start/end addresses of raw TLS data, pointer to index and callbacks. The TLS directory lists callbacks (function pointers) that the loader should invoke on thread/process attach/detach.</p>
+        <p><strong>Loader/Interaction:</strong> When mapping, the loader allocates space for TLS per-thread data and calls callbacks before DllMain PROCESS_ATTACH. TLS callbacks are invoked with parameters (DLL instance, reason, reserved).</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Load Config (IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG — index 10)</h4>
+        <p><strong>Structure &amp; Role:</strong> Contains the load configuration structure (versioned) with features such as security cookie, SEH table info, dynamic heap flags, guard CF metadata, etc. Used by the runtime and compiler-generated code to locate runtime-critical structures.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Bound Import (IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT — index 11)</h4>
+        <p>Contains bound import information (binding timestamps) — used to speed up import resolution when DLLs haven't changed. Not commonly used by manual loaders; safe to ignore unless implementing precise binding semantics.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: IAT (IMAGE_DIRECTORY_ENTRY_IAT — index 12)</h4>
+        <p><strong>Structure:</strong> Points to the Import Address Table which the loader fills with runtime addresses. Note: Sometimes the IAT and Import Table overlap; other times the IAT is explicitly specified.</p>
+        <p><strong>Interaction:</strong> After resolving imports, ensure the IAT (FirstThunk addresses) contains function pointers. Parsers may use this directory to find the table of function pointers to patch or inspect.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: Delay Import Descriptor (IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT — index 13)</h4>
+        <p>Contains delay-load import descriptors used by the delay-load helper to load DLLs and resolve functions on-demand. If implementing full loader semantics, support for delay import resolution requires parsing <code>IMAGE_DELAYLOAD_DESCRIPTOR</code> structures and wiring up helpers.</p>
+      </div>
+
+      <div class="field">
+        <h4>Directory: COM Descriptor (IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR — index 14)</h4>
+        <p>Points to the CLR header (<code>IMAGE_COR20_HEADER</code>) for managed assemblies (PE files containing .NET metadata). Manual mapping of .NET images requires special handling (not covered here).</p>
+            </div>
+
+            <div class="field">
+        <h4>Locating & Calling Function Addresses</h4>
+        <p><strong>Overview:</strong> After mapping a PE image and resolving imports, you need to locate function entry points by RVA and convert them to callable function pointers. This applies to the entry point, DllMain, exported functions, and imported functions resolved from the IAT.</p>
+        
+        <p><strong>General pattern:</strong></p>
+        <pre><code>// Given: BYTE* base = mapped image base, DWORD functionRVA = target RVA
+      BYTE* functionVA = base + functionRVA;
+      typedef void(*FuncPtr)(...);  // declare with appropriate signature
+      FuncPtr func = (FuncPtr)functionVA;
+      func(...);  // call the function
+      </code></pre>
+
+        <p><strong>Entry Point (AddressOfEntryPoint):</strong></p>
+        <pre><code>IMAGE_OPTIONAL_HEADER& opt = ntHeaders->OptionalHeader;
+      DWORD entryRVA = opt.AddressOfEntryPoint;
+      typedef int(*EntryFunc)(void);
+      EntryFunc entry = (EntryFunc)(base + entryRVA);
+      int result = entry();  // execute entry point
+      </code></pre>
+
+        <p><strong>DllMain (for DLL images):</strong></p>
+        <pre><code>// DllMain RVA is typically the AddressOfEntryPoint for DLLs
+      typedef BOOL(WINAPI *DllMainFunc)(HMODULE, DWORD, LPVOID);
+      DllMainFunc dllMain = (DllMainFunc)(base + ntHeaders->OptionalHeader.AddressOfEntryPoint);
+      BOOL ret = dllMain((HMODULE)base, DLL_PROCESS_ATTACH, nullptr);
+      </code></pre>
+
+        <p><strong>Exported functions (by name from Export Table):</strong></p>
+        <pre><code>IMAGE_EXPORT_DIRECTORY* exp = (IMAGE_EXPORT_DIRECTORY*)(base + dirs[0].VirtualAddress);
+      DWORD* funcRVAs = (DWORD*)(base + exp->AddressOfFunctions);
+      DWORD* nameRVAs = (DWORD*)(base + exp->AddressOfNames);
+      WORD* ords = (WORD*)(base + exp->AddressOfNameOrdinals);
+
+      for (DWORD i = 0; i &lt; exp->NumberOfNames; ++i) {
+          const char* name = (const char*)(base + nameRVAs[i]);
+          if (strcmp(name, "MyExportedFunc") == 0) {
+        DWORD funcRVA = funcRVAs[ords[i]];
+        typedef int(*MyFunc)(int, int);
+        MyFunc f = (MyFunc)(base + funcRVA);
+        int result = f(10, 20);
+        break;
+          }
+      }
+      </code></pre>
+
+        <p><strong>Imported functions (from IAT after resolution):</strong></p>
+        <pre><code>// After imports are resolved, IAT slots contain function pointers
+      IMAGE_IMPORT_DESCRIPTOR* imp = (IMAGE_IMPORT_DESCRIPTOR*)(base + dirs[1].VirtualAddress);
+      for (; imp->Name; ++imp) {
+          IMAGE_THUNK_DATA* iat = (IMAGE_THUNK_DATA*)(base + imp->FirstThunk);
+          for (; iat->u1.Function; ++iat) {
+        typedef int(*ImportFunc)(void);
+        ImportFunc f = (ImportFunc)(iat->u1.Function);
+        // f is already a resolved function pointer; call directly
+        int result = f();
+          }
+      }
+      </code></pre>
+
+        <p><strong>Important notes:</strong></p>
+        <ul style="color:var(--muted)">
+          <li>Always ensure the PE image has been fully loaded into memory with sections copied to their VirtualAddresses.</li>
+          <li>Apply relocations before calling functions if the image is loaded at an address different from ImageBase.</li>
+          <li>Match function signatures exactly; incorrect signatures will cause crashes or undefined behavior.</li>
+          <li>For DLLs, call with appropriate reason codes (DLL_PROCESS_ATTACH, DLL_THREAD_ATTACH, etc.).</li>
+          <li>IAT entries are already function pointers after import resolution; no RVA conversion needed.</li>
+        </ul>
+            </div>
+      </div>
+
+      <div class="field">
+        <h4>Validation & Safety checklist</h4>
+        <ul style="color:var(--muted)">
+          <li>Always verify <code>VirtualAddress</code> &amp; <code>Size</code> are within <code>SizeOfImage</code> before dereferencing.</li>
+          <li>Prefer using <code>FileAlignment</code> and <code>SectionAlignment</code> rules when mapping raw files to memory.</li>
+          <li>Many directories (Security) reference file offsets rather than RVAs — treat those specially.</li>
+          <li>Keep interactions to documented fields (IMAGE_EXPORT_DIRECTORY, IMAGE_IMPORT_DESCRIPTOR, IMAGE_BASE_RELOCATION, etc.).</li>
+        </ul>
+      </div>
+      <div class="field">
+  <h4>x64 Base Relocation Mechanics — Step-by-Step</h4>
+  <p><strong>Context:</strong> On x64, a PE loaded at a base address different from its preferred <code>ImageBase</code> requires relocations. Only <code>IMAGE_REL_BASED_DIR64</code> entries are relevant (64-bit addresses).</p>
+  
+  <p><strong>Structure:</strong></p>
+  <ul style="color:var(--muted)">
+    <li><code>IMAGE_BASE_RELOCATION</code>: block header</li>
+    <li><code>VirtualAddress</code> — page RVA to which relocations apply</li>
+    <li><code>SizeOfBlock</code> — total bytes of this block (header + entries)</li>
+    <li>Array of 16-bit entries immediately after the header</li>
+  </ul>
+
+  <p><strong>Relocation entry format:</strong> 16 bits total</p>
+  <ul style="color:var(--muted)">
+    <li>High 4 bits: <code>Type</code> (e.g., <code>IMAGE_REL_BASED_DIR64 = 10</code>)</li>
+    <li>Low 12 bits: <code>Offset</code> within the 4KB page</li>
+  </ul>
+
+  <p><strong>Step-by-step application (C++ concept):</strong></p>
+  <pre><code>
