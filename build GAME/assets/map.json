@@ -1,0 +1,287 @@
+{
+  "ground": {
+    "type": 1,
+    "corner0": [-100, 0, -100],
+    "corner1": [100, 0, 100],
+    "normal": [0, 1, 0],
+    "texture": "./assets/grid.png"
+  },
+
+  "player": {
+    "position": [0, 1, 0],
+    "scale": [0.6, 1.7, 1],
+    "direction": [0, 0, 1],
+    "mesh": "./assets/player.glb"
+  }
+,
+  "objects": {
+    
+    "floor1": {
+      "type": 1,
+      "texture": "assets/conten_warning_floor.png",
+      "corner0": [-6.66, -1.8, -10.25],
+      "corner1": [6.66, 1.8, 0.25],
+      "position": [0, 0, -5],
+      "normal": [-1.74533e-05, 1, 0]
+    }
+  ,
+    "floor2": {
+      "type": 1,
+      "texture": "assets/conten_warning_floor.png",
+      "corner0": [-12.92, -1.8, -10.25],
+      "corner1": [0.4, 1.8, 0.25],
+      "position": [-6.26, 0, -5],
+      "normal": [-1.74533e-05, 1, 0]
+    }
+  ,
+    "floor3": {
+      "type": 1,
+      "texture": "assets/conten_warning_floor.png",
+      "corner0": [-13.13, -1.8, 1.11],
+      "corner1": [0.19, 1.8, 11.61],
+      "position": [-6.47, 0, 6.36],
+      "normal": [-1.74533e-05, 1, 0]
+    }
+  ,
+    "floor4": {
+      "type": 1,
+      "texture": "assets/conten_warning_floor.png",
+      "corner0": [-6.73, -1.8, 1.11],
+      "corner1": [6.59, 1.8, 11.61],
+      "position": [-0.0700002, 0, 6.36],
+      "normal": [-1.74533e-05, 1, 0]
+    }
+  
+  
+  
+  
+  
+  
+  ,
+    "wall1": {
+      "type": 2,
+      "path": "assets/wall.glb",
+      "corner0": [0.01, 0, -5.5],
+      "corner1": [3.01, 2.5, -5]
+    }
+  ,
+    "wall2": {
+      "type": 2,
+      "path": "assets/wall.glb",
+      "corner0": [-2.95, 0, -5.5],
+      "corner1": [0.05, 2.5, -5]
+    }
+  
+  ,
+    "aabb1": {
+      "type": 0,
+      "texture": "assets/brick_wall.png",
+      "corner0": [3, 0, -6],
+      "corner1": [6, 3, -6]
+    }
+  
+  ,
+    "plane1": {
+      "type": 1,
+      "texture": "assets/conten_warning_floor.png",
+      "corner0": [-6.20348, -2.97995, -4.39845],
+      "corner1": [12.2065, 3.02005, -3.39845],
+      "position": [3.00152, 0.0200479, -3.89845],
+      "normal": [-0.727773, 0.685818, 0]
+    }
+  ,
+    "aabb2": {
+      "type": 0,
+      "texture": "assets/brick_wall.png",
+      "corner0": [-3, 3, -6],
+      "corner1": [3, 3, -6]
+    }
+  ,
+    "aabb3": {
+      "type": 0,
+      "texture": "assets/brick_wall.png",
+      "corner0": [3, 0, -3],
+      "corner1": [6, 1, -3]
+    }
+  ,
+    "aabb4": {
+      "type": 0,
+      "texture": "assets/brick_wall.png",
+      "corner0": [4, 1, -3],
+      "corner1": [6, 2, -3]
+    }
+  ,
+    "aabb5": {
+      "type": 0,
+      "texture": "assets/brick_wall.png",
+      "corner0": [5, 2, -3],
+      "corner1": [6, 3, -3]
+    }
+  
+  ,
+    "2floor2": {
+      "type": 1,
+      "texture": "assets/1.png",
+      "corner0": [6.08244, 2.702, -4.5],
+      "corner1": [7.08244, 3.702, -3.5],
+      "position": [6.58244, 3.202, -4],
+      "normal": [0, 1, 0]
+    }
+  ,
+    "2floor": {
+      "type": 1,
+      "texture": "assets/1.png",
+      "corner0": [-0.83756, 2.702, -2.605],
+      "corner1": [7.16244, 3.702, 2.605],
+      "position": [3.16244, 3.202, 0],
+      "normal": [0, 1, 0]
+    }
+  
+  ,
+    "2aabb": {
+      "type": 0,
+      "texture": "assets/floor.png",
+      "corner0": [-3, 4, -6],
+      "corner1": [8, 7, -6]
+    }
+  ,
+    "2aabb2": {
+      "type": 0,
+      "texture": "assets/floor.png",
+      "corner0": [8, 4, -5],
+      "corner1": [9, 7, 5]
+    }
+  ,
+    "2aabb3": {
+      "type": 0,
+      "texture": "assets/floor.png",
+      "corner0": [-4, 4, -5],
+      "corner1": [-3, 7, 5]
+    }
+  ,
+    "2floor3": {
+      "type": 1,
+      "texture": "assets/1.png",
+      "corner0": [-5.85, 2.702, -6.825],
+      "corner1": [2.15, 3.702, 2.825],
+      "position": [-1.85, 3.202, -2],
+      "normal": [0, 1, 0]
+    }
+  ,
+    "2aabb4": {
+      "type": 0,
+      "texture": "assets/floor.png",
+      "corner0": [-3, 4, 4],
+      "corner1": [8, 7, 4]
+    }
+  ,
+    "2floor4": {
+      "type": 1,
+      "texture": "assets/1.png",
+      "corner0": [-1.83756, 2.702, 0.5],
+      "corner1": [8.16244, 3.702, 3.5],
+      "position": [3.16244, 3.202, 2],
+      "normal": [0, 1, 0]
+    }
+  
+  
+  
+  ,
+    "box1": {
+      "type": 2,
+      "texture": "assets/1.png",
+      "path": "assets/box.glb",
+      "corner0": [4.51552, 0, 1.76467],
+      "corner1": [5.51552, 1, 2.76467],
+      "rotation": [0, 220, 0]
+    }
+  ,
+    "wall3": {
+      "type": 2,
+      "texture": "assets/1.png",
+      "path": "assets/wall.glb",
+      "corner0": [-9, 0, 0],
+      "corner1": [3, 2.5, 0.5],
+      "rotation": [0, 90, 0]
+    }
+  
+  ,
+    "pipe1": {
+      "type": 2,
+      "texture": "assets/1.png",
+      "path": "assets/pipe_stack.glb",
+      "corner0": [-2, 0.1, -1.88665],
+      "corner1": [2, 1.1, 3.11335],
+      "rotation": [0, 45, 0]
+    }
+  ,
+    "aabb6": {
+      "type": 0,
+      "texture": "assets/brick_wall.png",
+      "corner0": [-4, 3, -5],
+      "corner1": [-3, 3, 7]
+    }
+  ,
+    "hallway1": {
+      "type": 2,
+      "texture": "assets/1.png",
+      "path": "assets/sci-fi_hallway.glb",
+      "corner0": [1.73422, 0.1, 4.98688],
+      "corner1": [6.73422, 3.1, 11.9869],
+      "rotation": [0, 180, 0]
+    }
+  ,
+    "planeWall1": {
+      "type": 1,
+      "texture": "assets/Jonathan.png",
+      "corner0": [-3.5, -3.4, 2.62339],
+      "corner1": [1.5, 3.6, 9.62339],
+      "position": [-1, 0.1, 6.12339],
+      "normal": [4.37114e-08, -4.37114e-08, 1]
+    }
+  ,
+    "planeWall2": {
+      "type": 1,
+      "texture": "assets/Dimi.png",
+      "corner0": [4.5, -3.4, 2.62339],
+      "corner1": [7.5, 3.6, 9.62339],
+      "position": [6, 0.1, 6.12339],
+      "normal": [4.37114e-08, -4.37114e-08, 1]
+    }
+  ,
+    "wall4": {
+      "type": 2,
+      "texture": "assets/1.png",
+      "path": "assets/wall.glb",
+      "corner0": [0, 0, 0],
+      "corner1": [12, 2.5, 0.5],
+      "rotation": [0, -90, 0]
+    }
+  
+  ,
+    "2floor5": {
+      "type": 1,
+      "texture": "assets/conten_warning_floor.png",
+      "corner0": [-3.87, 2.7, 4.5],
+      "corner1": [8.13, 3.7, 7.5],
+      "position": [2.13, 3.2, 6],
+      "normal": [0, 1, 0]
+    }
+  ,
+    "DIMI": {
+      "type": 0,
+      "texture": "assets/Dimi.png",
+      "corner0": [-1.17583, 4, -0.911514],
+      "corner1": [-1.17583, 4, -0.911514]
+    }
+  ,
+    "aabb7": {
+      "type": 0,
+      "texture": "assets/brick_wall.png",
+      "corner0": [5, 3, -3],
+      "corner1": [6, 3, 7]
+    }
+  
+  
+  }
+}
