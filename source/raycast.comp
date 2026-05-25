@@ -1,0 +1,490 @@
+#version 450
+
+layout(local_size_x = 8, local_size_y = 8, local_size_z = 1) in;
+
+struct GpuCamera {
+    vec4 pos;
+    vec4 dir;
+    vec4 plane;
+    vec4 upPlane;
+    vec4 fog;
+    vec4 gridMin;
+    uvec4 screen;
+    uvec4 gridSize;
+};
+
+struct GpuCell { uint firstItem; uint itemCount; uint pad0; uint pad1; };
+struct GpuCellItem { uint type; uint index; uint aux; uint pad; };
+struct GpuBox { uint textureIndex; uint pad0; uint pad1; uint pad2; };
+struct GpuPlane { vec4 position; vec4 normal; uint textureIndex; uint pad0; uint pad1; uint pad2; };
+struct GpuTextureInfo { uint offset; uint width; uint height; uint pad; };
+struct GpuTriangle { vec4 p1; vec4 p2; vec4 p3; vec4 uv12; vec4 uv3; uvec4 meta; };
+struct GpuBVHNode { vec4 aabbMin; vec4 aabbMax; uvec4 data; };
+struct GpuMesh {
+    vec4 modelMin;
+    vec4 scale;
+    vec4 offset;
+    vec4 modelCenter;
+    vec4 pivot;
+    vec4 rot0;
+    vec4 rot1;
+    vec4 rot2;
+    uvec4 ranges;
+};
+struct GpuMeshCell { uint meshIndex; uint nodeRoot; uint triIdxBase; uint pad; };
+struct GpuRemotePlayer {
+    vec4 aabbMin;
+    vec4 aabbMax;
+    vec4 offset;
+    vec4 scale;
+    vec4 pivot;
+    vec4 rot0;
+    vec4 rot1;
+    vec4 rot2;
+    vec4 modelMin;
+    vec4 modelCenter;
+    uvec4 ranges; // triBase, triCount, nodeRoot, triIdxBase
+    uvec4 meta;   // x = active
+};
+struct GpuPlayerMesh {
+    vec4 modelMin;
+    vec4 modelCenter;
+    uvec4 ranges; // triBase, triCount, nodeRoot, triIdxBase
+};
+struct GpuOverlayRect {
+    ivec4 rect;   // x, y, w, h in window/client coordinates
+    uvec4 color;  // x = 0xRRGGBB or 0xAARRGGBB
+};
+struct GpuOverlayState {
+    uvec4 info;   // x = enabled, y = rect count, z = windowW, w = windowH
+};
+
+layout(std430, binding = 0) buffer Pixels     { uint pixels[]; };
+layout(std430, binding = 1) buffer CameraBuf  { GpuCamera cam; };
+layout(std430, binding = 2) readonly buffer Cells      { GpuCell cells[]; };
+layout(std430, binding = 3) readonly buffer Items      { GpuCellItem items[]; };
+layout(std430, binding = 4) readonly buffer Boxes      { GpuBox boxes[]; };
+layout(std430, binding = 5) readonly buffer Planes     { GpuPlane planes[]; };
+layout(std430, binding = 6) readonly buffer TexInfos   { GpuTextureInfo texInfos[]; };
+layout(std430, binding = 7) readonly buffer TexPixels  { uint texPixels[]; };
+layout(std430, binding = 8) readonly buffer Meshes     { GpuMesh meshes[]; };
+layout(std430, binding = 9) readonly buffer MeshCells  { GpuMeshCell meshCells[]; };
+layout(std430, binding = 10) readonly buffer Triangles { GpuTriangle triangles[]; };
+layout(std430, binding = 11) readonly buffer BVHNodes  { GpuBVHNode bvhNodes[]; };
+layout(std430, binding = 12) readonly buffer TriIdx    { uint triIndices[]; };
+layout(std430, binding = 13) readonly buffer RemotePlayers { GpuRemotePlayer remotePlayers[]; };
+layout(std430, binding = 14) readonly buffer PlayerMeshBuf { GpuPlayerMesh playerMesh; };
+layout(std430, binding = 15) readonly buffer OverlayRects { GpuOverlayRect overlayRects[]; };
+layout(std430, binding = 16) readonly buffer OverlayStateBuf { GpuOverlayState overlayState; };
+
+const float INF = 1e30;
+const float EPS = 1e-6;
+
+
+uint rgbToPacked(float r, float g, float b)
+{
+    uint R = uint(clamp(r, 0.0, 255.0));
+    uint G = uint(clamp(g, 0.0, 255.0));
+    uint B = uint(clamp(b, 0.0, 255.0));
+    return (R << 16) | (G << 8) | B;
+}
+
+uint darkenPacked(uint color, float f)
+{
+    float r = float((color >> 16) & 255u) * f;
+    float g = float((color >>  8) & 255u) * f;
+    float b = float( color        & 255u) * f;
+    return rgbToPacked(r, g, b);
+}
+
+uint applyMenuOverlay(uint color, uvec2 pix)
+{
+    if (overlayState.info.x == 0u) return color;
+
+    uint windowW = max(overlayState.info.z, 1u);
+    uint windowH = max(overlayState.info.w, 1u);
+    uint renderW = max(cam.screen.x, 1u);
+    uint renderH = max(cam.screen.y, 1u);
+
+    uint wx = uint((float(pix.x) + 0.5) * float(windowW) / float(renderW));
+    uint wy = uint((float(pix.y) + 0.5) * float(windowH) / float(renderH));
+
+    // Same visual behavior as old Menu::darken(), but done in the shader.
+    uint outColor = darkenPacked(color, 0.35);
+
+    uint count = min(overlayState.info.y, 1024u);
+    for (uint i = 0u; i < count; ++i) {
+        ivec4 r = overlayRects[i].rect;
+        if (r.z <= 0 || r.w <= 0) continue;
+
+        if (int(wx) >= r.x && int(wx) < r.x + r.z &&
+            int(wy) >= r.y && int(wy) < r.y + r.w) {
+            outColor = overlayRects[i].color.x & 0x00FFFFFFu;
+        }
+    }
+
+    return outColor;
+}
+
+
+uint applyFog(uint color, float dist)
+{
+    if (cam.screen.w != 0u) return color;
+
+    float renderDistance = cam.fog.x;
+    float fogMax = cam.fog.y;
+    float fogFactor = cam.fog.z;
+    float minFog = cam.fog.w;
+    float fogStart = cam.gridMin.w;
+
+    float minI = clamp(1.0 - minFog / 100.0, 0.0, 1.0);
+    float r = float((color >> 16) & 255u) * minI;
+    float g = float((color >>  8) & 255u) * minI;
+    float b = float( color        & 255u) * minI;
+
+    if (dist >= fogStart) {
+        if (dist >= fogMax) return 0u;
+        float normD = (dist - fogStart) / max(fogMax - fogStart, 0.0001);
+        float f = clamp(fogFactor / 100.0, 0.01, 1.0);
+        float intensity = pow(1.0 - normD, 1.0 / f);
+        r *= intensity;
+        g *= intensity;
+        b *= intensity;
+    }
+
+    return (uint(clamp(r,0.0,255.0)) << 16) |
+           (uint(clamp(g,0.0,255.0)) << 8)  |
+            uint(clamp(b,0.0,255.0));
+}
+
+uint sampleTexture(uint texIndex, float u, float v, float dist)
+{
+    if (texIndex == 0xFFFFFFFFu) return applyFog(0xFF00FFu, dist);
+    GpuTextureInfo t = texInfos[texIndex];
+    if (t.width == 0u || t.height == 0u) return applyFog(0xFF00FFu, dist);
+
+    u = fract(u);
+    v = fract(v);
+    uint tx = min(uint(u * float(t.width)),  t.width - 1u);
+    uint ty = min(uint(v * float(t.height)), t.height - 1u);
+    return applyFog(texPixels[t.offset + ty * t.width + tx], dist);
+}
+
+uint sampleTextureUV(uint texIndex, float u, float v, float dist)
+{
+    return sampleTexture(texIndex, u, 1.0 - v, dist);
+}
+
+uint gridIndex(int x, int y, int z)
+{
+    return uint(x) + uint(y) * cam.gridSize.x + uint(z) * cam.gridSize.x * cam.gridSize.y;
+}
+
+bool inBounds(int x, int y, int z)
+{
+    return x >= 0 && y >= 0 && z >= 0 &&
+           x < int(cam.gridSize.x) && y < int(cam.gridSize.y) && z < int(cam.gridSize.z);
+}
+
+bool planeIntersect(vec3 ray, vec3 normal, vec3 origin, vec3 planePos, out vec3 hit)
+{
+    float denom = dot(ray, normal);
+    if (abs(denom) > 1e-6) {
+        float t = dot(planePos - origin, normal) / denom;
+        if (t > 0.0) {
+            hit = origin + ray * t;
+            return true;
+        }
+    }
+    hit = vec3(0.0);
+    return false;
+}
+
+vec3 mulMat3(vec4 r0, vec4 r1, vec4 r2, vec3 v)
+{
+    return vec3(dot(r0.xyz, v), dot(r1.xyz, v), dot(r2.xyz, v));
+}
+
+vec3 mulMat3T(vec4 r0, vec4 r1, vec4 r2, vec3 v)
+{
+    return vec3(r0.x*v.x + r1.x*v.y + r2.x*v.z,
+                r0.y*v.x + r1.y*v.y + r2.y*v.z,
+                r0.z*v.x + r1.z*v.y + r2.z*v.z);
+}
+
+vec3 invRay(vec3 dir)
+{
+    return vec3(abs(dir.x) > 1e-9 ? 1.0 / dir.x : (dir.x >= 0.0 ? INF : -INF),
+                abs(dir.y) > 1e-9 ? 1.0 / dir.y : (dir.y >= 0.0 ? INF : -INF),
+                abs(dir.z) > 1e-9 ? 1.0 / dir.z : (dir.z >= 0.0 ? INF : -INF));
+}
+
+bool aabbHitInv(vec3 origin, vec3 inv, vec3 mn, vec3 mx, float tMin, float tMax)
+{
+    vec3 t0 = (mn - origin) * inv;
+    vec3 t1 = (mx - origin) * inv;
+    float tNear = max(max(min(t0.x, t1.x), min(t0.y, t1.y)),
+                      max(min(t0.z, t1.z), tMin));
+    float tFar  = min(min(max(t0.x, t1.x), max(t0.y, t1.y)),
+                      min(max(t0.z, t1.z), tMax));
+    return tNear <= tFar;
+}
+
+bool aabbHit(vec3 origin, vec3 dir, vec3 mn, vec3 mx, float tMax)
+{
+    return aabbHitInv(origin, invRay(dir), mn, mx, 0.0, tMax);
+}
+
+float traverseBVH(uint nodeRoot, uint triIdxBase, uint triBase, vec3 origin, vec3 dir,
+                  float tMin, float tMax,
+                  out float outU, out float outV, out uint outTri)
+{
+    vec3 inv = invRay(dir);
+
+    uint stack[64];
+    int sp = 0;
+    stack[sp++] = nodeRoot;
+    float bestT = tMax;
+    bool anyHit = false;
+    outU = 0.0;
+    outV = 0.0;
+    outTri = 0u;
+
+    while (sp > 0) {
+        uint ni = stack[--sp];
+        GpuBVHNode n = bvhNodes[ni];
+        if (!aabbHitInv(origin, inv, n.aabbMin.xyz, n.aabbMax.xyz, tMin, bestT)) continue;
+
+        uint leftFirst = n.data.x;
+        uint triCount = n.data.y;
+        if (triCount > 0u) {
+            for (uint li = 0u; li < triCount; ++li) {
+                uint localTri = triIndices[triIdxBase + leftFirst + li];
+                GpuTriangle t = triangles[triBase + localTri];
+                vec3 e1 = t.p2.xyz - t.p1.xyz;
+                vec3 e2 = t.p3.xyz - t.p1.xyz;
+                vec3 h = cross(dir, e2);
+                float a = dot(e1, h);
+                if (abs(a) < EPS) continue;
+                float f = 1.0 / a;
+                vec3 s = origin - t.p1.xyz;
+                float u = f * dot(s, h);
+                if (u < 0.0 || u > 1.0) continue;
+                vec3 q = cross(s, e1);
+                float v = f * dot(dir, q);
+                if (v < 0.0 || u + v > 1.0) continue;
+                float hitT = f * dot(e2, q);
+                if (hitT > tMin && hitT < bestT) {
+                    bestT = hitT;
+                    outU = u;
+                    outV = v;
+                    outTri = triBase + localTri;
+                    anyHit = true;
+                }
+            }
+        } else {
+            if (sp + 1 < 64) {
+                stack[sp++] = leftFirst;
+                stack[sp++] = leftFirst + 1u;
+            }
+        }
+    }
+    return anyHit ? bestT : -1.0;
+}
+
+bool testMesh(uint meshCellIndex, vec3 ray, vec3 localOrigin, float bestDist,
+              out uint color, out float outDist)
+{
+    GpuMeshCell mc = meshCells[meshCellIndex];
+    GpuMesh m = meshes[mc.meshIndex];
+
+    vec3 sc = m.scale.xyz;
+    vec3 pv = m.pivot.xyz;
+    vec3 mn = m.modelMin.xyz;
+    vec3 center = m.modelCenter.xyz;
+
+    vec3 shifted = localOrigin - m.offset.xyz - pv;
+    vec3 rShifted = mulMat3T(m.rot0, m.rot1, m.rot2, shifted);
+    vec3 mOrig = rShifted / sc + center;
+    vec3 rRay = mulMat3T(m.rot0, m.rot1, m.rot2, ray);
+    vec3 mDir = rRay / sc;
+    mOrig += mDir * 1e-4;
+
+    float u, v;
+    uint triIndex;
+    float t = traverseBVH(mc.nodeRoot, mc.triIdxBase, m.ranges.x, mOrig, mDir, 0.0, INF, u, v, triIndex);
+    if (t <= 0.0) return false;
+
+    vec3 hModel = mOrig + mDir * t;
+    vec3 sModel = (hModel - mn) * sc - pv;
+    vec3 rModel = mulMat3(m.rot0, m.rot1, m.rot2, sModel);
+    vec3 hGrid = rModel + pv + m.offset.xyz;
+    float d = length(hGrid - localOrigin);
+    if (d >= bestDist) return false;
+
+    GpuTriangle tri = triangles[triIndex];
+    float fu = (1.0 - u - v) * tri.uv12.x + u * tri.uv12.z + v * tri.uv3.x;
+    float fv = (1.0 - u - v) * tri.uv12.y + u * tri.uv12.w + v * tri.uv3.y;
+    color = sampleTextureUV(tri.meta.x, fu, fv, d);
+    outDist = d;
+    return true;
+}
+
+
+bool testRemotePlayer(uint playerIndex, vec3 ray, vec3 localOrigin, float bestDist,
+                      out uint color, out float outDist)
+{
+    GpuRemotePlayer rp = remotePlayers[playerIndex];
+    if (rp.meta.x == 0u) return false;
+    if (rp.ranges.y == 0u) return false;
+    if (!aabbHit(localOrigin, ray, rp.aabbMin.xyz, rp.aabbMax.xyz, bestDist)) return false;
+
+    vec3 sc = rp.scale.xyz;
+    vec3 pv = rp.pivot.xyz;
+    vec3 mn = rp.modelMin.xyz;
+    vec3 center = rp.modelCenter.xyz;
+
+    vec3 shifted = localOrigin - rp.offset.xyz - pv;
+    vec3 rShifted = mulMat3T(rp.rot0, rp.rot1, rp.rot2, shifted);
+    vec3 mOrig = rShifted / sc + center;
+    vec3 rRay = mulMat3T(rp.rot0, rp.rot1, rp.rot2, ray);
+    vec3 mDir = rRay / sc;
+    mOrig += mDir * 1e-4;
+
+    float u, v;
+    uint triIndex;
+    float t = traverseBVH(rp.ranges.z, rp.ranges.w, rp.ranges.x,
+                          mOrig, mDir, 0.0, INF, u, v, triIndex);
+    if (t <= 0.0) return false;
+
+    vec3 hModel = mOrig + mDir * t;
+    vec3 sModel = (hModel - mn) * sc - pv;
+    vec3 rModel = mulMat3(rp.rot0, rp.rot1, rp.rot2, sModel);
+    vec3 hGrid = rModel + pv + rp.offset.xyz;
+    float d = length(hGrid - localOrigin);
+    if (d >= bestDist) return false;
+
+    GpuTriangle tri = triangles[triIndex];
+    float fu = (1.0 - u - v) * tri.uv12.x + u * tri.uv12.z + v * tri.uv3.x;
+    float fv = (1.0 - u - v) * tri.uv12.y + u * tri.uv12.w + v * tri.uv3.y;
+    color = sampleTextureUV(tri.meta.x, fu, fv, d);
+    outDist = d;
+    return true;
+}
+
+void main()
+{
+    uvec2 pix = gl_GlobalInvocationID.xy;
+    if (pix.x >= cam.screen.x || pix.y >= cam.screen.y) return;
+
+    float cy = 2.0 * float(pix.y) / float(cam.screen.y) - 1.0;
+    float cx = 2.0 * float(pix.x) / float(cam.screen.x) - 1.0;
+    vec3 ray = normalize(cam.dir.xyz + cam.plane.xyz * cx + cam.upPlane.xyz * -cy);
+    vec3 origin = cam.pos.xyz;
+
+    float gmX = abs(ray.x) > 1e-6 ? abs(1.0 / ray.x) : INF;
+    float gmY = abs(ray.y) > 1e-6 ? abs(1.0 / ray.y) : INF;
+    float gmZ = abs(ray.z) > 1e-6 ? abs(1.0 / ray.z) : INF;
+
+    vec3 fl = floor(origin);
+    float smX = (ray.x < 0.0) ? (origin.x - fl.x) * gmX : (fl.x + 1.0 - origin.x) * gmX;
+    float smY = (ray.y < 0.0) ? (origin.y - fl.y) * gmY : (fl.y + 1.0 - origin.y) * gmY;
+    float smZ = (ray.z < 0.0) ? (origin.z - fl.z) * gmZ : (fl.z + 1.0 - origin.z) * gmZ;
+
+    int mx = int(fl.x), my = int(fl.y), mz = int(fl.z);
+    int side = 0;
+    float dist = 0.0;
+    float bestDist = cam.fog.x;
+    uint bestColor = 0u;
+    bool anyHit = false;
+
+    bool ddaDone = false;
+    while (!ddaDone) {
+        bool found = false;
+        while (dist < bestDist) {
+            if (smX < smY && smX < smZ) {
+                dist = smX; smX += gmX; mx += (ray.x < 0.0) ? -1 : 1; side = 0;
+            } else if (smY < smZ) {
+                dist = smY; smY += gmY; my += (ray.y < 0.0) ? -1 : 1; side = 1;
+            } else {
+                dist = smZ; smZ += gmZ; mz += (ray.z < 0.0) ? -1 : 1; side = 2;
+            }
+            if (!inBounds(mx, my, mz)) break;
+            GpuCell probeCell = cells[gridIndex(mx, my, mz)];
+            if (probeCell.itemCount > 0u) { found = true; break; }
+        }
+
+        if (!found) { ddaDone = true; break; }
+
+        GpuCell cell = cells[gridIndex(mx, my, mz)];
+        vec3 hitFace = origin + ray * dist;
+        float faceDist = (side == 0) ? smX - gmX : ((side == 1) ? smY - gmY : smZ - gmZ);
+        if (faceDist < 0.0) faceDist = 0.0;
+
+        uint cellColor = 0u;
+        float cellDist = INF;
+        bool cellHit = false;
+
+        for (uint ii = 0u; ii < cell.itemCount; ++ii) {
+            GpuCellItem item = items[cell.firstItem + ii];
+            if (item.type == 0u) {
+                if (faceDist < cellDist) {
+                    GpuBox b = boxes[item.index];
+                    float tu, tv;
+                    if (side == 0) { tu = hitFace.z; tv = hitFace.y; }
+                    else if (side == 1) { tu = hitFace.x; tv = hitFace.z; }
+                    else { tu = hitFace.x; tv = hitFace.y; }
+                    cellColor = sampleTexture(b.textureIndex, tu, tv, faceDist);
+                    cellDist = faceDist;
+                    cellHit = true;
+                }
+            } else if (item.type == 1u) {
+                GpuPlane p = planes[item.index];
+                vec3 ph;
+                if (!planeIntersect(ray, p.normal.xyz, origin, p.position.xyz, ph)) continue;
+                float E = 1e-4;
+                if (ph.x < float(mx) - E || ph.x > float(mx) + 1.0 + E ||
+                    ph.y < float(my) - E || ph.y > float(my) + 1.0 + E ||
+                    ph.z < float(mz) - E || ph.z > float(mz) + 1.0 + E) continue;
+                float d = length(ph - origin);
+                if (d >= cellDist) continue;
+                float tu, tv;
+                if (abs(p.normal.y) > 0.5) { tu = ph.x; tv = ph.z; }
+                else if (abs(p.normal.x) > 0.5) { tu = ph.y; tv = ph.z; }
+                else { tu = ph.x; tv = ph.y; }
+                cellColor = sampleTexture(p.textureIndex, tu, tv, d);
+                cellDist = d;
+                cellHit = true;
+            } else if (item.type == 2u) {
+                uint meshColor;
+                float meshDist;
+                if (testMesh(item.index, ray, origin, cellDist, meshColor, meshDist)) {
+                    cellColor = meshColor;
+                    cellDist = meshDist;
+                    cellHit = true;
+                }
+            }
+        }
+
+        if (cellHit && cellDist < bestDist) {
+            bestColor = cellColor;
+            bestDist = cellDist;
+            anyHit = true;
+            ddaDone = true;
+        }
+    }
+
+    for (uint pi = 0u; pi < cam.screen.z; ++pi) {
+        uint remoteColor;
+        float remoteDist;
+        if (testRemotePlayer(pi, ray, origin, bestDist, remoteColor, remoteDist)) {
+            bestColor = remoteColor;
+            bestDist = remoteDist;
+            anyHit = true;
+        }
+    }
+
+    uint finalColor = anyHit ? bestColor : 0u;
+    finalColor = applyMenuOverlay(finalColor, pix);
+    pixels[pix.y * cam.screen.x + pix.x] = finalColor;
+}

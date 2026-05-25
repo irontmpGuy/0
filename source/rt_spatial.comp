@@ -1,0 +1,136 @@
+#version 450
+layout(local_size_x = 8, local_size_y = 8, local_size_z = 1) in;
+struct GpuRtSettings { uvec4 flags; uvec4 modes; vec4 params; };
+layout(std430, binding = 18) readonly buffer RtSettingsBuf { GpuRtSettings rt; };
+layout(rgba16f, binding = 20) uniform readonly image2D imgNormal;
+layout(r32f, binding = 21) uniform readonly image2D imgDepth;
+layout(rgba16f, binding = 22) uniform readonly image2D imgRtRaw;
+layout(rgba16f, binding = 23) uniform writeonly image2D imgRtFiltered;
+
+ivec2 rtToGbufPix(ivec2 rtPix, ivec2 rtSize)
+{
+    ivec2 gSize = imageSize(imgDepth);
+    vec2 uv = (vec2(rtPix) + vec2(0.5)) / max(vec2(rtSize), vec2(1.0));
+    return clamp(ivec2(floor(uv * vec2(gSize))), ivec2(0), gSize - ivec2(1));
+}
+
+vec3 decodeNormal(ivec2 p) { return normalize(imageLoad(imgNormal, p).xyz * 2.0 - 1.0); }
+
+uint bayer8Rank(ivec2 pix)
+{
+    const uint bayer[64] = uint[64](
+         0u, 48u, 12u, 60u,  3u, 51u, 15u, 63u,
+        32u, 16u, 44u, 28u, 35u, 19u, 47u, 31u,
+         8u, 56u,  4u, 52u, 11u, 59u,  7u, 55u,
+        40u, 24u, 36u, 20u, 43u, 27u, 39u, 23u,
+         2u, 50u, 14u, 62u,  1u, 49u, 13u, 61u,
+        34u, 18u, 46u, 30u, 33u, 17u, 45u, 29u,
+        10u, 58u,  6u, 54u,  9u, 57u,  5u, 53u,
+        42u, 26u, 38u, 22u, 41u, 25u, 37u, 21u);
+    ivec2 p = pix & ivec2(7);
+    return bayer[p.y * 8 + p.x];
+}
+
+void accumulateSample(ivec2 pix, ivec2 q, ivec2 rtSize,
+                      float centerDepth, vec3 centerNormal,
+                      float normalPower, float depthScale,
+                      inout vec3 sum, inout float weightSum,
+                      inout vec3 looseSum, inout float looseWeightSum)
+{
+    q = clamp(q, ivec2(0), rtSize - ivec2(1));
+    vec4 s = imageLoad(imgRtRaw, q);
+    if (s.a < 0.5) return;
+
+    ivec2 dPix = q - pix;
+    float dist2 = float(dPix.x * dPix.x + dPix.y * dPix.y);
+    float distW = 1.0 / (1.0 + dist2);
+    looseSum += s.rgb * distW;
+    looseWeightSum += distW;
+
+    ivec2 gq = rtToGbufPix(q, rtSize);
+    float d = imageLoad(imgDepth, gq).r;
+    vec3 n = decodeNormal(gq);
+    float normalW = pow(max(dot(centerNormal, n), 0.0), normalPower);
+    float depthW = exp(-abs(centerDepth - d) * depthScale);
+    float w = normalW * depthW * distW;
+    sum += s.rgb * w;
+    weightSum += w;
+}
+
+void main()
+{
+    ivec2 pix = ivec2(gl_GlobalInvocationID.xy);
+    ivec2 size = imageSize(imgRtRaw);
+    if (pix.x >= size.x || pix.y >= size.y) return;
+
+    vec4 centerRaw = imageLoad(imgRtRaw, pix);
+    uint samplesPer64 = clamp(rt.modes.x, 0u, 64u);
+
+    if (rt.flags.x == 0u) {
+        imageStore(imgRtFiltered, pix, vec4(centerRaw.rgb, 1.0));
+        return;
+    }
+
+    // Adaptive ray selection can leave holes even at 100% quality on large
+    // same-normal surfaces.  A traced center sample is already authoritative;
+    // only missing pixels need the interpolation path below.
+    if (centerRaw.a >= 0.5 && samplesPer64 >= 64u) {
+        imageStore(imgRtFiltered, pix, vec4(centerRaw.rgb, 1.0));
+        return;
+    }
+
+    ivec2 centerGpix = rtToGbufPix(pix, size);
+    float centerDepth = imageLoad(imgDepth, centerGpix).r;
+    vec3 centerNormal = decodeNormal(centerGpix);
+
+    vec3 sum = vec3(0.0);
+    float weightSum = 0.0;
+    vec3 looseSum = vec3(0.0);
+    float looseWeightSum = 0.0;
+
+    // The previous version made low quality expensive by using a huge 25x25
+    // denoise kernel at 1%.  That reduced ray count correctly, but the denoise
+    // pass became the bottleneck.  Low quality now does a cheap tile upsample:
+    // 1% reads the one traced pixel in the 8x8 tile, 12.5% reads at most eight.
+    if (samplesPer64 <= 8u) {
+        ivec2 tileBase = pix & ivec2(~7);
+        for (int y = 0; y < 8; ++y) {
+            for (int x = 0; x < 8; ++x) {
+                ivec2 q = tileBase + ivec2(x, y);
+                // The lighting pass may additionally trace edge pixels even
+                // when their Bayer rank is above the nominal quality budget.
+                // Therefore do not pre-filter by rank here; alpha tells us
+                // which pixels actually contain real rays.
+                accumulateSample(pix, q, size, centerDepth, centerNormal,
+                                 4.0, 35.0, sum, weightSum,
+                                 looseSum, looseWeightSum);
+            }
+        }
+    } else {
+        // Adaptive sampling traces sparse rays on flat normals, even at high
+        // nominal quality.  Missing pixels get a slightly wider but still cheap
+        // normal/depth-aware fill; traced center pixels usually returned above.
+        int radius = (samplesPer64 < 24u || centerRaw.a < 0.5) ? 2 : 1;
+        float sampleFrac = clamp(float(samplesPer64) / 64.0, 1.0 / 64.0, 1.0);
+        float normalPower = mix(6.0, 18.0, sampleFrac);
+        float depthScale = mix(45.0, 130.0, sampleFrac);
+        for (int y = -2; y <= 2; ++y) {
+            if (abs(y) > radius) continue;
+            for (int x = -2; x <= 2; ++x) {
+                if (abs(x) > radius) continue;
+                accumulateSample(pix, pix + ivec2(x, y), size,
+                                 centerDepth, centerNormal,
+                                 normalPower, depthScale, sum, weightSum,
+                                 looseSum, looseWeightSum);
+            }
+        }
+    }
+
+    if (weightSum > 0.0001) {
+        imageStore(imgRtFiltered, pix, vec4(sum / weightSum, 1.0));
+    } else if (looseWeightSum > 0.0001) {
+        imageStore(imgRtFiltered, pix, vec4(looseSum / looseWeightSum, 1.0));
+    } else {
+        imageStore(imgRtFiltered, pix, vec4(centerRaw.rgb, centerRaw.a > 0.5 ? 1.0 : 0.0));
+    }
+}
